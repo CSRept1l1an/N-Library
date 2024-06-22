@@ -85,7 +85,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "github-publisher/DEV/Programming/Python.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +101,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "github-publisher/DEV/Programming/Python.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "github-publisher/DEV/Programming/Python.md"
+                "file": "Untitled.md"
               }
             }
           }
@@ -147,10 +145,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6fce3f7070d84792",
+  "active": "713507b30d2c7a3c",
   "lastOpenFiles": [
-    "Welcome.md",
+    "New Text Document.txt",
+    "New folder",
     "github-publisher/DEV/Programming/Python.md",
+    "Untitled.md",
+    "Welcome.md",
     "create a link.md",
     "README.md",
     "DEV/Programming/Python.md",
@@ -180,8 +181,6 @@
     "DEV/Programming/Untitled.canvas",
     "Untitled 4.canvas",
     "Untitled 3.canvas",
-    "Object-Oriented Programming (OOP).md",
-    "2024-06-21.md",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas",

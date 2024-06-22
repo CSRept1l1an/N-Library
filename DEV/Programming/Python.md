@@ -251,10 +251,21 @@ print(greet_with_default("Bob"))  # Output: Hello, Bob!
 ### Recursion
 
 ```python
+# Providing hints about function parameters and return types
 def factorial(n):
     return 1 if n == 0 else n * factorial(n-1)
 
 print(factorial(5))  # Output: 120 (5! = 5 * 4 * 3 * 2 * 1)
+```
+
+### Function Annotations
+
+```python
+# Providing hints about function parameters and return types
+def add_numbers(a: int, b: int) -> int:
+    return a + b
+
+print(add_numbers(3, 4))  # Output: 7
 ```
 ## Excepting Handling
 

@@ -140,17 +140,8 @@ or docstring
 """
 ```
 
-### Data Structures
-
-```python
-my_list = [1, 2, 3, 4]                  # List
-my_tuple = (1, 2, 3, 4)                 # Tuple
-my_dict = {'name': 'Alice', 'age': 25}  # Dictionary
-my_set = {1, 2, 3, 4}                   # Set
-```
-
-# Control Structures
-## Conditional Statements
+## Control Structures
+### Conditional Statements
 
 ```python
 if x > 0:
@@ -161,20 +152,20 @@ else:
     print("Negative")
 ```
 
-## Loops
+### Loops
 
 ```python
-[[For]] Loop
+#For Loop
 for i in range(5):
     print(i)
 
-[[While]] Loop
+#While Loop
 count = 0
 while count < 5:
     print(count)
     count += 1
 
-[[While]] True Loop
+#While True Loop
 count = 0
 while True:
     print(count)
@@ -184,27 +175,58 @@ while True:
 
 ```
 
-## List Comprehension
+### List Comprehension
 
 ```python
 squares = [x**2 for x in range(10)]
+print(squares) # Output [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
-# Functions
+## Functions
+### Function Basics
 
 ```python
-# Function Definition
 def greet(name):
     return f"Hello, {name}!"
 
-# Calling a Function
-print(greet("Alice"))
-
-# Lambda Function
-add = lambda a, b: a + b
-print(add(2, 3))
+print(greet("Alice"))  # Output: Hello, Alice!
 ```
 
+### Functional Arguments
+
+```python
+def greet_with_message(name, message="Hello"):
+    return f"{message}, {name}!"
+
+print(greet_with_message("Bob"))  # Output: Hello, Bob!
+print(greet_with_message("Charlie", "Hi"))  # Output: Hi, Charlie!
+```
+
+### Variable-Length Arguments
+
+```python
+# `*args` for variable positional arguments
+def print_args(*args):
+    for arg in args:
+        print(arg)
+
+print_args(1, 2, 3)  # Output: 1 2 3
+
+# `**kwargs` for variable keyword arguments
+def print_kwargs(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_kwargs(name="Alice", age=30)  # Output: name: Alice, age: 30
+```
+
+### Lambda Functions
+
+```python
+# Anonymous functions using `lambda`
+add = lambda a, b: a + b
+print(add(2, 3))  # Output: 5
+```
 ## Excepting Handling
 
 ```python
@@ -264,18 +286,19 @@ print(my_dog.bark())
 ```
 
 <<<<<<< HEAD
-# Data Structures
-# Module and Packages
-# File Handling
-# Exception Handling
-# Object-Oriented Programming (OOP)
-## Libraries and Frameworks
-## My Projects in Python
 ## Data Structures
+### Data Structures
+
+```python
+my_list = [1, 2, 3, 4]                  # List
+my_tuple = (1, 2, 3, 4)                 # Tuple
+my_dict = {'name': 'Alice', 'age': 25}  # Dictionary
+my_set = {1, 2, 3, 4}                   # Set
+```
+
 ## Module and Packages
 ## File Handling
 ## Exception Handling
 ## Object-Oriented Programming (OOP)
 ## Libraries and Frameworks
 ## My Projects in Python
-

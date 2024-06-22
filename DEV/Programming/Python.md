@@ -227,6 +227,35 @@ print_kwargs(name="Alice", age=30)  # Output: name: Alice, age: 30
 add = lambda a, b: a + b
 print(add(2, 3))  # Output: 5
 ```
+
+### Returning Values
+
+```python
+def square_and_cube(x):
+    return x**2, x**3
+
+square, cube = square_and_cube(3)
+print(f"Square: {square}, Cube: {cube}")  # Output: Square: 9, Cube: 27
+```
+
+### Default Parameter Values
+
+```python
+def greet_with_default(name="Guest"):
+    return f"Hello, {name}!"
+
+print(greet_with_default())  # Output: Hello, Guest!
+print(greet_with_default("Bob"))  # Output: Hello, Bob!
+```
+
+### Recursion
+
+```python
+def factorial(n):
+    return 1 if n == 0 else n * factorial(n-1)
+
+print(factorial(5))  # Output: 120 (5! = 5 * 4 * 3 * 2 * 1)
+```
 ## Excepting Handling
 
 ```python

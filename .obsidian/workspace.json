@@ -65,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -160,8 +159,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "678c45d7c8d28652",
+  "active": "6fce3f7070d84792",
   "lastOpenFiles": [
+    "DEV/Programming/SQL.md",
+    "DEV/Programming/Java.md",
+    "DEV/Programming/Python.md",
     "Cyber Security/Red Team.md",
     "Cyber Security/General Security Notes.md",
     "github-publisher/Cyber Security/Yellow Team.md",
@@ -181,9 +183,6 @@
     "Cyber Security/Blue Team.md",
     "Cyber Security/Yellow Team.md",
     "DEV/Programming/- Languages -.md",
-    "DEV/Programming/SQL.md",
-    "DEV/Programming/Java.md",
-    "DEV/Programming/Python.md",
     "Untitled.md",
     ",gitignore",
     "New Text Document.txt",

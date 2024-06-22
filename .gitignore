@@ -1,0 +1,8 @@
+# Ignore .github directory
+.github/
+
+# Ignore .obsidian directory
+.obsidian/
+
+# Ignore github-publisher directory
+github-publisher/

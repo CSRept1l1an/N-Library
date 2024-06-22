@@ -1,13 +1,13 @@
-1. [Basic Syntax](Python.md#Basic%20Syntax)   
-2. [Control Structures](Python.md#Control%20Structures)  
-3. [Functions](Python.md#Functions)  
-4. [Data Structures](Python.md#Data%20Structures)  
-5. [Module and Packages](Python.md#Module%20and%20Packages)  
-6. [File Handling](Python.md#File%20Handling)  
-7. [Exception Handling](Python.md#Exception%20Handling)  
-8. [Object-Oriented Programming (OOP)](Python.md#Object-Oriented%20Programming%20(OOP))  
-9. [Libraries and Frameworks](Python.md#Libraries%20and%20Frameworks)  
-10. [My Projects in Python](Python.md#My%20Projects%20in%20Python)  
+1. [Basic Syntax](Python.md#basic-syntax)   
+2. [Control Structures](Python.md#control-structures)  
+3. [Functions](Python.md#functions)  
+4. [Data Structures](Python.md#data-structures)  
+5. [Module and Packages](Python.md#module-and-packages)  
+6. [File Handling](Python.md#file-handling)  
+7. [Exception Handling](Python.md#exception-handling)  
+8. [Object-Oriented Programming (OOP)](Python.md#object-oriented-programming-oop)  
+9. [Libraries and Frameworks](Python.md#libraries-and-frameworks)  
+10. [My Projects in Python](Python.md#my-projects-in-python)  
 ## Basic Syntax  
 ### Variables and Data Types  
 #### Variables  

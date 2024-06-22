@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -128,6 +129,18 @@
                 "file": "DEV/Programming/Python.md"
               }
             }
+          },
+          {
+            "id": "fb06dacaafe40fbb",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              }
+            }
           }
         ]
       }
@@ -147,7 +160,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "713507b30d2c7a3c",
+  "active": "678c45d7c8d28652",
   "lastOpenFiles": [
     "Cyber Security/Red Team.md",
     "Cyber Security/General Security Notes.md",

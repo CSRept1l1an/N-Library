@@ -19,7 +19,7 @@
     },
     "otherRepo": [],
     "verifiedRepo": true,
-    "rateLimit": 4986
+    "rateLimit": 4967
   },
   "upload": {
     "behavior": "obsidian",
@@ -60,7 +60,7 @@
       "internal": true,
       "unshared": false,
       "wiki": true,
-      "slugify": "disable"
+      "slugify": "strict"
     }
   },
   "embed": {
@@ -103,5 +103,5 @@
       "excludedFileName": "DRAFT"
     }
   },
-  "tabsId": "github-configuration"
+  "tabsId": "text-conversion"
 }

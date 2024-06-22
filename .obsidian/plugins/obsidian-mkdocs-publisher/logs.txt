@@ -172,4 +172,206 @@
 [log] DEV LOGS [02:18:49.924] GithubBranch.publish:
  Publishing Yellow Team.md to [CSRept1l1an/N-Library/main]  
 [log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
- Upload Yellow Team.md:Cyber Security/Yellow Team.md on CSRept1l1an/N-Library:Library-6-22-2024
+ Upload Yellow Team.md:Cyber Security/Yellow Team.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:22:52.852] GithubBranch.getEditedFiles:
+ edited file : DEV/Programming/Python.md / Sat Jun 22 2024 06:18:38 GMT+0400 (Azerbaijan Standard Time) vs Sat Jun 22 2024 05:50:38 GMT+0400 (Azerbaijan Standard Time) 
+[log] DEV LOGS [02:22:53.391] GithubBranch.getEditedFiles:
+ edited file : DEV/Programming/- Languages -.md / Sat Jun 22 2024 06:06:02 GMT+0400 (Azerbaijan Standard Time) vs Sat Jun 22 2024 05:50:38 GMT+0400 (Azerbaijan Standard Time) 
+[log] DEV LOGS [02:22:54.482] GithubBranch.getEditedFiles:
+ edited file : Cyber Security/Yellow Team.md / Sat Jun 22 2024 06:06:17 GMT+0400 (Azerbaijan Standard Time) vs Sat Jun 22 2024 05:50:38 GMT+0400 (Azerbaijan Standard Time) 
+[log] DEV LOGS [02:22:55.341] GithubBranch.getEditedFiles:
+ edited file : Cyber Security/General Security Notes.md / Sat Jun 22 2024 06:06:33 GMT+0400 (Azerbaijan Standard Time) vs Sat Jun 22 2024 05:50:38 GMT+0400 (Azerbaijan Standard Time) 
+[log] [GitHub Publisher](GithubBranch.newBranchOnRepo):
+ Branch already exists (Library-6-22-2024 on CSRept1l1an/N-Library - Using it. 
+[log] DEV LOGS [02:22:56.335] GithubBranch.publish:
+ Publishing file: DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.344] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.344] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.345] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.345] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.345] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.346] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.346] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.346] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.346] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.347] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.348] GithubBranch.publish:
+ Publishing Python.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload Python.md:DEV/Programming/Python.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:22:56.441] GithubBranch.publish:
+ Publishing file: DEV/Programming/- Languages -.md 
+[log] DEV LOGS [02:22:56.442] createRelativePath:
+ Shared: true for DEV/Programming/Java.md 
+[log] DEV LOGS [02:22:56.442] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:22:56.443] createRelativePath:
+ Shared: true for DEV/Programming/SQL.md 
+[log] DEV LOGS [02:22:56.443] GithubBranch.publish:
+ Publishing - Languages -.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload - Languages -.md:DEV/Programming/- Languages -.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:22:56.496] GithubBranch.publish:
+ Publishing file: Cyber Security/Yellow Team.md 
+[log] DEV LOGS [02:22:56.497] createRelativePath:
+ Shared: true for DEV/Docker.md 
+[log] DEV LOGS [02:22:56.498] GithubBranch.publish:
+ Publishing Yellow Team.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload Yellow Team.md:Cyber Security/Yellow Team.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:22:56.530] GithubBranch.publish:
+ Publishing file: Cyber Security/General Security Notes.md 
+[log] DEV LOGS [02:22:56.530] createRelativePath:
+ Shared: true for Cyber Security/Blue Team.md 
+[log] DEV LOGS [02:22:56.531] createRelativePath:
+ Shared: true for Cyber Security/Red Team.md 
+[log] DEV LOGS [02:22:56.531] createRelativePath:
+ Shared: true for Cyber Security/Yellow Team.md 
+[log] DEV LOGS [02:22:56.531] GithubBranch.publish:
+ Publishing General Security Notes.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload General Security Notes.md:Cyber Security/General Security Notes.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:23:27.719] GithubBranch.getEditedFiles:
+ edited file : DEV/Programming/Python.md / Sat Jun 22 2024 06:18:38 GMT+0400 (Azerbaijan Standard Time) vs Sat Jun 22 2024 05:50:38 GMT+0400 (Azerbaijan Standard Time) 
+[log] DEV LOGS [02:23:27.722] GithubBranch.getEditedFiles:
+ edited file : DEV/Programming/- Languages -.md / Sat Jun 22 2024 06:06:02 GMT+0400 (Azerbaijan Standard Time) vs Sat Jun 22 2024 05:50:38 GMT+0400 (Azerbaijan Standard Time) 
+[log] DEV LOGS [02:23:27.726] GithubBranch.getEditedFiles:
+ edited file : Cyber Security/Yellow Team.md / Sat Jun 22 2024 06:06:17 GMT+0400 (Azerbaijan Standard Time) vs Sat Jun 22 2024 05:50:38 GMT+0400 (Azerbaijan Standard Time) 
+[log] DEV LOGS [02:23:27.731] GithubBranch.getEditedFiles:
+ edited file : Cyber Security/General Security Notes.md / Sat Jun 22 2024 06:06:33 GMT+0400 (Azerbaijan Standard Time) vs Sat Jun 22 2024 05:50:38 GMT+0400 (Azerbaijan Standard Time) 
+[log] [GitHub Publisher](GithubBranch.newBranchOnRepo):
+ Branch already exists (Library-6-22-2024 on CSRept1l1an/N-Library - Using it. 
+[log] DEV LOGS [02:23:28.187] GithubBranch.publish:
+ Publishing file: DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.188] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.189] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.189] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.189] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.190] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.190] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.190] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.190] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.191] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.191] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.192] GithubBranch.publish:
+ Publishing Python.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload Python.md:DEV/Programming/Python.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:23:28.288] GithubBranch.publish:
+ Publishing file: DEV/Programming/- Languages -.md 
+[log] DEV LOGS [02:23:28.289] createRelativePath:
+ Shared: true for DEV/Programming/Java.md 
+[log] DEV LOGS [02:23:28.290] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [02:23:28.290] createRelativePath:
+ Shared: true for DEV/Programming/SQL.md 
+[log] DEV LOGS [02:23:28.290] GithubBranch.publish:
+ Publishing - Languages -.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload - Languages -.md:DEV/Programming/- Languages -.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:23:28.328] GithubBranch.publish:
+ Publishing file: Cyber Security/Yellow Team.md 
+[log] DEV LOGS [02:23:28.328] createRelativePath:
+ Shared: true for DEV/Docker.md 
+[log] DEV LOGS [02:23:28.329] GithubBranch.publish:
+ Publishing Yellow Team.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload Yellow Team.md:Cyber Security/Yellow Team.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:23:28.358] GithubBranch.publish:
+ Publishing file: Cyber Security/General Security Notes.md 
+[log] DEV LOGS [02:23:28.359] createRelativePath:
+ Shared: true for Cyber Security/Blue Team.md 
+[log] DEV LOGS [02:23:28.359] createRelativePath:
+ Shared: true for Cyber Security/Red Team.md 
+[log] DEV LOGS [02:23:28.359] createRelativePath:
+ Shared: true for Cyber Security/Yellow Team.md 
+[log] DEV LOGS [02:23:28.360] GithubBranch.publish:
+ Publishing General Security Notes.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload General Security Notes.md:Cyber Security/General Security Notes.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] [GitHub Publisher](GithubBranch.checkRepository):
+ Repository CSRept1l1an/N-Library exists. Now testing the main branch. 
+[log] [GitHub Publisher](GithubBranch.checkRepository):
+ Repository CSRept1l1an/N-Library exists. Now testing the main branch. 
+[log] [GitHub Publisher](verifyRateLimitAPI):
+ You are not rate limited. You can make 4967 requests before the limit is reset at 6:31:37 AM. 
+[log] [GitHub Publisher](verifyRateLimitAPI):
+ You are not rate limited. You can make 4967 requests before the limit is reset at 6:31:37 AM. 
+[log] [GitHub Publisher](GithubBranch.newBranchOnRepo):
+ Branch already exists (Library-6-22-2024 on CSRept1l1an/N-Library - Using it. 
+[log] DEV LOGS [02:27:48.174] GithubBranch.publish:
+ Publishing file: DEV/Docker.md 
+[log] DEV LOGS [02:27:48.176] GithubBranch.publish:
+ Publishing Docker.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload Docker.md:DEV/Docker.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:27:48.206] GithubBranch.publish:
+ Publishing file: DEV/Programming/- Languages -.md 
+[log] DEV LOGS [02:27:48.206] createRelativePath:
+ Shared: false for DEV/Programming/Java.md 
+[log] DEV LOGS [02:27:48.207] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.207] createRelativePath:
+ Shared: false for DEV/Programming/SQL.md 
+[log] DEV LOGS [02:27:48.207] GithubBranch.publish:
+ Publishing - Languages -.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload - Languages -.md:DEV/Programming/- Languages -.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:27:48.246] GithubBranch.publish:
+ Publishing file: DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.248] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.248] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.248] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.249] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.249] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.249] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.249] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.250] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.250] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.251] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [02:27:48.252] GithubBranch.publish:
+ Publishing Python.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload Python.md:DEV/Programming/Python.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:27:48.344] GithubBranch.publish:
+ Publishing file: DEV/Programming/Java.md 
+[log] DEV LOGS [02:27:48.344] GithubBranch.publish:
+ Publishing Java.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload Java.md:DEV/Programming/Java.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [02:27:48.377] GithubBranch.publish:
+ Publishing file: DEV/Programming/SQL.md 
+[log] DEV LOGS [02:27:48.378] GithubBranch.publish:
+ Publishing SQL.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload SQL.md:DEV/Programming/SQL.md on CSRept1l1an/N-Library:Library-6-22-2024

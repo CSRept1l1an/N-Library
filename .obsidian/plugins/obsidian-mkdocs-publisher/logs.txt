@@ -1,0 +1,61 @@
+
+[log] [GitHub Publisher](monkeyPatchConsole):
+ Console monkey patched 
+[log] DEV LOGS [01:26:02.294] GithubBranch.publish:
+ Publishing file: DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.310] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.310] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.311] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.311] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.312] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.312] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.312] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.312] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.313] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.313] createRelativePath:
+ Shared: false for DEV/Programming/Python.md 
+[log] DEV LOGS [01:26:02.315] GithubBranch.publish:
+ Publishing Python.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload Python.md:DEV/Programming/Python.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] DEV LOGS [01:31:38.431] GithubBranch.getEditedFiles:
+ edited file : DEV/Programming/Python.md / Fri Jun 21 2024 17:06:09 GMT+0400 (Azerbaijan Standard Time) vs Fri Jun 21 2024 16:54:12 GMT+0400 (Azerbaijan Standard Time) 
+[log] [GitHub Publisher](GithubBranch.newBranchOnRepo):
+ Branch successfully created (status: 201) on CSRept1l1an/N-Library 
+[log] DEV LOGS [01:31:42.464] GithubBranch.publish:
+ Publishing file: DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.468] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.468] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.469] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.469] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.469] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.469] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.470] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.470] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.470] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.471] createRelativePath:
+ Shared: true for DEV/Programming/Python.md 
+[log] DEV LOGS [01:31:42.472] GithubBranch.publish:
+ Publishing Python.md to [CSRept1l1an/N-Library/main]  
+[log] [GitHub Publisher](GithubBranch.uploadOnMultipleRepo):
+ Upload Python.md:DEV/Programming/Python.md on CSRept1l1an/N-Library:Library-6-22-2024 
+[log] [GitHub Publisher](GithubBranch.checkRepository):
+ Repository CSRept1l1an/N-Library exists. Now testing the main branch.

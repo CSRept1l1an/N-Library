@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1. [[Python#Basic Syntax|Basic Syntax]] 
 2. [[Python#Control Structures|Control Structures]]
 3. [[Python#Functions|Functions]]
@@ -8,6 +9,18 @@
 8. [[Python#Object-Oriented Programming (OOP)|Object-Oriented Programming (OOP)]]
 9. [[Python#Libraries and Frameworks|Libraries and Frameworks]]
 10. [[Python#My Projects in Python|My Projects in Python]]
+=======
+1. [[#Basic Syntax]] 
+2. [[#Control Structures]]
+3. [[#Functions]]
+4. [[#Data Structures]]
+5. [[#Module and Packages]]
+6. [[#File Handling]]
+7. [[#Exception Handling]]
+8. [[#Object-Oriented Programming (OOP)]]
+9. [[#Libraries and Frameworks]]
+10. [[#My Projects in Python]]
+>>>>>>> fa7e260 (Initial commit)
 
 ## Basic Syntax
 ### Variables and Data Types
@@ -264,6 +277,7 @@ my_dog = Dog("Buddy", 3)
 print(my_dog.bark())
 ```
 
+<<<<<<< HEAD
 # Data Structures
 # Module and Packages
 # File Handling
@@ -271,3 +285,12 @@ print(my_dog.bark())
 # Object-Oriented Programming (OOP)
 # Libraries and Frameworks
 # My Projects in Python
+=======
+## Data Structures
+## Module and Packages
+## File Handling
+## Exception Handling
+## Object-Oriented Programming (OOP)
+## Libraries and Frameworks
+## My Projects in Python
+>>>>>>> fa7e260 (Initial commit)

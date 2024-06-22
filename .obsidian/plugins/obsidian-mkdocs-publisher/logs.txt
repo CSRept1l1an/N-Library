@@ -1,3 +1,0 @@
-
-[log] [GitHub Publisher](monkeyPatchConsole):
- Console monkey patched

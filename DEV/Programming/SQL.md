@@ -1,1 +1,1 @@
-SQL is not cool    
+SQL is not cool  but yeah

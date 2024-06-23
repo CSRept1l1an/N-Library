@@ -1,4 +1,4 @@
-1. [[Python#Basic Syntax|Basic Syntax]] 
+1. [[Python#1. Basic Syntax]] 
 2. [[Python#Control Structures|Control Structures]]
 3. [[Python#Functions|Functions]]
 4. [[Python#Data Structures|Data Structures]]
@@ -8,7 +8,7 @@
 8. [[Python#Object-Oriented Programming (OOP)|Object-Oriented Programming (OOP)]]
 9. [[Python#Libraries and Frameworks|Libraries and Frameworks]]
 10. [[Python#My Projects in Python|My Projects in Python]]
-## Basic Syntax
+## 1. Basic Syntax
 ### Variables and Data Types
 #### Variables
 
@@ -139,7 +139,7 @@ or docstring
 """
 ```
 
-## Control Structures
+## 2. Control Structures
 ### Conditional Statements
 
 ```python

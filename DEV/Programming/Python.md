@@ -363,6 +363,13 @@ with open('filename.bin', 'wb') as file:
     file.write(b'Binary data')
 ```
 
+### Seeking and Telling
+
+```python
+with open('filename.txt', 'r') as file:
+    file.seek(10)   # move to the 10th byte
+    position = file.tell()  # get current position
+```
 
 ## Classes and Objects
 

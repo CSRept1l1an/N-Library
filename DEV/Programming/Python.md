@@ -129,7 +129,6 @@ print(5 not in my_list) # True
 ```
 
 ### Comments
-
 ```python
 # This is a single-line comment
 
@@ -267,6 +266,7 @@ def add_numbers(a: int, b: int) -> int:
 
 print(add_numbers(3, 4))  # Output: 7
 ```
+
 ## Excepting Handling
 
 ```python
@@ -281,7 +281,6 @@ finally:
 ```
 
 ## File Handling
-
 ```python
 # Reading from a file
 with open('file.txt', 'r') as file:

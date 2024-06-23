@@ -311,6 +311,7 @@ print(np.array([1, 2, 3]))
 ## Classes and Objects
 
 ```python
+
 # Defining a Class
 class Dog:
     def __init__(self, name, age):
@@ -325,7 +326,6 @@ my_dog = Dog("Buddy", 3)
 print(my_dog.bark())
 ```
 
-<<<<<<< HEAD
 ## Data Structures
 ### Data Structures
 

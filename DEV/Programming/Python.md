@@ -1,4 +1,4 @@
-1. [[Python#1. Basic Syntax]] 
+1. [[Python#Basic Syntax|Basic Syntax]] 
 2. [[Python#Control Structures|Control Structures]]
 3. [[Python#Functions|Functions]]
 4. [[Python#Data Structures|Data Structures]]
@@ -8,7 +8,7 @@
 8. [[Python#Object-Oriented Programming (OOP)|Object-Oriented Programming (OOP)]]
 9. [[Python#Libraries and Frameworks|Libraries and Frameworks]]
 10. [[Python#My Projects in Python|My Projects in Python]]
-## 1. Basic Syntax
+## Basic Syntax
 ### Variables and Data Types
 #### Variables
 
@@ -139,7 +139,7 @@ or docstring
 """
 ```
 
-## 2. Control Structures
+## Control Structures
 ### Conditional Statements
 
 ```python
@@ -267,28 +267,14 @@ def add_numbers(a: int, b: int) -> int:
 print(add_numbers(3, 4))  # Output: 7
 ```
 
-## Excepting Handling
+## Data Structures
+### Data Structures
 
 ```python
-try:
-    result = 10 / 0
-except ZeroDivisionError:
-    print("Cannot divide by zero")
-except Exception as e:
-    print(f"An error occurred: {e}")
-finally:
-    print("This will always execute")
-```
-
-## File Handling
-```python
-# Reading from a file
-with open('file.txt', 'r') as file:
-    content = file.read()
-
-# Writing to a file
-with open('file.txt', 'w') as file:
-    file.write("Hello, World!")
+my_list = [1, 2, 3, 4]                  # List
+my_tuple = (1, 2, 3, 4)                 # Tuple
+my_dict = {'name': 'Alice', 'age': 25}  # Dictionary
+my_set = {1, 2, 3, 4}                   # Set
 ```
 
 ## Modules and Packages
@@ -306,6 +292,35 @@ print(sqrt(16))
 import numpy as np
 print(np.array([1, 2, 3]))
 ```
+
+## File Handling
+### Opening and Closing Files
+
+```python
+# Open a file
+file = open('filename.txt', mode)
+
+# Close a file
+file.close()
+```
+
+**Modes:**
+- `'r'` : Read (default)
+- `'w'` : Write (truncates file)
+- `'x'` : Create (fails if exists)
+- `'a'` : Append
+- `'b'` : Binary mode
+- `'t'` : Text mode (default)
+- `'+'` : Read and write
+
+filename.txt
+```txt
+Hello, World!
+This is a test file.
+It contains multiple lines.
+Goodbye, World!
+```
+
 
 ## Classes and Objects
 
@@ -325,18 +340,6 @@ my_dog = Dog("Buddy", 3)
 print(my_dog.bark())
 ```
 
-## Data Structures
-### Data Structures
-
-```python
-my_list = [1, 2, 3, 4]                  # List
-my_tuple = (1, 2, 3, 4)                 # Tuple
-my_dict = {'name': 'Alice', 'age': 25}  # Dictionary
-my_set = {1, 2, 3, 4}                   # Set
-```
-
-## Module and Packages
-## File Handling
 ## Exception Handling
 ## Object-Oriented Programming (OOP)
 ## Libraries and Frameworks

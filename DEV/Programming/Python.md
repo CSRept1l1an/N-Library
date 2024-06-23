@@ -313,12 +313,54 @@ file.close()
 - `'t'` : Text mode (default)
 - `'+'` : Read and write
 
-filename.txt
-```txt
-Hello, World!
-This is a test file.
-It contains multiple lines.
-Goodbye, World!
+### Reading Files
+
+```python
+# Read the entire file
+with open('filename.txt', 'r') as file:
+    content = file.read()
+
+# Read line by line
+with open('filename.txt', 'r') as file:
+    for line in file:
+        print(line, end='')
+
+# Read specific number of characters
+with open('filename.txt', 'r') as file:
+    content = file.read(100)  # reads first 100 characters
+
+# Read all lines into a list
+with open('filename.txt', 'r') as file:
+    lines = file.readlines()
+```
+
+### Writing Files
+
+```python
+# Write to a file (overwrites)
+with open('filename.txt', 'w') as file:
+    file.write('Hello, World!')
+
+# Append to a file
+with open('filename.txt', 'a') as file:
+    file.write('Hello, again!')
+
+# Write a list of lines
+lines = ['First line\n', 'Second line\n', 'Third line\n']
+with open('filename.txt', 'w') as file:
+    file.writelines(lines)
+```
+
+### Working with Binary Files
+
+```python
+# Read binary file
+with open('filename.bin', 'rb') as file:
+    content = file.read()
+
+# Write binary file
+with open('filename.bin', 'wb') as file:
+    file.write(b'Binary data')
 ```
 
 

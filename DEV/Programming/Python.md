@@ -390,6 +390,31 @@ print(my_dog.bark())
 ```
 
 ## Exception Handling
+### `try`-`except` Block
+
+```python
+try:
+	# Code that might raise an exception
+	pass 
+except SomeException as e: 
+	# Code that runs if exception occurs
+	print(f"Error: {e}")
+```
+
+### `else` Block
+
+```python
+try:
+    # Code that might raise an exception
+    pass
+except SomeException as e:
+    # Code that runs if exception occurs
+    print(f"Error: {e}")
+else:
+    # Code that runs if no exception occurs
+    print("Success!")
+```
+
 ## Object-Oriented Programming (OOP)
 ## Libraries and Frameworks
 ## My Projects in Python

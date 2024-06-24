@@ -415,6 +415,20 @@ else:
     print("Success!")
 ```
 
+### `finally` Block
+
+```python
+try:
+    # Code that might raise an exception
+    pass
+except SomeException as e:
+    # Code that runs if exception occurs
+    print(f"Error: {e}")
+finally:
+    # Code that always runs
+    print("Execution completed.")
+```
+
 ## Object-Oriented Programming (OOP)
 ## Libraries and Frameworks
 ## My Projects in Python

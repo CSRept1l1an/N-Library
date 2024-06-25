@@ -12,5 +12,14 @@ SQL injection (SQLi) is a web security vulnerability that allows an attacker to 
 
 In some situations, an attacker can escalate a SQL injection attack to compromise the underlying server or other back-end infrastructure. It can also enable them to perform denial-of-service attacks.
 
+## How does SQL Injection work?
+**Mechanism:** SQL Injection exploits the improper handling of input data within SQL queries. When user inputs are not properly sanitized or validated, an attacker can craft inputs that alter the structure of the SQL query, leading to unintended actions being executed on the database.
 
+**Example Scenario**: Consider a web application with a login form where users enter their username and password. The application constructs a SQL query to check the provided credentials against the stored data.
+```sql
+SELECT * FROM users WHERE username = 'user_input' AND password = 'user_password'
+```
 
+If the input fields are not sanitized, an attacker could enter the following as the username:
+```s
+```

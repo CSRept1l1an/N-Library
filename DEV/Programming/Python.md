@@ -8,7 +8,8 @@
 8. [[Python#Object-Oriented Programming (OOP)|Object-Oriented Programming (OOP)]]
 9. [[Python#Libraries and Frameworks|Libraries and Frameworks]]
 10. [[Python#My Projects in Python|My Projects in Python]]
-## Basic Syntax
+
+## **Basic Syntax**
 ### Variables and Data Types
 #### Variables
 
@@ -139,7 +140,7 @@ or docstring
 """
 ```
 
-## Control Structures
+## **Control Structures**
 ### Conditional Statements
 
 ```python
@@ -181,7 +182,7 @@ squares = [x**2 for x in range(10)]
 print(squares) # Output [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
-## Functions
+## **Functions**
 ### Function Basics
 
 ```python
@@ -267,7 +268,7 @@ def add_numbers(a: int, b: int) -> int:
 print(add_numbers(3, 4))  # Output: 7
 ```
 
-## Data Structures
+## **Data Structures**
 ### Data Structures
 
 ```python
@@ -277,7 +278,7 @@ my_dict = {'name': 'Alice', 'age': 25}  # Dictionary
 my_set = {1, 2, 3, 4}                   # Set
 ```
 
-## Modules and Packages
+## **Modules and Packages**
 
 ```python
 # Importing a Module
@@ -293,7 +294,7 @@ import numpy as np
 print(np.array([1, 2, 3]))
 ```
 
-## File Handling
+## **File Handling**
 ### Opening and Closing Files
 
 ```python
@@ -371,7 +372,7 @@ with open('filename.txt', 'r') as file:
     position = file.tell()  # get current position
 ```
 
-## Classes and Objects
+## **Classes and Objects**
 
 ```python
 
@@ -389,7 +390,7 @@ my_dog = Dog("Buddy", 3)
 print(my_dog.bark())
 ```
 
-## Exception Handling
+## **Exception Handling**
 ### `try`-`except` Block
 
 ```python
@@ -429,6 +430,6 @@ finally:
     print("Execution completed.")
 ```
 
-## Object-Oriented Programming (OOP)
-## Libraries and Frameworks
-## My Projects in Python
+## **Object-Oriented Programming (OOP)**
+## **Libraries and Frameworks**
+## **My Projects in Python**

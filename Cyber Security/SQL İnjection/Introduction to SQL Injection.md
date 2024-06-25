@@ -1,7 +1,12 @@
-1. Introduction to SQL Injection
-2. 
+1. **Definition and Basics**
+    - What is SQL Injection?
+    - How does SQL Injection work?
+2. **Types of SQL Injections**
+    - In-band SQLi (Classic SQLi)
+    - Inferential SQLi (Blind SQLi)
+    - Out-of-band SQLi
 
-## Introduction to SQL Injection
+## **Definition and Basics**
 ### What is SQL injection (SQLi)?
 SQL injection (SQLi) is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database. This can allow an attacker to view data that they are not normally able to retrieve. This might include data that belongs to other users, or any other data that the application can access. In many cases, an attacker can modify or delete this data, causing persistent changes to the application's content or behavior.
 

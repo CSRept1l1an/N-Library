@@ -71,7 +71,7 @@ num_complex = 1 + 2j # Complex number
 ```python
 name = "Alice"
 message = 'Hello, World!'
-
+  
 # String Operations
 concatenation = "Hello" + " " + "World"   # Concatenation
 substring = message[7:]                   # Slicing

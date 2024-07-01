@@ -332,7 +332,7 @@ import numpy as np
 print(np.array([1, 2, 3]))
 ```
 
-## **File Handling**
+## File Handling
 ### Opening and Closing Files
 
 ```python
@@ -410,7 +410,7 @@ with open('filename.txt', 'r') as file:
     position = file.tell()  # get current position
 ```
 
-## **Classes and Objects**
+## Classes and Objects
 
 ```python
 
@@ -428,7 +428,7 @@ my_dog = Dog("Buddy", 3)
 print(my_dog.bark())
 ```
 
-## **Exception Handling**
+## Exception Handling
 ### `try`-`except` Block
 
 ```python
@@ -468,6 +468,6 @@ finally:
     print("Execution completed.")
 ```
 
-## **Object-Oriented Programming (OOP)**
-## **Libraries and Frameworks**
-## **My Projects in Python**
+## Object-Oriented Programming (OOP)
+## Libraries and Frameworks
+## My Projects in Python

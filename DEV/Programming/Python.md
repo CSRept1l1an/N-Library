@@ -17,7 +17,7 @@ Python was created by Guido van Rossum and was first released in 1991. Van Rossu
 ### Evolution and Versions
 Python has evolved significantly since its inception, with several major versions introducing new features and improvements:
 
-- **Python 1.0 (1994):** The first official release, including basic data types, error handling, and functions.
+- **Python 1.0 (1994):** The first official release, including [[DEV/Programming/Python#Variables and Data Types|basic data types]], [[DEV/Programming/Python#**Exception Handling**|error handling]], and [[DEV/Programming/Python#**Functions**|functions]].
 - **Python 2.0 (2000):** Introduced new features like list comprehensions, garbage collection, and Unicode support. Python 2.x series continued until 2010 with Python 2.7, which became the last release of the 2.x series.
 - **Python 3.0 (2008):** A major overhaul designed to rectify fundamental design flaws in the language. Python 3 introduced changes that were not backward compatible with Python 2, such as print function syntax, integer division, and a unified string representation. Python 3.x series continues to receive updates, with ongoing improvements and feature additions.
 - **Python 3.6 (2016):** Introduced formatted string literals (f-strings), type hints, and improvements to asynchronous programming.

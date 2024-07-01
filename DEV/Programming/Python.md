@@ -9,7 +9,7 @@
 8. [[Python#Object-Oriented Programming (OOP)|Object-Oriented Programming (OOP)]]
 9. [[Python#Libraries and Frameworks|Libraries and Frameworks]]
 10. [[Python#My Projects in Python|My Projects in Python]]
-## **About Python**
+## About Python
 
 ### History of Python
 Python was created by Guido van Rossum and was first released in 1991. Van Rossum began working on Python in the late 1980s as a successor to the ABC language, aiming to create a language that was easy to read and write. Python was named after the British comedy series "Monty Python's Flying Circus," reflecting van Rossum's intention to make programming fun. Since its release, Python has grown in popularity and undergone numerous improvements, becoming one of the most widely used programming languages in the world.
@@ -47,7 +47,7 @@ Python has become a popular programming language for a wide range of application
 
 Python's combination of readability, versatility, extensive support, and strong community makes it an excellent choice for beginners and experienced developers alike, contributing to its enduring popularity and widespread use across different fields.
 
-## **Basic Syntax**
+## Basic Syntax
 ### Variables and Data Types
 #### Variables
 
@@ -178,7 +178,7 @@ or docstring
 """
 ```
 
-## **Control Structures**
+## Control Structures
 ### Conditional Statements
 
 ```python
@@ -220,7 +220,7 @@ squares = [x**2 for x in range(10)]
 print(squares) # Output [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
-## **Functions**
+## Functions
 ### Function Basics
 
 ```python
@@ -306,7 +306,7 @@ def add_numbers(a: int, b: int) -> int:
 print(add_numbers(3, 4))  # Output: 7
 ```
 
-## **Data Structures**
+## Data Structures
 ### Data Structures
 
 ```python
@@ -316,7 +316,7 @@ my_dict = {'name': 'Alice', 'age': 25}  # Dictionary
 my_set = {1, 2, 3, 4}                   # Set
 ```
 
-## **Modules and Packages**
+## Modules and Packages
 
 ```python
 # Importing a Module

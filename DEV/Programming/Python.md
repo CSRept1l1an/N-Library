@@ -10,7 +10,6 @@
 9. [[Python#Libraries and Frameworks|Libraries and Frameworks]]
 10. [[Python#My Projects in Python|My Projects in Python]]
 ## About Python
-
 ### History of Python
 Python was created by Guido van Rossum and was first released in 1991. Van Rossum began working on Python in the late 1980s as a successor to the ABC language, aiming to create a language that was easy to read and write. Python was named after the British comedy series "Monty Python's Flying Circus," reflecting van Rossum's intention to make programming fun. Since its release, Python has grown in popularity and undergone numerous improvements, becoming one of the most widely used programming languages in the world.
 
@@ -222,7 +221,6 @@ print(squares) # Output [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 ## Functions
 ### Function Basics
-
 ```python
 def greet(name):
     return f"Hello, {name}!"
@@ -317,7 +315,6 @@ my_set = {1, 2, 3, 4}                   # Set
 ```
 
 ## Modules and Packages
-
 ```python
 # Importing a Module
 import math
@@ -334,7 +331,6 @@ print(np.array([1, 2, 3]))
 
 ## File Handling
 ### Opening and Closing Files
-
 ```python
 # Open a file
 file = open('filename.txt', mode)
@@ -353,7 +349,6 @@ file.close()
 - `'+'` : Read and write
 
 ### Reading Files
-
 ```python
 # Read the entire file
 with open('filename.txt', 'r') as file:
@@ -374,7 +369,6 @@ with open('filename.txt', 'r') as file:
 ```
 
 ### Writing Files
-
 ```python
 # Write to a file (overwrites)
 with open('filename.txt', 'w') as file:
@@ -391,7 +385,6 @@ with open('filename.txt', 'w') as file:
 ```
 
 ### Working with Binary Files
-
 ```python
 # Read binary file
 with open('filename.bin', 'rb') as file:
@@ -403,7 +396,6 @@ with open('filename.bin', 'wb') as file:
 ```
 
 ### Seeking and Telling
-
 ```python
 with open('filename.txt', 'r') as file:
     file.seek(10)   # move to the 10th byte

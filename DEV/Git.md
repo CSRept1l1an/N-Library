@@ -1,5 +1,5 @@
 1. Introduction to Git
-2. 
+2. Setting Up Git
 ## 1. Introduction to Git
 
 ### What is Git?
@@ -142,3 +142,89 @@ Git stores configuration settings in three different files, depending on the sco
   - Located in the `.git/config` file in the root of the repository.
   - To configure: `git config` without any `--global` or `--system` flags.
 
+## 3. Basic Commands
+
+Understanding and using basic Git commands is essential for managing your version control system efficiently. Below are the most commonly used Git commands to get you started.
+
+### Initialize Repository
+
+- **Command**: `git init`
+- **Description**: Initialize a new Git repository in the current directory. Creates a `.git` directory that contains all the necessary metadata and version history.
+- **Example**:
+  ```sh
+  git init
+  ```
+
+### Clone Repository
+
+- **Command**: `git clone <repository_url>`
+- **Description**: Create a copy of an existing repository. This command downloads all the files, branches, and commit history from a remote repository.
+- **Example**:
+  ```sh
+  git clone https://github.com/user/repository.git
+  ```
+
+### Check Repository Status
+
+- **Command**: `git status`
+- **Description**: Show the status of the working directory and staging area. It displays which changes have been staged, which haven't, and which files are not being tracked by Git.
+- **Example**:
+  ```sh
+  git status
+  ```
+
+### View Changes
+
+- **Command**: `git diff`
+- **Description**: Show the differences between the working directory and the staging area, or between commits. Useful for reviewing changes before committing.
+- **Example**:
+  ```sh
+  git diff
+  ```
+
+### Add Changes
+
+- **Command**: `git add <file_or_directory>`
+- **Description**: Add changes in the working directory to the staging area. This command stages the changes you want to commit.
+- **Examples**:
+  ```sh
+  git add file.txt         # Add specific file
+  git add .                # Add all changes in the current directory
+  ```
+
+### Commit Changes
+
+- **Command**: `git commit -m "Commit message"`
+- **Description**: Record changes to the repository with a descriptive message. The commit captures the current state of the staged changes.
+- **Example**:
+  ```sh
+  git commit -m "Initial commit"
+  ```
+- **Command (Skip Staging)**: `git commit -a -m "Commit message"`
+- **Description**: Stage and commit all changes in one step, bypassing the staging area.
+- **Example**:
+  ```sh
+  git commit -a -m "Updated README file"
+  ```
+
+### Remove Files
+
+- **Command**: `git rm <file>`
+- **Description**: Remove files from the working directory and stage the removal for commit.
+- **Example**:
+  ```sh
+  git rm file.txt
+  ```
+- **Command (Keep File Locally)**: `git rm --cached <file>`
+- **Description**: Remove files from the staging area, but keep them in the working directory.
+- **Example**:
+  ```sh
+  git rm --cached file.txt
+  ``#### Move/Rename Files
+
+- **Command**: `git mv <old_filename> <new_filename>`
+- **Description**: Move or rename a file and stage the change for commit.
+- **Example**:
+  ```sh
+  git mv old_name.txt new_name.txt
+  ```

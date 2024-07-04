@@ -1,6 +1,5 @@
 
 ## **SQL Injection 1**
-
 ### Analysis
 #### Original Query:
 
@@ -35,3 +34,10 @@ https://0a9e009b03fe6a7d80663a5b004a0029.web-security-academy.net/filter?categor
 ```
 
 ## **SQL Injection 2**
+### Analysis
+#### Original Query:
+```SQL
+SELECT firstame FROM users WHERE username='admin' AND password = 'admin'
+```
+
+#### Injected Query 1:

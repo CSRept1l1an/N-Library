@@ -33,3 +33,5 @@ SELECT * FROM products WHERE category = 'Gifts' OR 1=1 --' AND released = 1
 ```
 https://0a9e009b03fe6a7d80663a5b004a0029.web-security-academy.net/filter?category=Gift%27+OR+1=1--
 ```
+
+## **SQL Injection 2**

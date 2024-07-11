@@ -121,5 +121,3 @@ Content-Type: text/xml; charset=utf-8
 2. **WSDL**: Always provide a WSDL file for service definition.
 3. **Error Handling**: Use SOAP Fault for error messages.
 4. **Versioning**: Use namespaces to manage different versions of the service.
-
-This cheat sheet should provide you with a quick reference to the essential aspects of working with APIs.

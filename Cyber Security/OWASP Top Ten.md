@@ -5,7 +5,7 @@ The OWASP Top 10 is a standard awareness document for web application security. 
 #### A01:2021 - Broken Access Control
 - **Description**: Exploitation of access control weaknesses.
 - **Examples**:
-  - Bypassing access control checks by modifying the URL, HTML, or using custom API clients.
+  - Bypassing access control checks by modifying the URL, HTML, or using custom [[API]] clients.
   - Accessing unauthorized APIs.
 - **Prevention**:
   - Deny by default.
@@ -25,7 +25,7 @@ The OWASP Top 10 is a standard awareness document for web application security. 
 #### A03:2021 - Injection
 - **Description**: Injection of untrusted data.
 - **Examples**:
-  - SQL injection.
+  - [[-SQLI-|SQL injection]].
   - NoSQL injection.
   - Command injection.
 - **Prevention**:

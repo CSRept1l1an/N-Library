@@ -1,4 +1,4 @@
-
+#Red 
 ## **SQL Injection 1**
 ### Analysis
 #### Original Query:

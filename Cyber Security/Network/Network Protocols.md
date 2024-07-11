@@ -32,7 +32,7 @@
 2. **ICMP (Internet Control Message Protocol)**: Used for error messages and operational information (e.g., ping).
 3. [[ARP|ARP (Address Resolution Protocol)]]: Resolves IP addresses to MAC addresses.
 4. **RARP (Reverse Address Resolution Protocol)**: Resolves MAC addresses to IP addresses.
-5. **OSPF (Open Shortest Path First)**: Interior gateway protocol for routing within an autonomous system.
+5. [[OSP|OSPF (Open Shortest Path First)]]: Interior gateway protocol for routing within an autonomous system.
 6. **BGP (Border Gateway Protocol)**: Exterior gateway protocol for routing between autonomous systems.
 7. **EIGRP (Enhanced Interior Gateway Routing Protocol)**: Advanced distance-vector routing protocol.
 8. **IGMP (Internet Group Management Protocol)**: Manages multicast group memberships.

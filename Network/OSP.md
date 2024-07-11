@@ -52,14 +52,17 @@
 ```bash
 router ospf 1
 ```
+
 1. **Configure Router ID**:
 ```bash
 router-id <Router-ID>
 ```
+
 1. **Advertise Networks**:
 ```bash
 network <IP-Address> <Wildcard-Mask> area <Area-ID>
 ```
+
 1. **Set OSPF Cost**:
 ```bash
 interface <Interface-Name>
@@ -95,36 +98,40 @@ show ip ospf neighbor
 - **Hello Interval**: How often Hello packets are sent (default 10 seconds).
 - **Dead Interval**: Time without Hello packets before neighbor is declared dead (default 40 seconds).
 
-#### Troubleshooting Commands
+### Troubleshooting Commands
 - **OSPF Status**:
 ```bash
 show ip ospf
 ```
+
 - **OSPF Interfaces**:
 ```bash
 show ip ospf interface
 ```
+
 - **OSPF Neighbors**:
 ```bash
 show ip ospf neighbor
 ```
+
 - **OSPF Database**:
 ```bash
 show ip ospf database
 ```
 
-#### Advanced Configuration
+### Advanced Configuration
+
 - **Stub Areas**:
 ```bash
 area <Area-ID> stub
 ```
+
 - **Totally Stubby Areas**:
 ```bash
 area <Area-ID> stub no-summary
 ```
+
 - **NSSA Areas**:
 ```bash
 area <Area-ID> nssa
 ```
-
-This cheat sheet provides a comprehensive overview of OSPF, covering key concepts, commands, and configurations. Let me know if you need more details or specific examples!

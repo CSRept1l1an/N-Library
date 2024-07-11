@@ -1,4 +1,4 @@
-#Network #Dev #Blue 
+#Network
 ## Application Layer (Layer 7)
 
 1. **HTTP (Hypertext Transfer Protocol)**: Used for web browsing.
@@ -30,7 +30,7 @@
    - **IPv4**: 32-bit addressing.
    - **IPv6**: 128-bit addressing.
 2. **ICMP (Internet Control Message Protocol)**: Used for error messages and operational information (e.g., ping).
-3. **ARP (Address Resolution Protocol)**: Resolves IP addresses to MAC addresses.
+3. [[ARP|ARP (Address Resolution Protocol)]]: Resolves IP addresses to MAC addresses.
 4. **RARP (Reverse Address Resolution Protocol)**: Resolves MAC addresses to IP addresses.
 5. **OSPF (Open Shortest Path First)**: Interior gateway protocol for routing within an autonomous system.
 6. **BGP (Border Gateway Protocol)**: Exterior gateway protocol for routing between autonomous systems.

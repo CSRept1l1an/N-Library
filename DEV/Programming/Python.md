@@ -463,4 +463,171 @@ finally:
 
 ## Object-Oriented Programming (OOP)
 ## Libraries and Frameworks
+
+### Data Manipulation & Analysis
+
+1. **Pandas**
+   - DataFrame manipulation
+   - File I/O (CSV, Excel, SQL, etc.)
+   - Time series analysis
+
+2. **NumPy**
+   - Numerical operations on large arrays and matrices
+   - Mathematical functions
+
+3. **Dask**
+   - Parallel computing with larger-than-memory datasets
+   - Scalable DataFrame and array processing
+
+### Data Visualization
+
+1. **Matplotlib**
+   - 2D plotting (line plots, scatter plots, histograms, etc.)
+   - Customizable plots
+
+2. **Seaborn**
+   - Statistical data visualization
+   - Built on top of Matplotlib
+
+3. **Plotly**
+   - Interactive plots (line charts, bar charts, etc.)
+   - Web-based visualizations
+
+### Machine Learning
+
+1. **Scikit-learn**
+   - Machine learning algorithms (classification, regression, clustering)
+   - Model selection and evaluation
+
+2. **TensorFlow**
+   - Deep learning library
+   - Tensor manipulation, neural network building, training, and evaluation
+
+3. **PyTorch**
+   - Deep learning library
+   - Dynamic computation graph, neural network building, training, and evaluation
+
+### Natural Language Processing (NLP)
+
+1. **NLTK (Natural Language Toolkit)**
+   - Text processing libraries
+   - Tokenization, parsing, classification, and more
+
+2. **spaCy**
+   - Industrial-strength NLP
+   - Named entity recognition, part-of-speech tagging, and more
+
+3. **Transformers (Hugging Face)**
+   - Pre-trained transformer models for NLP
+   - Text generation, translation, summarization, and more
+
+### Web Development
+
+1. **Django**
+   - Full-stack web framework
+   - ORM, templating engine, admin interface, and more
+
+2. [[Flask|Flask]]
+   - Lightweight web framework
+   - Minimalistic, extensible with plugins
+
+3. [[FastAPI|FastAPI]]
+   - Fast web framework for building APIs with Python 3.6+ type hints
+   - Asynchronous support, automatic interactive API documentation
+
+### Web Scraping
+
+1. **BeautifulSoup**
+   - HTML and XML parsing
+   - Navigating and searching parse trees
+
+2. **Scrapy**
+   - Web crawling and scraping framework
+   - Built-in support for scraping, storing, and processing data
+
+3. **Selenium**
+   - Web browser automation
+   - Useful for dynamic content scraping
+
+### Testing
+
+1. **unittest**
+   - Built-in testing framework
+   - Test case organization, assertions, and test discovery
+
+2. **pytest**
+   - Simple and scalable testing
+   - Fixtures, parameterized testing, and plugins
+
+3. **nose2**
+   - Extension of `unittest`
+   - Test discovery and running
+
+### Networking
+
+1. **Requests**
+   - HTTP library for sending requests
+   - Simple API for GET, POST, and other HTTP methods
+
+2. **Socket**
+   - Low-level networking interface
+   - Creating network servers and clients
+
+3. **Twisted**
+   - Event-driven networking engine
+   - Support for multiple protocols and event loops
+
+### GUI Development
+
+1. **Tkinter**
+   - Standard Python interface to the Tk GUI toolkit
+   - Simple and lightweight GUI applications
+
+2. **PyQt**
+   - Set of Python bindings for the Qt application framework
+   - Rich GUI applications with many widgets and tools
+
+3. **Kivy**
+   - Open-source Python library for rapid development of applications
+   - Multi-touch, cross-platform support
+
+### Automation
+
+1. **Automate the Boring Stuff (pyautogui)**
+   - Programmatic control of the mouse and keyboard
+   - GUI automation
+
+2. **Airflow**
+   - Workflow automation and scheduling tool
+   - Directed acyclic graphs (DAGs) to define workflows
+
+### File I/O
+
+1. **os**
+   - Interacting with the operating system
+   - File and directory manipulation
+
+2. **shutil**
+   - High-level file operations
+   - Copying, moving, and archiving files
+
+3. **pathlib**
+   - Object-oriented filesystem paths
+   - Simplifies path manipulation
+
+### Miscellaneous
+
+1. **datetime**
+   - Basic date and time types
+   - Manipulating dates and times
+
+2. **logging**
+   - Flexible logging for applications
+   - Log levels, handlers, and formatters
+
+3. **argparse**
+   - Command-line option and argument parsing
+   - Building command-line interfaces
+
+Feel free to ask for more detailed information on any specific library or framework!
 ## My Projects in Python

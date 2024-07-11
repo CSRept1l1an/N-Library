@@ -1,4 +1,4 @@
-
+#Blue 
 ### Definition
 A DMZ (Demilitarized Zone) in networking is a physical or logical subnetwork that contains and exposes an organization's external-facing services to an untrusted network, usually the internet. Its purpose is to add an additional layer of security to an organization's internal network, as it serves as a buffer zone between the internal network and external networks. Here's a concise DMZ cheat sheet covering key concepts, best practices, and common configurations:
 ### Key Concepts

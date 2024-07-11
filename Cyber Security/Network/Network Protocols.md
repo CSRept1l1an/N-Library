@@ -1,4 +1,4 @@
-
+#Network #Dev #Blue 
 ## Application Layer (Layer 7)
 
 1. **HTTP (Hypertext Transfer Protocol)**: Used for web browsing.

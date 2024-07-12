@@ -24,8 +24,19 @@
   - Example: `example.com. IN SOA ns1.example.com. admin.example.com. 2023071001 3600 1800 1209600 300`
 - **SRV (Service)**: Specifies the location of services.
   - Example: `_sip._tcp.example.com. IN SRV 10 60 5060 sipserver.example.com.`
-- **TXT (Text)**: Holds arbitrary text, often for verification and policy purposes.
-  - Example: `example.com. IN TXT "v=spf1 ip4:93.184.216.34 -all"`
+#### TXT (Text) Record
+A TXT (Text) Record in DNS allows domain administrators to add text information to their DNS zone. This text can be human or machine-readable and serves various purposes:
+- **SPF Records**: Authorizes email servers to send emails on behalf of your domain.
+- **DKIM Records**: Stores domain-specific public keys for email digital signatures.
+- **DMARC Records**: Controls email delivery policies and sends reports.
+- **Domain Verification**: Used to prove domain ownership for services like Google or Office 365.
+
+TXT records are crucial for email security, domain validation, and verifying ownership of domain names.
+
+Example: 
+```
+example.com. IN TXT "v=spf1 ip4:93.184.216.34 -all"
+```
 
 ## Common DNS Commands
 - **nslookup**: Query DNS servers.

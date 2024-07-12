@@ -1,6 +1,5 @@
 #Network 
-
-#### Basics
+## Basics
 - **DNS**: Translates human-readable domain names to IP addresses.
 - **Hierarchy**: Organized in a hierarchical structure with different levels.
   - **Root Level**: Represented by a dot (".").
@@ -8,7 +7,7 @@
   - **Second-Level Domains**: Directly below TLDs, e.g., `example.com`.
   - **Subdomains**: Below second-level domains, e.g., `sub.example.com`.
 
-#### DNS Record Types
+## DNS Record Types
 - **A (Address)**: Maps a domain name to an IPv4 address.
   - Example: `example.com. IN A 93.184.216.34`
 - **AAAA (IPv6 Address)**: Maps a domain name to an IPv6 address.
@@ -28,7 +27,7 @@
 - **TXT (Text)**: Holds arbitrary text, often for verification and policy purposes.
   - Example: `example.com. IN TXT "v=spf1 ip4:93.184.216.34 -all"`
 
-#### Common DNS Commands
+## Common DNS Commands
 - **nslookup**: Query DNS servers.
   - Example: `nslookup example.com`
 - **dig**: Detailed DNS queries.
@@ -36,13 +35,13 @@
 - **host**: Simple DNS lookup utility.
   - Example: `host example.com`
 
-#### DNS Zone Files
+## DNS Zone Files
 - **Format**: Plain text file containing DNS records for a domain.
 - **Fields**:
   - **$ORIGIN**: Specifies the domain name.
   - **$TTL**: Specifies the default TTL (Time to Live) for records.
 - **Example Zone File**:
-```
+```bash
   $ORIGIN example.com.
   $TTL 86400
   @   IN  SOA ns1.example.com. admin.example.com. (
@@ -57,7 +56,7 @@
   mail IN MX 10 mail.example.com.
 ```
 
-#### DNS Caching
+## DNS Caching
 - **Purpose**: Improves performance by storing DNS query results.
 - **TTL (Time to Live)**: Defines how long a record is cached.
 - **Cache Clearing**:
@@ -65,7 +64,7 @@
   - **Linux**: `sudo systemd-resolve --flush-caches` or `sudo /etc/init.d/nscd restart`
   - **Mac**: `sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`
 
-#### DNS Security
+## DNS Security
 - **DNSSEC (DNS Security Extensions)**: Adds security to DNS by enabling DNS responses to be authenticated.
   - **RRSIG**: Contains digital signatures.
   - **DNSKEY**: Contains public signing keys.
@@ -73,7 +72,7 @@
 - **DDoS Mitigation**: Use of Anycast, rate limiting, and robust infrastructure.
 - **Secure Configurations**: Disable recursion on authoritative servers, use split-horizon DNS, and regular monitoring.
 
-#### Troubleshooting DNS Issues
+## Troubleshooting DNS Issues
 - **Check DNS Resolution**:
   - `nslookup example.com`
   - `dig example.com`
@@ -83,10 +82,25 @@
 - **Monitor DNS Logs**: Look for unusual activity or errors.
 - **Test Connectivity**: Ensure the DNS server is reachable.
 
-#### Advanced DNS Concepts
+## Advanced DNS Concepts
 - **Split-Horizon DNS**: Different DNS responses based on the query source.
 - **Dynamic DNS (DDNS)**: Automatically updates DNS records for IP address changes.
 - **GeoDNS**: Directs users to different servers based on geographic location.
+
+## DNS Tools
+- **nslookup**: Command-line tool for querying DNS servers.
+- **dig (Domain Information Groper)**: Command-line tool for detailed DNS queries.
+- **host**: Simple command-line DNS lookup utility.
+- **Wireshark**: Network protocol analyzer to capture and analyze DNS packets.
+- **BIND (Berkeley Internet Name Domain)**: Popular DNS server software.
+- **Unbound**: Validating, recursive, and caching DNS resolver.
+- **PowerDNS**: Open-source DNS software.
+- **DNSCrypt**: Protocol for securing DNS communication.
+- **Fiddler**: Web debugging proxy to inspect DNS requests.
+- **dnsmasq**: Lightweight DNS forwarder and DHCP server.
+- **dnstracer**: Trace a DNS query to its source.
+- **zonecheck**: Check DNS zone consistency.
+- **Nmap**: Network scanner with DNS-related scripts (e.g., `dns-brute`, `dns-srv-enum`).
 
 #### Best Practices
 - **Regularly Update and Patch DNS Servers**: Protect against vulnerabilities.

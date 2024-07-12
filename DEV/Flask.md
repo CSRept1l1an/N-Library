@@ -52,8 +52,9 @@
 
 ## 14. Additional Resources
 ### Documentation
-https://flask.palletsprojects.com/en/3.0.x/
+- https://flask.palletsprojects.com/en/3.0.x/
 
 ### Tutorials
-
-https://realpython.com/flask-project/
+- https://realpython.com/flask-project/
+- https://realpython.com/flask-database/
+- https://realpython.com/flask-logging-messages/

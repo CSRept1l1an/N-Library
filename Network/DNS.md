@@ -1,4 +1,4 @@
-### DNS (Domain Name System) Cheat Sheet
+#Network 
 
 #### Basics
 - **DNS**: Translates human-readable domain names to IP addresses.

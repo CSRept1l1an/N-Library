@@ -7,7 +7,7 @@
 4. **SMTP (Simple Mail Transfer Protocol)**: Used for sending emails.
 5. **IMAP (Internet Message Access Protocol)**: Used for retrieving emails.
 6. **POP3 (Post Office Protocol 3)**: Another protocol for retrieving emails.
-7. **DNS (Domain Name System)**: Resolves domain names to IP addresses.
+7. **[[DNS]] (Domain Name System)**: Resolves domain names to IP addresses.
 8. **DHCP (Dynamic Host Configuration Protocol)**: Assigns IP addresses to devices on a network.
 9. **SNMP (Simple Network Management Protocol)**: Used for network management.
 10. **Telnet**: Used for remote command-line interface access.
@@ -30,9 +30,9 @@
    - **IPv4**: 32-bit addressing.
    - **IPv6**: 128-bit addressing.
 2. **ICMP (Internet Control Message Protocol)**: Used for error messages and operational information (e.g., ping).
-3. [[ARP|ARP (Address Resolution Protocol)]]: Resolves IP addresses to MAC addresses.
+3. [[ARP]](Address Resolution Protocol): Resolves IP addresses to MAC addresses.
 4. **RARP (Reverse Address Resolution Protocol)**: Resolves MAC addresses to IP addresses.
-5. [[OSP|OSPF (Open Shortest Path First)]]: Interior gateway protocol for routing within an autonomous system.
+5. [[OSP]](Open Shortest Path First): Interior gateway protocol for routing within an autonomous system.
 6. **BGP (Border Gateway Protocol)**: Exterior gateway protocol for routing between autonomous systems.
 7. **EIGRP (Enhanced Interior Gateway Routing Protocol)**: Advanced distance-vector routing protocol.
 8. **IGMP (Internet Group Management Protocol)**: Manages multicast group memberships.

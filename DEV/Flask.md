@@ -1,5 +1,7 @@
 #Dev 
 1. İntroduction
+2. Installation
+3. Basic Setup
 
 ## 1. Introduction
 
@@ -144,8 +146,89 @@ Setting up a virtual environment and installing Flask involves the following ste
 5. Deactivate the virtual environment when you're done.
 
 ## 3. Basic Setup
-- Creating a basic Flask application
-- Running the Flask application
+
+### Creating a Basic Flask Application
+
+1. **Create a Project Directory**:
+Navigate to your project directory or create a new one:
+```bash
+mkdir my_flask_app
+cd my_flask_app
+```
+
+2. **Set Up a Virtual Environment**:
+Create and activate a virtual environment (if not already done):
+```bash
+virtualenv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+```
+
+3. **Install Flask**:
+Install Flask within the virtual environment:
+```bash
+pip install Flask
+```
+
+4. **Create the Application File**:
+In your project directory, create a file named `app.py` and open it in your text editor. Add the following code to create a basic Flask application:
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+return 'Hello, World!'
+
+if __name__ == '__main__':
+app.run(debug=True)
+```
+
+### Explanation:
+- **`from flask import Flask`**: Imports the Flask class from the Flask module.
+- **`app = Flask(__name__)`**: Creates an instance of the Flask class.
+- **`@app.route('/')`**: A decorator that binds a function to the URL path `/`.
+- **`def hello_world()`**: A view function that returns the string 'Hello, World!' when the root URL is accessed.
+- **`app.run(debug=True)`**: Starts the Flask application with debugging enabled, which is useful for development.
+
+### Running the Flask Application
+
+1. **Activate the Virtual Environment** (if not already activated):
+```bash
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+```
+
+2. **Run the Application**:
+In the terminal, navigate to the directory containing `app.py` and run the application using:
+```bash
+python app.py
+```
+
+3. **Access the Application**:
+Once the application is running, you will see output indicating that the Flask development server is running, typically on `http://127.0.0.1:5000/`. Open a web browser and navigate to this URL to see the message "Hello, World!".
+
+### Example Output:
+```plaintext
+* Serving Flask app 'app'
+* Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment.
+Use a production WSGI server instead.
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+* Restarting with stat
+* Debugger is active!
+* Debugger PIN: xxx-xxx-xxx
+```
+
+### Summary
+
+To create and run a basic Flask application:
+1. Set up a project directory and virtual environment.
+2. Install Flask in the virtual environment.
+3. Create a basic `app.py` file with the Flask application code.
+4. Run the application using `python app.py`.
+5. Access the running application in a web browser at `http://127.0.0.1:5000/`.
+
+This process sets up a simple Flask application that can be the foundation for more complex web development projects.
 
 ## 4. Routing
 - Defining routes
@@ -163,28 +246,33 @@ Setting up a virtual environment and installing Flask involves the following ste
 - Setting up SQLAlchemy
 - Performing CRUD operations
 
-## 8. Authentication and Authorization
+### 8. API Development
+
+- Creating RESTful APIs
+- JSON responses and request handling
+- Using Flask-RESTful
+## 9. Authentication and Authorization
 - Using Flask-Login
 - Protecting routes
 
-## 9. Blueprints and Application Structure
+## 10. Blueprints and Application Structure
 - Organizing the application using Blueprints
 - Recommended project structure
 
-## 10. Error Handling
+## 11. Error Handling
 - Custom error pages
 
-## 11. Testing
+## 12. Testing
 - Writing unit tests for Flask applications
 
-## 12. Deployment
+## 13. Deployment
 - Deploying with Gunicorn
 - Setting up for Heroku
 
-## 13. Useful Extensions
+## 14. Useful Extensions
 - List and brief description of useful Flask extensions
 
-## 14. Additional Resources
+## 15. Additional Resources
 ### Documentation
 - https://flask.palletsprojects.com/en/3.0.x/
 

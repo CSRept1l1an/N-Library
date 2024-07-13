@@ -504,7 +504,7 @@ app.run(debug=True)
 
 By following these steps, you can create dynamic web pages with Flask, rendering content based on the data passed from your view functions.
 
-### 6. Forms and User Input
+## 6. Forms and User Input
 - Handling forms with Flask-WTF
 - Validating user input
 

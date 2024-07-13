@@ -116,9 +116,8 @@ Content-Type: text/xml; charset=utf-8
 5. **Error Handling**: Provide meaningful error messages and status codes.
 6. **Security**: Use HTTPS and proper authentication methods (OAuth, API keys).
 
-#### SOAP API Best Practices
+### SOAP API Best Practices
 1. **Use WS-Security**: Implement WS-Security for secure communication.
 2. **WSDL**: Always provide a WSDL file for service definition.
 3. **Error Handling**: Use SOAP Fault for error messages.
 4. **Versioning**: Use namespaces to manage different versions of the service.
-MM

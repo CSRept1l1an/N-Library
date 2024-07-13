@@ -509,8 +509,196 @@ By following these steps, you can create dynamic web pages with Flask, rendering
 - Validating user input
 
 ## 7. Database Integration
-- Setting up SQLAlchemy
-- Performing CRUD operations
+
+### Setting up SQLAlchemy
+
+SQLAlchemy is a popular SQL toolkit and Object-Relational Mapping (ORM) library for Python. Flask-SQLAlchemy is an extension that simplifies using SQLAlchemy with Flask.
+
+1. **Install Flask-SQLAlchemy**:
+Install Flask-SQLAlchemy using `pip`:
+
+```bash
+pip install flask-sqlalchemy
+```
+
+2. **Configure Flask to Use SQLAlchemy**:
+In your Flask application, configure the database URI and initialize SQLAlchemy.
+
+```python
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'  # For SQLite database
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+```
+
+- **`SQLALCHEMY_DATABASE_URI`**: Specifies the database URL. For SQLite, it's `sqlite:///mydatabase.db`.
+- **`SQLALCHEMY_TRACK_MODIFICATIONS`**: Disables a feature that signals the app every time a change is about to be made in the database, which consumes memory.
+
+3. **Define Models**:
+Define your database models by subclassing `db.Model`.
+
+```python
+class User(db.Model):
+id = db.Column(db.Integer, primary_key=True)
+username = db.Column(db.String(80), unique=True, nullable=False)
+email = db.Column(db.String(120), unique=True, nullable=False)
+
+def __repr__(self):
+return f'<User {self.username}>'
+```
+
+- **`id`**: Primary key column.
+- **`username`**: Unique and non-nullable string column.
+- **`email`**: Unique and non-nullable string column.
+
+4. **Create the Database**:
+Create the database and tables by running the following commands in the Python shell:
+
+```python
+from app import db
+db.create_all()
+```
+
+### Performing CRUD Operations
+
+CRUD stands for Create, Read, Update, and Delete. Here’s how to perform these operations using Flask-SQLAlchemy.
+
+1. **Create**:
+Add a new record to the database.
+
+```python
+from app import db, User
+
+new_user = User(username='john_doe', email='john@example.com')
+db.session.add(new_user)
+db.session.commit()
+```
+
+2. **Read**:
+Query records from the database.
+
+```python
+# Get all users
+users = User.query.all()
+
+# Get a user by primary key
+user = User.query.get(1)
+
+# Filter users by username
+user = User.query.filter_by(username='john_doe').first()
+```
+
+3. **Update**:
+Modify an existing record.
+
+```python
+user = User.query.get(1)
+user.email = 'john.doe@example.com'
+db.session.commit()
+```
+
+4. **Delete**:
+Remove a record from the database.
+
+```python
+user = User.query.get(1)
+db.session.delete(user)
+db.session.commit()
+```
+
+### Example: Full Application with Database Integration
+
+1. **Project Structure**:
+```
+my_flask_app/
+├── app.py
+├── requirements.txt
+└── mydatabase.db
+```
+
+2. **app.py**:
+
+```python
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+class User(db.Model):
+id = db.Column(db.Integer, primary_key=True)
+username = db.Column(db.String(80), unique=True, nullable=False)
+email = db.Column(db.String(120), unique=True, nullable=False)
+
+def __repr__(self):
+return f'<User {self.username}>'
+
+@app.route('/user', methods=['POST'])
+def create_user():
+data = request.get_json()
+new_user = User(username=data['username'], email=data['email'])
+db.session.add(new_user)
+db.session.commit()
+return jsonify({'message': 'User created'}), 201
+
+@app.route('/user/<int:user_id>', methods=['GET'])
+def get_user(user_id):
+user = User.query.get_or_404(user_id)
+return jsonify({'username': user.username, 'email': user.email})
+
+@app.route('/user/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
+data = request.get_json()
+user = User.query.get_or_404(user_id)
+user.email = data.get('email', user.email)
+db.session.commit()
+return jsonify({'message': 'User updated'})
+
+@app.route('/user/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+user = User.query.get_or_404(user_id)
+db.session.delete(user)
+db.session.commit()
+return jsonify({'message': 'User deleted'})
+
+if __name__ == '__main__':
+app.run(debug=True)
+```
+
+3. **requirements.txt**:
+
+```text
+Flask
+Flask-SQLAlchemy
+```
+
+4. **Create the Database**:
+Run the following commands in the Python shell to create the database:
+
+```python
+from app import db
+db.create_all()
+```
+
+### Summary
+
+- **Setting up SQLAlchemy**:
+  - Install and configure Flask-SQLAlchemy.
+  - Define models by subclassing `db.Model`.
+  - Create the database and tables.
+
+- **Performing CRUD Operations**:
+  - **Create**: Add new records using `db.session.add()` and `db.session.commit()`.
+  - **Read**: Query records using `User.query` methods.
+  - **Update**: Modify records and commit the changes.
+  - **Delete**: Remove records and commit the changes.
 
 ## 8. API Development
 

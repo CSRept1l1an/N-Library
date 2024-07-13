@@ -231,12 +231,278 @@ To create and run a basic Flask application:
 This process sets up a simple Flask application that can be the foundation for more complex web development projects.
 
 ## 4. Routing
-- Defining routes
-- HTTP methods (GET, POST, etc.)
+
+### Defining Routes
+
+In Flask, routing refers to mapping URLs to functions. These functions, also known as view functions, are executed when their associated URL is accessed.
+
+#### Basic Route Definition
+
+To define a route, use the `@app.route` decorator. Here’s an example:
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'This is the home page.'
+
+@app.route('/about')
+def about():
+    return 'This is the about page.'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+- **`@app.route('/')`**: Binds the `home` function to the root URL (`/`).
+- **`@app.route('/about')`**: Binds the `about` function to the `/about` URL.
+
+#### Dynamic Routes
+
+Flask allows for dynamic routes where parts of the URL can act as parameters to functions. Here’s an example:
+
+```python
+@app.route('/user/<username>')
+def show_user_profile(username):
+    return f'User: {username}'
+
+@app.route('/post/<int:post_id>')
+def show_post(post_id):
+    return f'Post ID: {post_id}'
+```
+
+- **`<username>`**: Captures a string and passes it to the `show_user_profile` function.
+- **`<int:post_id>`**: Captures an integer and passes it to the `show_post` function.
+
+### HTTP Methods (GET, POST, etc.)
+
+By default, routes respond to `GET` requests. However, you can specify the methods a route should respond to using the `methods` parameter in the `@app.route` decorator.
+
+#### Handling GET and POST Requests
+
+Here’s an example of a route that handles both `GET` and `POST` requests:
+
+```python
+from flask import request
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        return f'Logged in as {username}'
+    return '''
+        <form method="post">
+            <p><input type="text" name="username">
+            <p><input type="submit" value="Login">
+        </form>
+    '''
+```
+
+- **`methods=['GET', 'POST']`**: Specifies that the `login` route can handle both `GET` and `POST` requests.
+- **`request.method`**: Checks the HTTP method used for the request.
+- **`request.form`**: Accesses form data sent in a `POST` request.
+
+#### Other HTTP Methods
+
+Flask supports other HTTP methods like `PUT`, `DELETE`, and `PATCH`. Here’s an example using these methods:
+
+```python
+@app.route('/item', methods=['POST'])
+def create_item():
+    return 'Item created'
+
+@app.route('/item/<int:item_id>', methods=['PUT'])
+def update_item(item_id):
+    return f'Item {item_id} updated'
+
+@app.route('/item/<int:item_id>', methods=['DELETE'])
+def delete_item(item_id):
+    return f'Item {item_id} deleted'
+```
+
+- **`POST`**: Typically used for creating resources.
+- **`PUT`**: Used for updating existing resources.
+- **`DELETE`**: Used for deleting resources.
+
+### Example: Full Application with Routes and Methods
+
+```python
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'Home Page'
+
+@app.route('/user/<username>')
+def show_user_profile(username):
+    return f'User: {username}'
+
+@app.route('/post/<int:post_id>')
+def show_post(post_id):
+    return f'Post ID: {post_id}'
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        return f'Logged in as {username}'
+    return '''
+        <form method="post">
+            <p><input type="text" name="username">
+            <p><input type="submit" value="Login">
+        </form>
+    '''
+
+@app.route('/item', methods=['POST'])
+def create_item():
+    return 'Item created'
+
+@app.route('/item/<int:item_id>', methods=['PUT'])
+def update_item(item_id):
+    return f'Item {item_id} updated'
+
+@app.route('/item/<int:item_id>', methods=['DELETE'])
+def delete_item(item_id):
+    return f'Item {item_id} deleted'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+### Summary
+
+- **Defining Routes**: Use the `@app.route` decorator to bind URLs to view functions.
+- **Dynamic Routes**: Capture parts of the URL as parameters.
+- **HTTP Methods**: Use the `methods` parameter to specify which HTTP methods a route should handle, such as `GET`, `POST`, `PUT`, and `DELETE`.
 
 ## 5. Templates
-- Setting up Jinja2 templates
-- Rendering templates
+
+### Setting up Jinja2 Templates
+
+Flask uses the Jinja2 template engine to render HTML templates. This allows you to create dynamic web pages by embedding [[DEV/Programming/Python|Python]]-like expressions within HTML.
+
+1. **Create a Templates Directory**:
+Flask looks for templates in the `templates` directory by default. Create this directory in your project root.
+
+```bash
+mkdir templates
+```
+
+2. **Create a Template File**:
+Create an HTML file within the `templates` directory. For example, create a file named `index.html`:
+
+```html
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>{{ title }}</title>
+</head>
+<body>
+   <h1>{{ heading }}</h1>
+   <p>{{ message }}</p>
+</body>
+</html>
+```
+
+- **`{{ title }}`**: A placeholder for dynamic content passed from the Flask view.
+- **`{{ heading }}`** and **`{{ message }}`**: Additional placeholders for dynamic content.
+
+### Rendering Templates
+
+To render a template from a Flask view function, use the `render_template` function provided by Flask.
+
+1. **Import `render_template`**:
+Ensure you import `render_template` from Flask:
+
+```python
+from flask import Flask, render_template
+```
+
+2. **Render the Template in a View Function**:
+Use `render_template` to render the HTML template and pass any dynamic content as keyword arguments:
+
+```python
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+return render_template('index.html', title='Home Page', heading='Welcome!', message='This is the home page.')
+
+if __name__ == '__main__':
+app.run(debug=True)
+```
+
+- **`render_template('index.html', title='Home Page', heading='Welcome!', message='This is the home page.')`**:
+- Renders the `index.html` template.
+- Passes dynamic content to the template using keyword arguments.
+
+### Example: Full Application with Templates
+
+Here’s a complete example demonstrating how to set up and render templates in a Flask application:
+
+1. **Project Structure**:
+```
+my_flask_app/
+├── app.py
+└── templates/
+└── index.html
+```
+
+2. **app.py**:
+
+```python
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+return render_template('index.html', title='Home Page', heading='Welcome!', message='This is the home page.')
+
+@app.route('/about')
+def about():
+return render_template('index.html', title='About', heading='About Us', message='This is the about page.')
+
+if __name__ == '__main__':
+app.run(debug=True)
+```
+
+3. **templates/index.html**:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title }}</title>
+</head>
+<body>
+	<h1>{{ heading }}</h1>
+	<p>{{ message }}</p>
+</body>
+</html>
+```
+
+### Summary
+
+- **Setting up Jinja2 Templates**:
+  - Create a `templates` directory in your project.
+  - Add HTML files in the `templates` directory with placeholders for dynamic content using Jinja2 syntax (`{{ }}`).
+
+- **Rendering Templates**:
+  - Import `render_template` from Flask.
+  - Use `render_template` in view functions to render HTML templates and pass dynamic content as keyword arguments.
+
+By following these steps, you can create dynamic web pages with Flask, rendering content based on the data passed from your view functions.
 
 ### 6. Forms and User Input
 - Handling forms with Flask-WTF

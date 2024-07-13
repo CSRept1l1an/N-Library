@@ -1,13 +1,13 @@
 #Dev 
 
-### What is an API?
+## What is an API?
 - **API (Application Programming Interface)**: A set of rules that allows one piece of software application to talk to another.
 - **Types**: Web APIs, Library APIs, OS APIs, etc.
 - **Web API**: Facilitates interaction over the web (HTTP/HTTPS).
 
-### REST API
+## REST API
 
-#### Key Concepts
+### Key Concepts
 - **REST (Representational State Transfer)**: An architectural style for designing networked applications.
 - **Stateless**: Each request from client to server must contain all the information needed to understand and process the request.
 - **Resource**: Objects or data represented as URLs (Uniform Resource Locators).
@@ -60,7 +60,7 @@ Content-Type: application/json
 ]
 ```
 
-### SOAP API
+## SOAP API
 
 #### Key Concepts
 - **SOAP (Simple Object Access Protocol)**: A protocol for exchanging structured information in web services.
@@ -106,9 +106,9 @@ Content-Type: text/xml; charset=utf-8
 </soap:Envelope>
 ```
 
-### Best Practices
+## Best Practices
 
-#### REST API Best Practices
+### REST API Best Practices
 1. **Use Nouns for Resources**: Resource names should be nouns and not verbs (e.g., `/users` not `/getUsers`).
 2. **Use HTTP Methods Appropriately**: Map CRUD operations to HTTP methods (GET, POST, PUT, DELETE).
 3. **Versioning**: Use versioning in your API (e.g., `/v1/users`).

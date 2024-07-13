@@ -512,11 +512,176 @@ By following these steps, you can create dynamic web pages with Flask, rendering
 - Setting up SQLAlchemy
 - Performing CRUD operations
 
-### 8. API Development
+## 8. API Development
 
-- Creating RESTful APIs
-- JSON responses and request handling
-- Using Flask-RESTful
+### Creating RESTful APIs
+
+Flask can be used to create [[API#REST API|RESTful API]]s by defining routes that return JSON data. Flask's built-in support for JSON makes it straightforward to handle JSON responses and requests.
+
+### JSON Responses and Request Handling
+
+1. **Returning JSON Responses**:
+Use `jsonify` from Flask to return JSON responses.
+
+```python
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/data', methods=['GET'])
+def get_data():
+   data = {
+	   'name': 'John Doe',
+	   'age': 30,
+	   'city': 'New York'
+   }
+   return jsonify(data)
+
+if __name__ == '__main__':
+   app.run(debug=True)
+```
+
+- **`jsonify(data)`**: Converts the `data` dictionary to a JSON response.
+
+2. **Handling JSON Requests**:
+Use `request.get_json()` to parse JSON data from incoming requests.
+
+```python
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/data', methods=['POST'])
+def create_data():
+   data = request.get_json()
+   return jsonify(data), 201
+
+if __name__ == '__main__':
+   app.run(debug=True)
+```
+
+- **`request.get_json()`**: Parses the JSON data from the request body.
+- **`201`**: HTTP status code for resource creation.
+
+### Using Flask-RESTful
+
+Flask-RESTful is an extension for Flask that adds support for quickly building REST APIs. It provides tools to build RESTful APIs using class-based views.
+
+1. **Installation**:
+Install Flask-RESTful using `pip`:
+
+```bash
+pip install flask-restful
+```
+
+2. **Creating a RESTful API**:
+Define resources and routes using Flask-RESTful.
+
+```python
+from flask import Flask
+from flask_restful import Resource, Api
+
+app = Flask(__name__)
+api = Api(app)
+
+class HelloWorld(Resource):
+   def get(self):
+	   return {'hello': 'world'}
+
+api.add_resource(HelloWorld, '/')
+
+if __name__ == '__main__':
+   app.run(debug=True)
+```
+
+- **`Resource`**: Base class for creating RESTful resources.
+- **`api.add_resource(HelloWorld, '/')`**: Adds the `HelloWorld` resource to the API at the root URL.
+
+3. **Handling HTTP Methods**:
+Define methods like `get`, `post`, `put`, and `delete` within resource classes.
+
+```python
+class Item(Resource):
+   def get(self, item_id):
+	   return {'item_id': item_id}
+
+   def post(self):
+	   data = request.get_json()
+	   return {'data': data}, 201
+
+   def put(self, item_id):
+	   data = request.get_json()
+	   return {'item_id': item_id, 'data': data}
+
+   def delete(self, item_id):
+	   return {'message': f'Item {item_id} deleted'}
+
+api.add_resource(Item, '/item/<int:item_id>')
+```
+
+- **`get(self, item_id)`**: Handles GET requests.
+- **`post(self)`**: Handles POST requests.
+- **`put(self, item_id)`**: Handles PUT requests.
+- **`delete(self, item_id)`**: Handles DELETE requests.
+
+### Example: Full Application with RESTful API
+
+1. **Project Structure**:
+```
+my_flask_api/
+├── app.py
+└── requirements.txt
+```
+
+2. **app.py**:
+
+```python
+from flask import Flask, request, jsonify
+from flask_restful import Resource, Api
+
+app = Flask(__name__)
+api = Api(app)
+
+class HelloWorld(Resource):
+   def get(self):
+	   return {'hello': 'world'}
+
+class Item(Resource):
+   def get(self, item_id):
+	   return {'item_id': item_id}
+
+   def post(self):
+	   data = request.get_json()
+	   return {'data': data}, 201
+
+   def put(self, item_id):
+	   data = request.get_json()
+	   return {'item_id': item_id, 'data': data}
+
+   def delete(self, item_id):
+	   return {'message': f'Item {item_id} deleted'}
+
+api.add_resource(HelloWorld, '/')
+api.add_resource(Item, '/item/<int:item_id>')
+
+if __name__ == '__main__':
+   app.run(debug=True)
+```
+
+3. **requirements.txt**:
+
+```text
+Flask
+flask-restful
+```
+
+### Summary
+
+- **Creating RESTful APIs**: Define routes that return JSON responses and handle JSON requests using Flask's built-in functions.
+- **Using Flask-RESTful**: Simplify API development by using class-based views and handling different HTTP methods in a structured way.
+
+By following these steps, you can develop a RESTful API with Flask, leveraging the simplicity of Flask for basic JSON handling or the extended functionality of Flask-RESTful for more complex APIs.
+
 ## 9. Authentication and Authorization
 - Using Flask-Login
 - Protecting routes

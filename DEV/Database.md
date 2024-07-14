@@ -1,10 +1,10 @@
 #Dev 
-### 1. **Database Concepts**
+### 1. Database Concepts
 - **Database**: A structured collection of data.
 - **DBMS (Database Management System)**: Software for creating and managing databases (e.g., MySQL, PostgreSQL, Oracle).
 - **[[SQL]] (Structured Query Language)**: Standard language for managing and manipulating databases.
 
-### 2. **Data Models**
+### 2. Data Models
 - **Relational Model**: Uses tables (relations) to represent data and relationships.
 - **NoSQL Models**: 
   - Document (e.g., MongoDB)
@@ -12,13 +12,13 @@
   - Column Family (e.g., Cassandra)
   - Graph (e.g., Neo4j)
 
-### 3. **Database Normalization**
+### 3. Database Normalization
 - **1NF (First Normal Form)**: Ensure each column contains atomic values.
 - **2NF (Second Normal Form)**: Meet all 1NF requirements and remove partial dependencies.
 - **3NF (Third Normal Form)**: Meet all 2NF requirements and remove transitive dependencies.
 - **BCNF (Boyce-Codd Normal Form)**: A stronger version of 3NF.
 
-### 4. **[[SQL]] Basics**
+### 4. SQL Basics
 - **Data Definition Language (DDL)**:
   - `CREATE TABLE table_name (...);`
   - `ALTER TABLE table_name ADD column_name datatype;`
@@ -33,7 +33,7 @@
   - `GRANT permission ON object TO user;`
   - `REVOKE permission ON object FROM user;`
 
-### 5. **Advanced [[SQL]]**
+### 5. Advanced SQL
 - **Joins**:
   - `INNER JOIN`: Selects records with matching values in both tables.
   - `LEFT JOIN (or LEFT OUTER JOIN)`: Selects all records from the left table, and matched records from the right table.
@@ -103,5 +103,3 @@
 - **Database Management Tools**: phpMyAdmin, pgAdmin, SQL Server Management Studio (SSMS).
 - **Backup Tools**: mysqldump, pg_dump, Oracle RMAN.
 - **Monitoring Tools**: Nagios, Zabbix, Prometheus.
-
-This cheat sheet can be expanded with examples, diagrams, and more specific details tailored to your needs and the databases you work with.

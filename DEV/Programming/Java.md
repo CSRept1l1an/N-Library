@@ -6,12 +6,12 @@ Java was developed by James Gosling and his team at Sun Microsystems in the mid-
 #### Evolution and Versions
 Java has undergone significant evolution since its inception. Key milestones in its development include:
 
-- **Java 1.0 (1996):** The first official release with basic features like applets and a simple API.
+- **Java 1.0 (1996):** The first official release with basic features like applets and a simple [[API]].
 - **Java 2 (1998):** Introduced the concept of the Java 2 Platform, Standard Edition (J2SE), and expanded libraries.
 - **Java 5 (2004):** Added major enhancements like generics, metadata (annotations), and the enhanced for loop.
 - **Java 6 (2006):** Focused on performance improvements and new APIs, including scripting and web services.
 - **Java 7 (2011):** Introduced features like the try-with-resources statement, the diamond operator, and the switch statement with strings.
-- **Java 8 (2014):** Brought significant changes like lambda expressions, the Stream API, and the new Date and Time API.
+- **Java 8 (2014):** Brought significant changes like lambda expressions, the Stream [[API]], and the new Date and Time [[API]].
 - **Java 9 (2017):** Introduced the module system (Project Jigsaw), JShell (REPL), and various performance improvements.
 - **Java 10 (2018) and Beyond:** Continued with biannual release cycles, introducing features like local variable type inference (var keyword), garbage collector improvements, and more.
 
@@ -22,7 +22,7 @@ Java remains a popular choice for developers for several reasons:
 
 2. **Robustness and Security:** Java has built-in features to handle memory management, error handling, and security, making it a reliable choice for building stable and secure applications.
 
-3. **Rich API and Libraries:** Java provides a vast standard library that supports a wide range of functionalities, from data structures and networking to graphical user interfaces (GUIs) and web development.
+3. **Rich [[API]] and Libraries:** Java provides a vast standard library that supports a wide range of functionalities, from data structures and networking to graphical user interfaces (GUIs) and web development.
 
 4. **Community and Support:** Java has a large and active community of developers, providing ample resources, libraries, frameworks, and tools. This support ecosystem makes it easier to find solutions and collaborate on projects.
 

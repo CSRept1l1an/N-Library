@@ -79,10 +79,12 @@
   - `AVG()`: Returns the average value of a numeric column.
   - `MIN()`: Returns the minimum value.
   - `MAX()`: Returns the maximum value.
+
 - **String Functions**:
   - `CONCAT()`: Concatenate strings.
   - `LENGTH()`: Return the length of a string.
   - `UPPER()`, `LOWER()`: Convert to upper or lower case.
+
 - **Date Functions**:
   - `NOW()`: Returns the current date and time.
   - `DATE_ADD()`, `DATE_SUB()`: Add or subtract dates.

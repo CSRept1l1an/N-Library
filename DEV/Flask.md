@@ -1127,8 +1127,390 @@ flask-restful
 By following these steps, you can develop a RESTful API with Flask, leveraging the simplicity of Flask for basic JSON handling or the extended functionality of Flask-RESTful for more complex APIs.
 
 ## 9. Authentication and Authorization
-- Using Flask-Login
-- Protecting routes
+
+### Using Flask-Login
+
+Flask-Login is an extension that provides user session management for Flask. It handles common tasks like logging in, logging out, and remembering users' sessions.
+
+1. **Install Flask-Login**:
+   Install Flask-Login using `pip`:
+
+   ```bash
+   pip install flask-login
+   ```
+
+2. **Configure Flask-Login**:
+   Set up Flask-Login in your Flask application.
+
+   ```python
+   from flask import Flask
+   from flask_sqlalchemy import SQLAlchemy
+   from flask_login import LoginManager
+
+   app = Flask(__name__)
+   app.config['SECRET_KEY'] = 'your_secret_key'
+   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
+   app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+   db = SQLAlchemy(app)
+   login_manager = LoginManager(app)
+   login_manager.login_view = 'login'  # Redirect to login page if not authenticated
+   ```
+
+3. **Define User Model**:
+   Your user model must implement certain properties and methods for Flask-Login to work.
+
+   ```python
+   from flask_login import UserMixin
+
+   class User(db.Model, UserMixin):
+       id = db.Column(db.Integer, primary_key=True)
+       username = db.Column(db.String(80), unique=True, nullable=False)
+       email = db.Column(db.String(120), unique=True, nullable=False)
+       password = db.Column(db.String(60), nullable=False)
+
+       def __repr__(self):
+           return f'<User {self.username}>'
+   ```
+
+4. **Load User**:
+   Define a user loader function that Flask-Login will use to load a user from the user ID stored in the session.
+
+   ```python
+   @login_manager.user_loader
+   def load_user(user_id):
+       return User.query.get(int(user_id))
+   ```
+
+5. **Create Login and Register Forms**:
+   Define forms for user registration and login.
+
+   ```python
+   from flask_wtf import FlaskForm
+   from wtforms import StringField, PasswordField, SubmitField
+   from wtforms.validators import DataRequired, Email, Length
+
+   class RegistrationForm(FlaskForm):
+       username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+       email = StringField('Email', validators=[DataRequired(), Email()])
+       password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+       submit = SubmitField('Sign Up')
+
+   class LoginForm(FlaskForm):
+       email = StringField('Email', validators=[DataRequired(), Email()])
+       password = PasswordField('Password', validators=[DataRequired()])
+       submit = SubmitField('Login')
+   ```
+
+6. **Handle User Registration and Login**:
+   Create routes and views for user registration and login.
+
+   ```python
+   from flask import render_template, redirect, url_for, flash, request
+   from flask_login import login_user, logout_user, login_required, current_user
+   from werkzeug.security import generate_password_hash, check_password_hash
+   from forms import RegistrationForm, LoginForm
+   from models import User  # Assuming your User model is in a models.py file
+
+   @app.route('/register', methods=['GET', 'POST'])
+   def register():
+       form = RegistrationForm()
+       if form.validate_on_submit():
+           hashed_password = generate_password_hash(form.password.data, method='sha256')
+           new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+           db.session.add(new_user)
+           db.session.commit()
+           flash('Account created!', 'success')
+           return redirect(url_for('login'))
+       return render_template('register.html', form=form)
+
+   @app.route('/login', methods=['GET', 'POST'])
+   def login():
+       form = LoginForm()
+       if form.validate_on_submit():
+           user = User.query.filter_by(email=form.email.data).first()
+           if user and check_password_hash(user.password, form.password.data):
+               login_user(user, remember=True)
+               next_page = request.args.get('next')
+               return redirect(next_page) if next_page else redirect(url_for('home'))
+           else:
+               flash('Login Unsuccessful. Please check email and password', 'danger')
+       return render_template('login.html', form=form)
+
+   @app.route('/logout')
+   @login_required
+   def logout():
+       logout_user()
+       return redirect(url_for('home'))
+
+   @app.route('/')
+   @login_required
+   def home():
+       return 'Home Page'
+   ```
+
+   - **`generate_password_hash()`**: Hashes the user password for storage.
+   - **`check_password_hash()`**: Checks the hashed password against the user-provided password.
+   - **`login_user(user, remember=True)`**: Logs in the user and remembers their session.
+   - **`logout_user()`**: Logs out the user.
+   - **`@login_required`**: Protects routes that require authentication.
+
+### Protecting Routes
+
+To protect routes so that only authenticated users can access them, use the `@login_required` decorator from Flask-Login.
+
+1. **Protecting Routes**:
+   Add the `@login_required` decorator to any route that requires authentication.
+
+   ```python
+   from flask_login import login_required
+
+   @app.route('/dashboard')
+   @login_required
+   def dashboard():
+       return 'This is the dashboard'
+   ```
+
+2. **Redirecting to Login Page**:
+   When a user tries to access a protected route, they will be redirected to the login page. Set the `login_view` attribute in the `LoginManager` configuration to specify the login route.
+
+```python
+login_manager.login_view = 'login'
+```
+
+3. **Handling Next URL**:
+   Ensure that the user is redirected back to the page they were trying to access after logging in.
+
+```python
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+   form = LoginForm()
+   if form.validate_on_submit():
+	   user = User.query.filter_by(email=form.email.data).first()
+	   if user and check_password_hash(user.password, form.password.data):
+		   login_user(user, remember=True)
+		   next_page = request.args.get('next')
+		   return redirect(next_page) if next_page else redirect(url_for('home'))
+	   else:
+		   flash('Login Unsuccessful. Please check email and password', 'danger')
+   return render_template('login.html', form=form)
+```
+
+### Example: Full Application with Authentication and Authorization
+
+1. **Project Structure**:
+```
+my_flask_app/
+├── app.py
+├── forms.py
+├── models.py
+├── templates/
+│   ├── register.html
+│   └── login.html
+└── requirements.txt
+```
+
+1. **models.py**:
+
+```python
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
+
+db = SQLAlchemy()
+
+class User(db.Model, UserMixin):
+   id = db.Column(db.Integer, primary_key=True)
+   username = db.Column(db.String(80), unique=True, nullable=False)
+   email = db.Column(db.String(120), unique=True, nullable=False)
+   password = db.Column(db.String(60), nullable=False)
+
+   def __repr__(self):
+	   return f'<User {self.username}>'
+```
+
+3. **forms.py**:
+
+```python
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, Length
+
+class RegistrationForm(FlaskForm):
+   username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+   submit = SubmitField('Sign Up')
+
+class LoginForm(FlaskForm):
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired()])
+   submit = SubmitField('Login')
+```
+
+4. **templates/register.html**:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Register</title>
+</head>
+<body>
+   <h1>Register</h1>
+   <form method="POST">
+	   {{ form.hidden_tag() }}
+	   <p>
+		   {{ form.username.label }}<br>
+		   {{ form.username(size=20) }}
+		   {% for error in form.username.errors %}
+			   <span style="color: red;">[{{ error }}]</span>
+		   {% endfor %}
+	   </p>
+	   <p>
+		   {{ form.email.label }}<br>
+		   {{ form.email(size=20) }}
+		   {% for error in form.email.errors %}
+			   <span style="color: red;">[{{ error }}]</span>
+		   {% endfor %}
+	   </p>
+	   <p>
+		   {{ form.password.label }}<br>
+		   {{ form.password(size=20) }}
+		   {% for error in form.password.errors %}
+			   <span style="color: red;">[{{ error }}]</span>
+		   {% endfor %}
+	   </p>
+	   <p>{{ form.submit() }}</p>
+   </form>
+</body>
+</html>
+```
+
+5. **templates/login.html**:
+
+```html
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login</title>
+</head>
+<body>
+   <h1>Login</h1>
+   <form method="POST">
+	   {{ form.hidden_tag() }}
+	   <p>
+		   {{ form.email.label }}<br>
+		   {{ form.email(size=20) }}
+		   {% for error in form.email.errors %}
+			   <span style="color: red;">[{{ error }}]</span>
+		   {% endfor %}
+	   </p>
+	   <p>
+		   {{ form.password.label }}<br>
+		   {{ form.password(size=20) }}
+		   {% for error in form.password.errors %}
+			   <span style="color: red;">[{{ error }}]</span>
+		   {% endfor %}
+	   </p>
+	   <p>{{ form.submit() }}</p>
+   </form>
+</body>
+</html>
+```
+
+6. **app.py**:
+
+```python
+from flask import Flask, render_template, redirect, url_for, flash, request
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
+from forms import RegistrationForm, LoginForm
+from models import db, User
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+
+@login_manager.user_loader
+def load_user(user_id):
+   return User.query.get(int(user_id))
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+   form = RegistrationForm()
+   if form.validate_on_submit():
+	   hashed_password = generate_password_hash(form.password.data, method='sha256')
+	   new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+	   db.session.add(new_user)
+	   db.session.commit()
+	   flash('Account created!', 'success')
+	   return redirect(url_for('login'))
+   return render_template('register.html', form=form)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+   form = LoginForm()
+   if form.validate_on_submit():
+	   user = User.query.filter_by(email=form.email.data).first()
+	   if user and check_password_hash(user.password, form.password.data):
+		   login_user(user, remember=True)
+		   next_page = request.args.get('next')
+		   return redirect(next_page) if next_page else redirect(url_for('home'))
+	   else:
+		   flash('Login Unsuccessful. Please check email and password', 'danger')
+   return render_template('login.html', form=form)
+
+@app.route('/logout')
+@login_required
+def logout():
+   logout_user()
+   return redirect(url_for('home'))
+
+@app.route('/')
+@login_required
+def home():
+   return 'Home Page'
+
+if __name__ == '__main__':
+   with app.app_context():
+	   db.create_all()
+   app.run(debug=True)
+```
+
+7. **requirements.txt**:
+
+```text
+Flask
+Flask-WTF
+Flask-Login
+Flask-SQLAlchemy
+```
+
+### Summary
+
+- **Using Flask-Login**:
+  - Install and configure Flask-Login.
+  - Define a user model that implements required properties and methods.
+  - Create a user loader function.
+  - Define routes for user registration, login, and logout.
+  - Use `login_user` to log in users and `logout_user` to log out users.
+
+- **Protecting Routes**:
+  - Use the `@login_required` decorator to protect routes.
+  - Redirect unauthenticated users to the login page.
+  - Handle the next URL to redirect users to their intended destination after logging in.
 
 ## 10. Blueprints and Application Structure
 - Organizing the application using Blueprints

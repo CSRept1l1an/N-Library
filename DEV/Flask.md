@@ -452,7 +452,7 @@ Here’s a complete example demonstrating how to set up and render templates in 
 ```
 my_flask_app/
 ├── app.py
-└── templates/
+├── templates/
 └── index.html
 ```
 
@@ -513,34 +513,34 @@ Flask-WTF is an extension that simplifies the integration of forms in Flask appl
 1. **Install Flask-WTF**:
    Install Flask-WTF using `pip`:
 
-   ```bash
-   pip install flask-wtf
-   ```
+```bash
+pip install flask-wtf
+```
 
-2. **Configure Flask for CSRF Protection**:
+1. **Configure Flask for CSRF Protection**:
    Flask-WTF uses CSRF tokens to protect forms from Cross-Site Request Forgery (CSRF) attacks. Configure your Flask application with a secret key for CSRF protection.
 
-   ```python
-   from flask import Flask
+```python
+from flask import Flask
 
-   app = Flask(__name__)
-   app.config['SECRET_KEY'] = 'your_secret_key'
-   ```
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your_secret_key'
+```
 
-3. **Create a Form Class**:
+1. **Create a Form Class**:
    Define a form class by subclassing `FlaskForm` from `flask_wtf`.
 
-   ```python
-   from flask_wtf import FlaskForm
-   from wtforms import StringField, PasswordField, SubmitField
-   from wtforms.validators import DataRequired, Email, Length
+```python
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, Length
 
-   class RegistrationForm(FlaskForm):
-       username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
-       email = StringField('Email', validators=[DataRequired(), Email()])
-       password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
-       submit = SubmitField('Sign Up')
-   ```
+class RegistrationForm(FlaskForm):
+   username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+   submit = SubmitField('Sign Up')
+```
 
    - **`StringField`, `PasswordField`, `SubmitField`**: Define form fields.
    - **`validators`**: Specify validation rules (e.g., `DataRequired`, `Email`, `Length`).
@@ -548,36 +548,36 @@ Flask-WTF is an extension that simplifies the integration of forms in Flask appl
 4. **Render the Form in a Template**:
    Create an HTML template to render the form.
 
-   ```html
-   <!-- templates/register.html -->
-   <!DOCTYPE html>
-   <html lang="en">
-   <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Register</title>
-   </head>
-   <body>
-       <h1>Register</h1>
-       <form method="POST">
-           {{ form.hidden_tag() }}
-           <p>
-               {{ form.username.label }}<br>
-               {{ form.username(size=20) }}
-           </p>
-           <p>
-               {{ form.email.label }}<br>
-               {{ form.email(size=20) }}
-           </p>
-           <p>
-               {{ form.password.label }}<br>
-               {{ form.password(size=20) }}
-           </p>
-           <p>{{ form.submit() }}</p>
-       </form>
-   </body>
-   </html>
-   ```
+```html
+<!-- templates/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Register</title>
+</head>
+<body>
+   <h1>Register</h1>
+   <form method="POST">
+	   {{ form.hidden_tag() }}
+	   <p>
+		   {{ form.username.label }}<br>
+		   {{ form.username(size=20) }}
+	   </p>
+	   <p>
+		   {{ form.email.label }}<br>
+		   {{ form.email(size=20) }}
+	   </p>
+	   <p>
+		   {{ form.password.label }}<br>
+		   {{ form.password(size=20) }}
+	   </p>
+	   <p>{{ form.submit() }}</p>
+   </form>
+</body>
+</html>
+```
 
    - **`form.hidden_tag()`**: Renders hidden fields, including the CSRF token.
    - **`form.field`**: Renders form fields and their labels.
@@ -585,28 +585,28 @@ Flask-WTF is an extension that simplifies the integration of forms in Flask appl
 5. **Handle Form Submission in a View**:
    In your Flask application, handle form submission and validation.
 
-   ```python
-   from flask import Flask, render_template, redirect, url_for, flash
-   from forms import RegistrationForm
+```python
+from flask import Flask, render_template, redirect, url_for, flash
+from forms import RegistrationForm
 
-   app = Flask(__name__)
-   app.config['SECRET_KEY'] = 'your_secret_key'
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your_secret_key'
 
-   @app.route('/register', methods=['GET', 'POST'])
-   def register():
-       form = RegistrationForm()
-       if form.validate_on_submit():
-           flash(f'Account created for {form.username.data}!', 'success')
-           return redirect(url_for('home'))
-       return render_template('register.html', form=form)
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+   form = RegistrationForm()
+   if form.validate_on_submit():
+	   flash(f'Account created for {form.username.data}!', 'success')
+	   return redirect(url_for('home'))
+   return render_template('register.html', form=form)
 
-   @app.route('/')
-   def home():
-       return 'Home Page'
+@app.route('/')
+def home():
+   return 'Home Page'
 
-   if __name__ == '__main__':
-       app.run(debug=True)
-   ```
+if __name__ == '__main__':
+   app.run(debug=True)
+```
 
    - **`validate_on_submit()`**: Validates the form on submission.
    - **`flash()`**: Displays a success message using Flask’s flash messaging system.
@@ -619,16 +619,16 @@ Validation ensures that the data submitted through forms meets specific criteria
 1. **Using Validators**:
    Apply validators to form fields to enforce rules.
 
-   ```python
-   from wtforms import StringField, PasswordField, SubmitField
-   from wtforms.validators import DataRequired, Email, Length
+```python
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, Length
 
-   class RegistrationForm(FlaskForm):
-       username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
-       email = StringField('Email', validators=[DataRequired(), Email()])
-       password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
-       submit = SubmitField('Sign Up')
-   ```
+class RegistrationForm(FlaskForm):
+   username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+   submit = SubmitField('Sign Up')
+```
 
    - **`DataRequired`**: Ensures the field is not empty.
    - **`Email`**: Validates that the field contains a valid email address.
@@ -637,19 +637,19 @@ Validation ensures that the data submitted through forms meets specific criteria
 2. **Custom Validators**:
    You can create custom validators for more complex validation logic.
 
-   ```python
-   from wtforms import ValidationError
+```python
+from wtforms import ValidationError
 
-   def validate_username(form, field):
-       if field.data == 'admin':
-           raise ValidationError('Username cannot be "admin".')
+def validate_username(form, field):
+   if field.data == 'admin':
+	   raise ValidationError('Username cannot be "admin".')
 
-   class RegistrationForm(FlaskForm):
-       username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20), validate_username])
-       email = StringField('Email', validators=[DataRequired(), Email()])
-       password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
-       submit = SubmitField('Sign Up')
-   ```
+class RegistrationForm(FlaskForm):
+   username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20), validate_username])
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+   submit = SubmitField('Sign Up')
+```
 
    - **`validate_username(form, field)`**: Custom validator function.
    - **`raise ValidationError`**: Raises a validation error if the condition is not met.
@@ -657,101 +657,101 @@ Validation ensures that the data submitted through forms meets specific criteria
 ### Example: Full Application with Forms and Validation
 
 1. **Project Structure**:
-   ```
-   my_flask_app/
-   ├── app.py
-   ├── forms.py
-   ├── templates/
-   │   └── register.html
-   └── requirements.txt
-   ```
+```
+my_flask_app/
+├── app.py
+├── forms.py
+├── templates/
+├── register.html
+└── requirements.txt
+```
 
-2. **forms.py**:
+1. **forms.py**:
 
-   ```python
-   from flask_wtf import FlaskForm
-   from wtforms import StringField, PasswordField, SubmitField
-   from wtforms.validators import DataRequired, Email, Length
+```python
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, Length
 
-   class RegistrationForm(FlaskForm):
-       username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
-       email = StringField('Email', validators=[DataRequired(), Email()])
-       password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
-       submit = SubmitField('Sign Up')
-   ```
+class RegistrationForm(FlaskForm):
+   username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+   submit = SubmitField('Sign Up')
+```
 
 3. **app.py**:
 
-   ```python
-   from flask import Flask, render_template, redirect, url_for, flash
-   from forms import RegistrationForm
+```python
+from flask import Flask, render_template, redirect, url_for, flash
+from forms import RegistrationForm
 
-   app = Flask(__name__)
-   app.config['SECRET_KEY'] = 'your_secret_key'
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your_secret_key'
 
-   @app.route('/register', methods=['GET', 'POST'])
-   def register():
-       form = RegistrationForm()
-       if form.validate_on_submit():
-           flash(f'Account created for {form.username.data}!', 'success')
-           return redirect(url_for('home'))
-       return render_template('register.html', form=form)
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+   form = RegistrationForm()
+   if form.validate_on_submit():
+	   flash(f'Account created for {form.username.data}!', 'success')
+	   return redirect(url_for('home'))
+   return render_template('register.html', form=form)
 
-   @app.route('/')
-   def home():
-       return 'Home Page'
+@app.route('/')
+def home():
+   return 'Home Page'
 
-   if __name__ == '__main__':
-       app.run(debug=True)
-   ```
+if __name__ == '__main__':
+   app.run(debug=True)
+```
 
-4. **templates/register.html**:
+1. **templates/register.html**:
 
-   ```html
-   <!DOCTYPE html>
-   <html lang="en">
-   <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Register</title>
-   </head>
-   <body>
-       <h1>Register</h1>
-       <form method="POST">
-           {{ form.hidden_tag() }}
-           <p>
-               {{ form.username.label }}<br>
-               {{ form.username(size=20) }}
-               {% for error in form.username.errors %}
-                   <span style="color: red;">[{{ error }}]</span>
-               {% endfor %}
-           </p>
-           <p>
-               {{ form.email.label }}<br>
-               {{ form.email(size=20) }}
-               {% for error in form.email.errors %}
-                   <span style="color: red;">[{{ error }}]</span>
-               {% endfor %}
-           </p>
-           <p>
-               {{ form.password.label }}<br>
-               {{ form.password(size=20) }}
-               {% for error in form.password.errors %}
-                   <span style="color: red;">[{{ error }}]</span>
-               {% endfor %}
-           </p>
-           <p>{{ form.submit() }}</p>
-       </form>
-   </body>
-   </html>
-   ```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Register</title>
+</head>
+<body>
+   <h1>Register</h1>
+   <form method="POST">
+	   {{ form.hidden_tag() }}
+	   <p>
+		   {{ form.username.label }}<br>
+		   {{ form.username(size=20) }}
+		   {% for error in form.username.errors %}
+			   <span style="color: red;">[{{ error }}]</span>
+		   {% endfor %}
+	   </p>
+	   <p>
+		   {{ form.email.label }}<br>
+		   {{ form.email(size=20) }}
+		   {% for error in form.email.errors %}
+			   <span style="color: red;">[{{ error }}]</span>
+		   {% endfor %}
+	   </p>
+	   <p>
+		   {{ form.password.label }}<br>
+		   {{ form.password(size=20) }}
+		   {% for error in form.password.errors %}
+			   <span style="color: red;">[{{ error }}]</span>
+		   {% endfor %}
+	   </p>
+	   <p>{{ form.submit() }}</p>
+   </form>
+</body>
+</html>
+```
 
 5. **requirements.txt**:
 
-   ```text
-   Flask
-   Flask-WTF
-   ```
+```text
+Flask
+Flask-WTF
+```
 
 ### Summary
 
@@ -1135,119 +1135,119 @@ Flask-Login is an extension that provides user session management for Flask. It 
 1. **Install Flask-Login**:
    Install Flask-Login using `pip`:
 
-   ```bash
-   pip install flask-login
-   ```
+```bash
+pip install flask-login
+```
 
 2. **Configure Flask-Login**:
    Set up Flask-Login in your Flask application.
 
-   ```python
-   from flask import Flask
-   from flask_sqlalchemy import SQLAlchemy
-   from flask_login import LoginManager
+```python
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
-   app = Flask(__name__)
-   app.config['SECRET_KEY'] = 'your_secret_key'
-   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
-   app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-   db = SQLAlchemy(app)
-   login_manager = LoginManager(app)
-   login_manager.login_view = 'login'  # Redirect to login page if not authenticated
-   ```
+db = SQLAlchemy(app)
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'  # Redirect to login page if not authenticated
+```
 
 3. **Define User Model**:
    Your user model must implement certain properties and methods for Flask-Login to work.
 
-   ```python
-   from flask_login import UserMixin
+```python
+from flask_login import UserMixin
 
-   class User(db.Model, UserMixin):
-       id = db.Column(db.Integer, primary_key=True)
-       username = db.Column(db.String(80), unique=True, nullable=False)
-       email = db.Column(db.String(120), unique=True, nullable=False)
-       password = db.Column(db.String(60), nullable=False)
+class User(db.Model, UserMixin):
+   id = db.Column(db.Integer, primary_key=True)
+   username = db.Column(db.String(80), unique=True, nullable=False)
+   email = db.Column(db.String(120), unique=True, nullable=False)
+   password = db.Column(db.String(60), nullable=False)
 
-       def __repr__(self):
-           return f'<User {self.username}>'
-   ```
+   def __repr__(self):
+	   return f'<User {self.username}>'
+```
 
 4. **Load User**:
    Define a user loader function that Flask-Login will use to load a user from the user ID stored in the session.
 
-   ```python
-   @login_manager.user_loader
-   def load_user(user_id):
-       return User.query.get(int(user_id))
-   ```
+```python
+@login_manager.user_loader
+def load_user(user_id):
+   return User.query.get(int(user_id))
+```
 
 5. **Create Login and Register Forms**:
    Define forms for user registration and login.
 
-   ```python
-   from flask_wtf import FlaskForm
-   from wtforms import StringField, PasswordField, SubmitField
-   from wtforms.validators import DataRequired, Email, Length
+```python
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, Length
 
-   class RegistrationForm(FlaskForm):
-       username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
-       email = StringField('Email', validators=[DataRequired(), Email()])
-       password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
-       submit = SubmitField('Sign Up')
+class RegistrationForm(FlaskForm):
+   username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+   submit = SubmitField('Sign Up')
 
-   class LoginForm(FlaskForm):
-       email = StringField('Email', validators=[DataRequired(), Email()])
-       password = PasswordField('Password', validators=[DataRequired()])
-       submit = SubmitField('Login')
-   ```
+class LoginForm(FlaskForm):
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired()])
+   submit = SubmitField('Login')
+```
 
-6. **Handle User Registration and Login**:
+1. **Handle User Registration and Login**:
    Create routes and views for user registration and login.
 
-   ```python
-   from flask import render_template, redirect, url_for, flash, request
-   from flask_login import login_user, logout_user, login_required, current_user
-   from werkzeug.security import generate_password_hash, check_password_hash
-   from forms import RegistrationForm, LoginForm
-   from models import User  # Assuming your User model is in a models.py file
+```python
+from flask import render_template, redirect, url_for, flash, request
+from flask_login import login_user, logout_user, login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
+from forms import RegistrationForm, LoginForm
+from models import User  # Assuming your User model is in a models.py file
 
-   @app.route('/register', methods=['GET', 'POST'])
-   def register():
-       form = RegistrationForm()
-       if form.validate_on_submit():
-           hashed_password = generate_password_hash(form.password.data, method='sha256')
-           new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
-           db.session.add(new_user)
-           db.session.commit()
-           flash('Account created!', 'success')
-           return redirect(url_for('login'))
-       return render_template('register.html', form=form)
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+   form = RegistrationForm()
+   if form.validate_on_submit():
+	   hashed_password = generate_password_hash(form.password.data, method='sha256')
+	   new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+	   db.session.add(new_user)
+	   db.session.commit()
+	   flash('Account created!', 'success')
+	   return redirect(url_for('login'))
+   return render_template('register.html', form=form)
 
-   @app.route('/login', methods=['GET', 'POST'])
-   def login():
-       form = LoginForm()
-       if form.validate_on_submit():
-           user = User.query.filter_by(email=form.email.data).first()
-           if user and check_password_hash(user.password, form.password.data):
-               login_user(user, remember=True)
-               next_page = request.args.get('next')
-               return redirect(next_page) if next_page else redirect(url_for('home'))
-           else:
-               flash('Login Unsuccessful. Please check email and password', 'danger')
-       return render_template('login.html', form=form)
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+   form = LoginForm()
+   if form.validate_on_submit():
+	   user = User.query.filter_by(email=form.email.data).first()
+	   if user and check_password_hash(user.password, form.password.data):
+		   login_user(user, remember=True)
+		   next_page = request.args.get('next')
+		   return redirect(next_page) if next_page else redirect(url_for('home'))
+	   else:
+		   flash('Login Unsuccessful. Please check email and password', 'danger')
+   return render_template('login.html', form=form)
 
-   @app.route('/logout')
-   @login_required
-   def logout():
-       logout_user()
-       return redirect(url_for('home'))
+@app.route('/logout')
+@login_required
+def logout():
+   logout_user()
+   return redirect(url_for('home'))
 
-   @app.route('/')
-   @login_required
-   def home():
-       return 'Home Page'
-   ```
+@app.route('/')
+@login_required
+def home():
+   return 'Home Page'
+```
 
    - **`generate_password_hash()`**: Hashes the user password for storage.
    - **`check_password_hash()`**: Checks the hashed password against the user-provided password.
@@ -1262,14 +1262,14 @@ To protect routes so that only authenticated users can access them, use the `@lo
 1. **Protecting Routes**:
    Add the `@login_required` decorator to any route that requires authentication.
 
-   ```python
-   from flask_login import login_required
+```python
+from flask_login import login_required
 
-   @app.route('/dashboard')
-   @login_required
-   def dashboard():
-       return 'This is the dashboard'
-   ```
+@app.route('/dashboard')
+@login_required
+def dashboard():
+   return 'This is the dashboard'
+```
 
 2. **Redirecting to Login Page**:
    When a user tries to access a protected route, they will be redirected to the login page. Set the `login_view` attribute in the `LoginManager` configuration to specify the login route.

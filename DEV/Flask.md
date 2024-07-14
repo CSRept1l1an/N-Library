@@ -1521,33 +1521,33 @@ Flask Blueprints allow you to organize your application into smaller, reusable c
 1. **Creating a Blueprint**:
    Define a Blueprint in a separate module.
 
-   ```python
-   from flask import Blueprint
+```python
+from flask import Blueprint
 
-   main = Blueprint('main', __name__)
+main = Blueprint('main', __name__)
 
-   @main.route('/')
-   def home():
-       return 'Home Page'
+@main.route('/')
+def home():
+   return 'Home Page'
 
-   @main.route('/about')
-   def about():
-       return 'About Page'
-   ```
+@main.route('/about')
+def about():
+   return 'About Page'
+```
 
 2. **Registering the Blueprint**:
    Register the Blueprint with your Flask application in the main application file.
 
-   ```python
-   from flask import Flask
-   from main import main  # Import the Blueprint
+```python
+from flask import Flask
+from main import main  # Import the Blueprint
 
-   app = Flask(__name__)
-   app.register_blueprint(main)  # Register the Blueprint
+app = Flask(__name__)
+app.register_blueprint(main)  # Register the Blueprint
 
-   if __name__ == '__main__':
-       app.run(debug=True)
-   ```
+if __name__ == '__main__':
+   app.run(debug=True)
+```
 
 ### Recommended Project Structure
 
@@ -1588,170 +1588,170 @@ my_flask_app/
 
 1. **`app/__init__.py`**:
 
-   ```python
-   from flask import Flask
-   from flask_sqlalchemy import SQLAlchemy
-   from flask_login import LoginManager
-   from config import Config
+```python
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
+from config import Config
 
-   db = SQLAlchemy()
-   login_manager = LoginManager()
+db = SQLAlchemy()
+login_manager = LoginManager()
 
-   def create_app():
-       app = Flask(__name__)
-       app.config.from_object(Config)
+def create_app():
+   app = Flask(__name__)
+   app.config.from_object(Config)
 
-       db.init_app(app)
-       login_manager.init_app(app)
-       login_manager.login_view = 'auth.login'
+   db.init_app(app)
+   login_manager.init_app(app)
+   login_manager.login_view = 'auth.login'
 
-       from app.main import main as main_blueprint
-       app.register_blueprint(main_blueprint)
+   from app.main import main as main_blueprint
+   app.register_blueprint(main_blueprint)
 
-       from app.auth import auth as auth_blueprint
-       app.register_blueprint(auth_blueprint, url_prefix='/auth')
+   from app.auth import auth as auth_blueprint
+   app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
-       return app
-   ```
+   return app
+```
 
 2. **`config.py`**:
 
-   ```python
-   import os
+```python
+import os
 
-   class Config:
-       SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
-       SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///site.db'
-       SQLALCHEMY_TRACK_MODIFICATIONS = False
-   ```
+class Config:
+   SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+   SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///site.db'
+   SQLALCHEMY_TRACK_MODIFICATIONS = False
+```
 
 3. **`run.py`**:
 
-   ```python
-   from app import create_app, db
-   from app.models import User
+```python
+from app import create_app, db
+from app.models import User
 
-   app = create_app()
+app = create_app()
 
-   if __name__ == '__main__':
-       with app.app_context():
-           db.create_all()
-       app.run(debug=True)
-   ```
+if __name__ == '__main__':
+   with app.app_context():
+	   db.create_all()
+   app.run(debug=True)
+```
 
 4. **`app/main/__init__.py`**:
 
-   ```python
-   from flask import Blueprint
+```python
+from flask import Blueprint
 
-   main = Blueprint('main', __name__)
+main = Blueprint('main', __name__)
 
-   from app.main import routes
-   ```
+from app.main import routes
+```
 
 5. **`app/main/routes.py`**:
 
-   ```python
-   from flask import render_template
-   from app.main import main
+```python
+from flask import render_template
+from app.main import main
 
-   @main.route('/')
-   def home():
-       return render_template('home.html')
+@main.route('/')
+def home():
+   return render_template('home.html')
 
-   @main.route('/about')
-   def about():
-       return render_template('about.html')
-   ```
+@main.route('/about')
+def about():
+   return render_template('about.html')
+```
 
-6. **`app/auth/__init__.py`**:
+1. **`app/auth/__init__.py`**:
 
-   ```python
-   from flask import Blueprint
+```python
+from flask import Blueprint
 
-   auth = Blueprint('auth', __name__)
+auth = Blueprint('auth', __name__)
 
-   from app.auth import routes
-   ```
+from app.auth import routes
+```
 
-7. **`app/auth/routes.py`**:
+1. **`app/auth/routes.py`**:
 
-   ```python
-   from flask import render_template, redirect, url_for, flash, request
-   from flask_login import login_user, logout_user, login_required, current_user
-   from app import db
-   from app.auth import auth
-   from app.models import User
-   from app.auth.forms import RegistrationForm, LoginForm
-   from werkzeug.security import generate_password_hash, check_password_hash
+```python
+from flask import render_template, redirect, url_for, flash, request
+from flask_login import login_user, logout_user, login_required, current_user
+from app import db
+from app.auth import auth
+from app.models import User
+from app.auth.forms import RegistrationForm, LoginForm
+from werkzeug.security import generate_password_hash, check_password_hash
 
-   @auth.route('/register', methods=['GET', 'POST'])
-   def register():
-       form = RegistrationForm()
-       if form.validate_on_submit():
-           hashed_password = generate_password_hash(form.password.data, method='sha256')
-           new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
-           db.session.add(new_user)
-           db.session.commit()
-           flash('Your account has been created!', 'success')
-           return redirect(url_for('auth.login'))
-       return render_template('register.html', form=form)
+@auth.route('/register', methods=['GET', 'POST'])
+def register():
+   form = RegistrationForm()
+   if form.validate_on_submit():
+	   hashed_password = generate_password_hash(form.password.data, method='sha256')
+	   new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+	   db.session.add(new_user)
+	   db.session.commit()
+	   flash('Your account has been created!', 'success')
+	   return redirect(url_for('auth.login'))
+   return render_template('register.html', form=form)
 
-   @auth.route('/login', methods=['GET', 'POST'])
-   def login():
-       form = LoginForm()
-       if form.validate_on_submit():
-           user = User.query.filter_by(email=form.email.data).first()
-           if user and check_password_hash(user.password, form.password.data):
-               login_user(user, remember=True)
-               next_page = request.args.get('next')
-               return redirect(next_page) if next_page else redirect(url_for('main.home'))
-           else:
-               flash('Login Unsuccessful. Please check email and password', 'danger')
-       return render_template('login.html', form=form)
+@auth.route('/login', methods=['GET', 'POST'])
+def login():
+   form = LoginForm()
+   if form.validate_on_submit():
+	   user = User.query.filter_by(email=form.email.data).first()
+	   if user and check_password_hash(user.password, form.password.data):
+		   login_user(user, remember=True)
+		   next_page = request.args.get('next')
+		   return redirect(next_page) if next_page else redirect(url_for('main.home'))
+	   else:
+		   flash('Login Unsuccessful. Please check email and password', 'danger')
+   return render_template('login.html', form=form)
 
-   @auth.route('/logout')
-   @login_required
-   def logout():
-       logout_user()
-       return redirect(url_for('main.home'))
-   ```
+@auth.route('/logout')
+@login_required
+def logout():
+   logout_user()
+   return redirect(url_for('main.home'))
+```
 
-8. **`app/models.py`**:
+1. **`app/models.py`**:
 
-   ```python
-   from flask_sqlalchemy import SQLAlchemy
-   from flask_login import UserMixin
-   from app import db
+```python
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
+from app import db
 
-   class User(db.Model, UserMixin):
-       id = db.Column(db.Integer, primary_key=True)
-       username = db.Column(db.String(80), unique=True, nullable=False)
-       email = db.Column(db.String(120), unique=True, nullable=False)
-       password = db.Column(db.String(60), nullable=False)
+class User(db.Model, UserMixin):
+   id = db.Column(db.Integer, primary_key=True)
+   username = db.Column(db.String(80), unique=True, nullable=False)
+   email = db.Column(db.String(120), unique=True, nullable=False)
+   password = db.Column(db.String(60), nullable=False)
 
-       def __repr__(self):
-           return f'<User {self.username}>'
-   ```
+   def __repr__(self):
+	   return f'<User {self.username}>'
+```
 
 9. **`app/forms.py`**:
 
-   ```python
-   from flask_wtf import FlaskForm
-   from wtforms import StringField, PasswordField, SubmitField
-   from wtforms.validators import DataRequired, Email, Length
+```python
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, Length
 
-   class RegistrationForm(FlaskForm):
-       username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
-       email = StringField('Email', validators=[DataRequired(), Email()])
-       password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
-       submit = SubmitField('Sign Up')
+class RegistrationForm(FlaskForm):
+   username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+   submit = SubmitField('Sign Up')
 
-   class LoginForm(FlaskForm):
-       email = StringField('Email', validators=[DataRequired(), Email()])
-       password = PasswordField('Password', validators=[DataRequired()])
-       submit = SubmitField('Login')
-   ```
+class LoginForm(FlaskForm):
+   email = StringField('Email', validators=[DataRequired(), Email()])
+   password = PasswordField('Password', validators=[DataRequired()])
+   submit = SubmitField('Login')
+```
 
 ### Summary
 

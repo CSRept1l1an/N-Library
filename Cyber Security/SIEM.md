@@ -6,7 +6,7 @@ Security Information and Event Management (SIEM) systems are essential tools for
 ### Key SIEM Functions
 
 1. **Data Collection**
-   - **Sources**: Network devices, servers, [[Database]], applications, and security devices.
+   - **Sources**: Network devices, servers, databases, applications, and security devices.
    - **Methods**: Log collection, agent-based collection, agentless collection, API integration.
 
 2. **Normalization**

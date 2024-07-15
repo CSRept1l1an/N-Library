@@ -8,7 +8,7 @@ Git is a distributed version control system designed to handle everything from s
 ### Basic Concepts
 
 - **Repository (Repo)**: A directory which contains your project work, including all files and folders, along with a special `.git` directory that stores the version control information.
-  
+
 - **Clone**: A copy of a repository. When you clone a repository, you get all the files, commit history, and branches of the original repository.
 
 - **Commit**: A snapshot of your project at a point in time. Commits are the fundamental unit of change in Git, and each commit has a unique SHA-1 hash.
@@ -35,10 +35,10 @@ Git is a distributed version control system designed to handle everything from s
 Local Repository                              Remote Repository
 
 Working Directory  ->  Staging Area  ->  Local Repository  ->  Remote Repository
-    (edit)               (stage)             (commit)                (push)
-                                               |                     (fetch)
-                                               |<--------------------------------
-                                                   (pull)
+(edit)               (stage)             (commit)                (push)
+									   |                     (fetch)
+									   |<--------------------------------
+										   (pull)
 ```
 
 ### Summary
@@ -56,32 +56,36 @@ Git is a powerful tool for version control, enabling collaboration and efficient
 ##### macOS
 1. Open Terminal.
 2. Install Homebrew if you haven't already:
-   ```sh
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 3. Install Git using Homebrew:
-   ```sh
-   brew install git
-   ```
+```sh
+brew install git
+```
+
 4. Verify the installation:
-   ```sh
-   git --version
-   ```
+```sh
+git --version
+```
 
 ##### Linux
-- **Debian/Ubuntu**:
-  ```sh
-  sudo apt update
-  sudo apt install git
-  ```
+- **Debian/[[Ubuntu]]**:
+```sh
+sudo apt update
+sudo apt install git
+```
+
 - **Fedora**:
-  ```sh
-  sudo dnf install git
-  ```
+```sh
+sudo dnf install git
+```
+
 - **Arch**:
-  ```sh
-  sudo pacman -S git
-  ```
+```sh
+sudo pacman -S git
+```
 
 Verify the installation with:
 ```sh
@@ -93,25 +97,25 @@ git --version
 After installing Git, you need to configure it with your user information, which will be used for your commits.
 
 1. **Set Your Username**:
-   ```sh
-   git config --global user.name "Your Name"
-   ```
+```sh
+git config --global user.name "Your Name"
+```
 
 2. **Set Your Email**:
-   ```sh
-   git config --global user.email "your.email@example.com"
-   ```
+```sh
+git config --global user.email "your.email@example.com"
+```
 
 3. **Set Your Default Text Editor**:
-   ```sh
-   git config --global core.editor "your_editor"
-   ```
-   Replace `"your_editor"` with your preferred text editor, e.g., `"vim"`, `"nano"`, or `"code"` for VS Code.
+```sh
+git config --global core.editor "your_editor"
+```
+Replace `"your_editor"` with your preferred text editor, e.g., `"vim"`, `"nano"`, or `"code"` for VS Code.
 
 4. **Check Your Configuration**:
-   ```sh
-   git config --list
-   ```
+```sh
+git config --list
+```
 
 #### Example
 ```sh
@@ -131,16 +135,16 @@ git config --list
 Git stores configuration settings in three different files, depending on the scope:
 
 - **System-wide** (all users and all repositories):
-  - Located at `/etc/gitconfig` on Linux systems.
-  - To configure: `git config --system`
+- Located at `/etc/gitconfig` on Linux systems.
+- To configure: `git config --system`
 
 - **User-specific** (all repositories for the current user):
-  - Located at `~/.gitconfig` or `~/.config/git/config`.
-  - To configure: `git config --global`
+- Located at `~/.gitconfig` or `~/.config/git/config`.
+- To configure: `git config --global`
 
 - **Repository-specific** (specific to the current repository):
-  - Located in the `.git/config` file in the root of the repository.
-  - To configure: `git config` without any `--global` or `--system` flags.
+- Located in the `.git/config` file in the root of the repository.
+- To configure: `git config` without any `--global` or `--system` flags.
 
 ## 3. Basic Commands
 ### Initialize Repository
@@ -149,8 +153,8 @@ Git stores configuration settings in three different files, depending on the sco
 - **Description**: Initialize a new Git repository in the current directory. Creates a `.git` directory that contains all the necessary metadata and version history.
 - **Example**:
 ```sh
-  git init
-  ```
+git init
+```
 
 ### Clone Repository
 
@@ -158,8 +162,8 @@ Git stores configuration settings in three different files, depending on the sco
 - **Description**: Create a copy of an existing repository. This command downloads all the files, branches, and commit history from a remote repository.
 - **Example**:
 ```sh
-  git clone https://github.com/user/repository.git
-  ```
+git clone https://github.com/user/repository.git
+```
 
 ### Check Repository Status
 
@@ -167,8 +171,8 @@ Git stores configuration settings in three different files, depending on the sco
 - **Description**: Show the status of the working directory and staging area. It displays which changes have been staged, which haven't, and which files are not being tracked by Git.
 - **Example**:
 ```sh
-  git status
-  ```
+git status
+```
 
 ### View Changes
 
@@ -176,8 +180,8 @@ Git stores configuration settings in three different files, depending on the sco
 - **Description**: Show the differences between the working directory and the staging area, or between commits. Useful for reviewing changes before committing.
 - **Example**:
 ```sh
-  git diff
-  ```
+git diff
+```
 
 ### Add Changes
 
@@ -185,9 +189,9 @@ Git stores configuration settings in three different files, depending on the sco
 - **Description**: Add changes in the working directory to the staging area. This command stages the changes you want to commit.
 - **Examples**:
 ```sh
-  git add file.txt         # Add specific file
-  git add .                # Add all changes in the current directory
-  ```
+git add file.txt         # Add specific file
+git add .                # Add all changes in the current directory
+```
 
 ### Commit Changes
 
@@ -195,35 +199,37 @@ Git stores configuration settings in three different files, depending on the sco
 - **Description**: Record changes to the repository with a descriptive message. The commit captures the current state of the staged changes.
 - **Example**:
 ```sh
-  git commit -m "Initial commit"
-  ```
+git commit -m "Initial commit"
+```
+
 - **Command (Skip Staging)**: `git commit -a -m "Commit message"`
 - **Description**: Stage and commit all changes in one step, bypassing the staging area.
 - **Example**:
 ```sh
-  git commit -a -m "Updated README file"
-  ```
+git commit -a -m "Updated README file"
+```
 
 ### Remove Files
 
 - **Command**: `git rm <file>`
 - **Description**: Remove files from the working directory and stage the removal for commit.
 - **Example**:
-  ```sh
-  git rm file.txt
-  ```
+```sh
+git rm file.txt
+```
+
 - **Command (Keep File Locally)**: `git rm --cached <file>`
 - **Description**: Remove files from the staging area, but keep them in the working directory.
 - **Example**:
-  ```sh
-  git rm --cached file.txt
-  ```
-  
+```sh
+git rm --cached file.txt
+```
+
 ### Move/Rename Files
 
 - **Command**: `git mv <old_filename> <new_filename>`
 - **Description**: Move or rename a file and stage the change for commit.
 - **Example**:
 ```sh
-  git mv old_name.txt new_name.txt
-  ```
+git mv old_name.txt new_name.txt
+```

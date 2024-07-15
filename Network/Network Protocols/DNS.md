@@ -111,7 +111,7 @@ example.com. IN TXT "v=spf1 ip4:93.184.216.34 -all"
 - **dnsmasq**: Lightweight DNS forwarder and DHCP server.
 - **dnstracer**: Trace a DNS query to its source.
 - **zonecheck**: Check DNS zone consistency.
-- **Nmap**: Network scanner with DNS-related scripts (e.g., `dns-brute`, `dns-srv-enum`).
+- **[[Nmap]]**: Network scanner with DNS-related scripts (e.g., `dns-brute`, `dns-srv-enum`).
 
 #### Best Practices
 - **Regularly Update and Patch DNS Servers**: Protect against vulnerabilities.

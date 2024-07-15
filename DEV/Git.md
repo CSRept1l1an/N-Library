@@ -1,6 +1,9 @@
+#Yellow
+
 1. Introduction to Git
 2. Setting Up Git
 3. Basic Commands  
+4. Advanced Commands
 ## 1. Introduction to Git
 
 ### What is Git?
@@ -72,7 +75,7 @@ git --version
 ```
 
 #### Linux
-- **Debian/Ubuntu**:
+- **Debian/[[Ubuntu]]**:
 ```sh
 sudo apt update
 sudo apt install git
@@ -227,7 +230,6 @@ git rm --cached file.txt
 ```sh
 git mv old_name.txt new_name.txt
 ```
-
 
 ## 4. Advanced Commands
 
@@ -497,5 +499,3 @@ git bisect bad z9y8x7w6
 ```sh
 git bisect reset
 ```
-
-These advanced commands provide greater control and efficiency in managing your Git repositories, enabling you to handle complex version control tasks effectively.

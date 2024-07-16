@@ -1,5 +1,5 @@
 #Red 
-## **SQL Injection 1**
+## SQL Injection 1
 ### Analysis
 #### Original Query:
 
@@ -38,7 +38,7 @@ https://0a9e009b03fe6a7d80663a5b004a0029.web-security-academy.net/filter?categor
 
 ---
 
-## **SQL Injection 2**
+## SQL Injection 2
 
 ### Analysis
 #### Original Query:
@@ -79,5 +79,5 @@ https://example.com/login?username=administrator'--&password=admin
 
 ---
 
-## **SQL Injection 3**
+## SQL Injection 3
 ### Analysis

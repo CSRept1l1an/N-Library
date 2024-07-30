@@ -529,46 +529,46 @@ CMD ["python3", "app.py"]
 - **Keep Images Small**: Use minimal base images and clean up unnecessary files to reduce image size.
 - **Use Multi-stage Builds**: Separate the build and runtime environments to optimize the final image.
 
-### 9. Security Best Practices
+## 9. Security Best Practices
 
-#### General Guidelines
+### General Guidelines
 - **Run Containers as Non-Root Users:**
-  - Running containers as the root user can pose security risks. It's best to create a non-root user in your Dockerfile.
-  ```Dockerfile
-  FROM ubuntu:20.04
-  RUN useradd -ms /bin/bash nonrootuser
-  USER nonrootuser
-  ```
+- Running containers as the root user can pose security risks. It's best to create a non-root user in your Dockerfile.
+```Dockerfile
+FROM ubuntu:20.04
+RUN useradd -ms /bin/bash nonrootuser
+USER nonrootuser
+```
 
 - **Minimize the Number of Layers:**
-  - Each layer in a Docker image represents a potential attack surface. Combine multiple commands into a single `RUN` instruction to reduce layers.
-  ```Dockerfile
-  RUN apt-get update && apt-get install -y \
-    package1 \
+- Each layer in a Docker image represents a potential attack surface. Combine multiple commands into a single `RUN` instruction to reduce layers.
+```Dockerfile
+RUN apt-get update && apt-get install -y \
+	package1 \
     package2 \
     package3 && \
     rm -rf /var/lib/apt/lists/*
-  ```
+```
 
 - **Use Official and Trusted Base Images:**
-  - Always start with a minimal, trusted base image. Official images from Docker Hub are typically maintained and updated for security.
-  ```Dockerfile
-  FROM python:3.8-slim
-  ```
+- Always start with a minimal, trusted base image. Official images from Docker Hub are typically maintained and updated for security.
+```Dockerfile
+FROM python:3.8-slim
+```
 
 - **Regularly Update Base Images:**
-  - Keep your base images up-to-date with security patches and updates.
-  ```bash
-  docker pull ubuntu:latest
-  ```
+- Keep your base images up-to-date with security patches and updates.
+```bash
+docker pull ubuntu:latest
+```
 
 - **Scan Images for Vulnerabilities:**
-  - Use tools like Clair, Trivy, or Docker Bench for Security to scan images for vulnerabilities.
-  ```bash
-  trivy image myapp:latest
-  ```
+- Use tools like Clair, Trivy, or Docker Bench for Security to scan images for vulnerabilities.
+```bash
+trivy image myapp:latest
+```
 
-#### Docker Security Tools
+### Docker Security Tools
 - **Clair:**
 - Clair is an open-source project for the static analysis of vulnerabilities in application containers (currently including appc and docker).
 ```bash
@@ -584,13 +584,13 @@ trivy image myapp:latest
 - **Docker Bench for Security:**
 - Docker Bench for Security is a script that checks for dozens of common best practices around deploying Docker containers in production.
 ```bash
-docker run -it --net host --pid host --cap-add audit_control \ 
+docker run -it --net host --pid host --cap-add audit_control \
 -v /var/lib:/var/lib -v /var/run/docker.sock:/var/run/docker.sock \
 --label docker_bench_security \
 docker/docker-bench-security
 ```
 
-#### Network Security
+### Network Security
 - **Use Private Networks:**
 - Isolate containers from the public network by using Docker’s network features.
 ```bash
@@ -609,7 +609,7 @@ docker run --cap-drop ALL --cap-add NET_ADMIN my_container
 docker run -p 127.0.0.1:8080:8080 my_container
 ```
 
-#### Data and Secrets Management
+### Data and Secrets Management
 - **Use Docker Secrets:**
 - Store and manage sensitive data using Docker secrets.
 ```bash
@@ -623,7 +623,7 @@ docker service create --name my_service --secret my_secret my_image
 - **Avoid Hardcoding Secrets:**
 - Do not hardcode sensitive information (such as passwords or API keys) in your Dockerfiles or environment variables.
 
-#### Image Signing and Verification
+### Image Signing and Verification
 - **Use Docker Content Trust:**
 - Docker Content Trust (DCT) provides the ability to use digital signatures for data sent to and received from remote Docker registries, ensuring that the image’s content is from a trusted source.
 ```bash
@@ -631,7 +631,7 @@ export DOCKER_CONTENT_TRUST=1
 docker pull myrepo/myimage:latest
 ```
 
-#### Monitoring and Auditing
+### Monitoring and Auditing
 - **Monitor Container Activity:**
 - Use tools like Prometheus and Grafana to monitor container metrics and logs.
 ```bash

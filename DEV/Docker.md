@@ -226,3 +226,191 @@ docker network create --driver overlay my_overlay_network
 - **Host Network**: Removes network isolation between the container and the Docker host. The container shares the host's network stack.
 - **None Network**: Disables networking for the container. Useful for isolated workloads that do not require network access.
 
+## 6. Docker Volumes
+
+### Volume Commands
+- **List all volumes:**
+```bash
+docker volume ls
+```
+
+- **Create a volume:**
+```bash
+docker volume create <volume>
+```
+Example:
+```bash
+docker volume create my_volume
+```
+
+- **Inspect a volume:**
+```bash
+docker volume inspect <volume>
+```
+Example:
+```bash
+docker volume inspect my_volume
+```
+
+- **Remove a volume:**
+```bash
+docker volume rm <volume>
+```
+Example:
+```bash
+docker volume rm my_volume
+```
+
+### Using Volumes with Containers
+- **Mount a volume to a container:**
+```bash
+docker run -v <volume>:/path/in/container <image>
+```
+Example:
+```bash
+docker run -v my_volume:/data ubuntu
+```
+
+- **Mount a host directory as a volume:**
+```bash
+docker run -v /path/on/host:/path/in/container <image>
+```
+Example:
+```bash
+docker run -v /host/data:/container/data ubuntu
+```
+
+- **Named volumes:**
+```bash
+docker run --name <container> -v <volume>:/path/in/container <image>
+```
+Example:
+```bash
+docker run --name my_container -v my_volume:/data ubuntu
+```
+
+### Volume Usage Examples
+- **Persist data between container runs:**
+```bash
+docker run -v my_volume:/data ubuntu echo "Hello, World!" > /data/hello.txt
+```
+
+- **Access data stored in a volume:**
+```bash
+docker run -v my_volume:/data ubuntu cat /data/hello.txt
+```
+
+### Volume Drivers
+- **Default local driver**: Creates volumes stored on the local Docker host.
+- **Third-party volume drivers**: Allows volumes to be stored on external storage systems (e.g., AWS EBS, NFS).
+
+### Best Practices
+- **Use volumes for persistent data storage:** Ensure data is not lost when containers are removed or recreated.
+- **Leverage volume drivers:** Utilize external storage systems for scalability and reliability.
+- **Organize volume usage:** Use named volumes for clarity and easier management.
+
+### 7. Docker Compose
+
+#### Installation
+- **Install Docker Compose on Linux:**
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+- **Verify Installation:**
+```bash
+docker-compose --version
+```
+
+#### Basic Commands
+- **Start services defined in a `docker-compose.yml` file:**
+```bash
+docker-compose up
+```
+Use the `-d` flag to run in detached mode:
+```bash
+docker-compose up -d
+```
+
+- **Stop and remove containers, networks, images, and volumes:**
+```bash
+docker-compose down
+```
+
+- **Build or rebuild services:**
+```bash
+docker-compose build
+```
+
+- **View output from services:**
+```bash
+docker-compose logs
+```
+Use the `-f` flag to follow logs in real-time:
+```bash
+docker-compose logs -f
+```
+
+- **Execute a command in a running service:**
+```bash
+docker-compose exec <service> <command>
+```
+Example:
+```bash
+docker-compose exec web /bin/bash
+```
+
+- **List all running services:**
+```bash
+docker-compose ps
+```
+
+#### `docker-compose.yml` File
+Example structure of a `docker-compose.yml` file:
+```yaml
+version: '3'
+services:
+web:
+image: nginx
+ports:
+  - "80:80"
+volumes:
+  - ./html:/usr/share/nginx/html
+db:
+image: postgres
+environment:
+  POSTGRES_DB: exampledb
+  POSTGRES_USER: exampleuser
+  POSTGRES_PASSWORD: examplepass
+volumes:
+  - db_data:/var/lib/postgresql/data
+volumes:
+db_data:
+```
+
+#### Common Options
+- **services:** Define the individual services that make up your application.
+- **image:** Specify the Docker image to use for the service.
+- **build:** Build from a Dockerfile in the current directory or a specified path.
+- **ports:** Map ports from the host to the container.
+- **volumes:** Mount host directories or named volumes into the container.
+- **environment:** Set environment variables for the service.
+
+#### Scaling Services
+- **Scale a service to multiple instances:**
+```bash
+docker-compose up --scale <service>=<number>
+```
+Example:
+```bash
+docker-compose up --scale web=3
+```
+
+#### Docker Compose Best Practices
+- **Use environment variables for configuration:** Store sensitive information and environment-specific configurations outside the `docker-compose.yml` file.
+- **Organize multi-container applications:** Keep related services together in the same `docker-compose.yml` file.
+- **Utilize named volumes:** Ensure data persistence and easy volume management.
+- **Leverage networks:** Use Docker Compose networks to enable communication between services.
+
+By using Docker Compose, you can manage multi-container applications efficiently, streamline the development workflow, and ensure consistent environments across different stages of the application lifecycle.

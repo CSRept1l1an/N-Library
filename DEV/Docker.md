@@ -309,9 +309,9 @@ docker run -v my_volume:/data ubuntu cat /data/hello.txt
 - **Leverage volume drivers:** Utilize external storage systems for scalability and reliability.
 - **Organize volume usage:** Use named volumes for clarity and easier management.
 
-### 7. Docker Compose
+## 7. Docker Compose
 
-#### Installation
+### Installation
 - **Install Docker Compose on Linux:**
 ```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -323,7 +323,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
-#### Basic Commands
+### Basic Commands
 - **Start services defined in a `docker-compose.yml` file:**
 ```bash
 docker-compose up
@@ -366,30 +366,30 @@ docker-compose exec web /bin/bash
 docker-compose ps
 ```
 
-#### `docker-compose.yml` File
+### `docker-compose.yml` File
 Example structure of a `docker-compose.yml` file:
 ```yaml
 version: '3'
 services:
-web:
-image: nginx
-ports:
-  - "80:80"
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: exampledb
+      POSTGRES_USER: exampleuser
+      POSTGRES_PASSWORD: examplepass
+    volumes:
+      - db_data:/var/lib/postgresql/data
 volumes:
-  - ./html:/usr/share/nginx/html
-db:
-image: postgres
-environment:
-  POSTGRES_DB: exampledb
-  POSTGRES_USER: exampleuser
-  POSTGRES_PASSWORD: examplepass
-volumes:
-  - db_data:/var/lib/postgresql/data
-volumes:
-db_data:
+  db_data:
 ```
 
-#### Common Options
+### Common Options
 - **services:** Define the individual services that make up your application.
 - **image:** Specify the Docker image to use for the service.
 - **build:** Build from a Dockerfile in the current directory or a specified path.
@@ -397,7 +397,7 @@ db_data:
 - **volumes:** Mount host directories or named volumes into the container.
 - **environment:** Set environment variables for the service.
 
-#### Scaling Services
+### Scaling Services
 - **Scale a service to multiple instances:**
 ```bash
 docker-compose up --scale <service>=<number>
@@ -407,10 +407,124 @@ Example:
 docker-compose up --scale web=3
 ```
 
-#### Docker Compose Best Practices
+### Docker Compose Best Practices
 - **Use environment variables for configuration:** Store sensitive information and environment-specific configurations outside the `docker-compose.yml` file.
 - **Organize multi-container applications:** Keep related services together in the same `docker-compose.yml` file.
 - **Utilize named volumes:** Ensure data persistence and easy volume management.
 - **Leverage networks:** Use Docker Compose networks to enable communication between services.
 
-By using Docker Compose, you can manage multi-container applications efficiently, streamline the development workflow, and ensure consistent environments across different stages of the application lifecycle.
+## 8. Dockerfile
+
+### Basic Instructions
+- **FROM**: Specify the base image.
+```Dockerfile
+FROM ubuntu:20.04
+```
+
+- **RUN**: Execute a command during the build process.
+```Dockerfile
+RUN apt-get update && apt-get install -y python3
+```
+
+- **COPY**: Copy files/directories from the host to the image.
+```Dockerfile
+COPY . /app
+```
+
+- **ADD**: Similar to COPY, but also supports URLs and tar extraction.
+```Dockerfile
+ADD https://example.com/file.tar.gz /app
+```
+
+- **CMD**: Provide a default command to run when the container starts. Only one CMD instruction is allowed.
+```Dockerfile
+CMD ["python3", "/app/myapp.py"]
+```
+
+- **ENTRYPOINT**: Configure a container that will run as an executable.
+```Dockerfile
+ENTRYPOINT ["python3", "/app/myapp.py"]
+```
+
+- **EXPOSE**: Expose a port for the container.
+```Dockerfile
+EXPOSE 80
+```
+
+- **ENV**: Set environment variables.
+```Dockerfile
+ENV APP_ENV=production
+```
+
+- **VOLUME**: Mount a host directory or named volume.
+```Dockerfile
+VOLUME /data
+```
+
+- **WORKDIR**: Set the working directory for the container.
+```Dockerfile
+WORKDIR /app
+```
+
+### Example Dockerfile
+```Dockerfile
+# Use an official Python runtime as a parent image
+FROM python:3.8-slim
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy the current directory contents into the container at /usr/src/app
+COPY . .
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Make port 80 available to the world outside this container
+EXPOSE 80
+
+# Define environment variable
+ENV NAME World
+
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+```
+
+### Common Dockerfile Patterns
+- **Multi-stage Builds**: Optimize the build process by reducing the final image size.
+```Dockerfile
+FROM golang:1.16 as builder
+WORKDIR /app
+COPY . .
+RUN go build -o myapp
+
+FROM alpine:latest
+COPY --from=builder /app/myapp /myapp
+CMD ["/myapp"]
+```
+
+- **Cache Dependencies**: Separate the installation of dependencies to leverage Docker's layer caching.
+```Dockerfile
+FROM node:14
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+CMD ["node", "server.js"]
+```
+
+- **Minimal Base Images**: Use minimal base images like `alpine` to reduce image size.
+```Dockerfile
+FROM alpine:3.12
+RUN apk add --no-cache python3 py3-pip
+COPY . /app
+WORKDIR /app
+RUN pip3 install -r requirements.txt
+CMD ["python3", "app.py"]
+```
+
+### Best Practices
+- **Minimize Layers**: Combine multiple RUN instructions into a single one to reduce the number of layers.
+- **Leverage Caching**: Order instructions to maximize the use of Docker’s build cache.
+- **Keep Images Small**: Use minimal base images and clean up unnecessary files to reduce image size.
+- **Use Multi-stage Builds**: Separate the build and runtime environments to optimize the final image.

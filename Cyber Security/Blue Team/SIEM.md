@@ -57,11 +57,11 @@ Security Information and Event Management (SIEM) systems are essential tools for
 
 #### Paid SIEM Solutions
 
-- **Splunk**
+- [[Splunk]]
   - Known for: Advanced data analytics and visualization.
   - Features: Real-time search, alerts, dashboards, and reports.
 
-- **[[IBM QRadar]]**
+- [[IBM QRadar]]
   - Known for: Comprehensive threat intelligence and advanced correlation capabilities.
   - Features: Offense management, threat intelligence, and compliance reporting.
 
@@ -114,11 +114,11 @@ Security Information and Event Management (SIEM) systems are essential tools for
 
 ### Common Commands and Queries
 
-- **Splunk**:
+- [[Splunk]]:
   - Search logs: `sourcetype="access_combined" error`
   - Create alert: `| stats count by status | where status=500`
   
-- **QRadar**:
+- [[IBM QRadar|QRadar]]:
   - Create rule: `when the event QID is in (3000, 3001) and the source IP is not in (10.0.0.0/8)`
   
 - **ArcSight**:

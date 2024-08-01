@@ -1,4 +1,4 @@
-#Dev 
+#Database 
 ### 1. Database Concepts
 - **Database**: A structured collection of data.
 - **DBMS (Database Management System)**: Software for creating and managing databases (e.g., MySQL, PostgreSQL, Oracle).

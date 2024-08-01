@@ -1,15 +1,15 @@
 #Dev 
-0. [[DEV/Programming/Python/Python#About Python|About Python]]
-1. [[DEV/Programming/Python/Python#Basic Syntax|Basic Syntax]] 
-2. [[DEV/Programming/Python/Python#Control Structures|Control Structures]]
-3. [[DEV/Programming/Python/Python#Functions|Functions]]
-4. [[DEV/Programming/Python/Python#Data Structures|Data Structures]]
-5. [[DEV/Programming/Python/Python#Module and Packages|Module and Packages]]
-6. [[DEV/Programming/Python/Python#File Handling|File Handling]]
-7. [[DEV/Programming/Python/Python#Exception Handling|Exception Handling]]
-8. [[DEV/Programming/Python/Python#Object-Oriented Programming (OOP)|Object-Oriented Programming (OOP)]]
-9. [[DEV/Programming/Python/Python#Libraries and Frameworks|Libraries and Frameworks]]
-10. [[DEV/Programming/Python/Python#My Projects in Python|My Projects in Python]]
+0. [[Development/Programming/Python/Python#About Python|About Python]]
+1. [[Development/Programming/Python/Python#Basic Syntax|Basic Syntax]] 
+2. [[Development/Programming/Python/Python#Control Structures|Control Structures]]
+3. [[Development/Programming/Python/Python#Functions|Functions]]
+4. [[Development/Programming/Python/Python#Data Structures|Data Structures]]
+5. [[Development/Programming/Python/Python#Module and Packages|Module and Packages]]
+6. [[Development/Programming/Python/Python#File Handling|File Handling]]
+7. [[Development/Programming/Python/Python#Exception Handling|Exception Handling]]
+8. [[Development/Programming/Python/Python#Object-Oriented Programming (OOP)|Object-Oriented Programming (OOP)]]
+9. [[Development/Programming/Python/Python#Libraries and Frameworks|Libraries and Frameworks]]
+10. [[Development/Programming/Python/Python#My Projects in Python|My Projects in Python]]
 ## About Python
 ### History of Python
 Python was created by Guido van Rossum and was first released in 1991. Van Rossum began working on Python in the late 1980s as a successor to the ABC language, aiming to create a language that was easy to read and write. Python was named after the British comedy series "Monty Python's Flying Circus," reflecting van Rossum's intention to make programming fun. Since its release, Python has grown in popularity and undergone numerous improvements, becoming one of the most widely used programming languages in the world.
@@ -17,7 +17,7 @@ Python was created by Guido van Rossum and was first released in 1991. Van Rossu
 ### Evolution and Versions
 Python has evolved significantly since its inception, with several major versions introducing new features and improvements:
 
-- **Python 1.0 (1994):** The first official release, including [[DEV/Programming/Python/Python#Variables and Data Types|basic data types]], [[DEV/Programming/Python/Python#**Exception Handling**|error handling]], and [[DEV/Programming/Python/Python#**Functions**|functions]].
+- **Python 1.0 (1994):** The first official release, including [[Development/Programming/Python/Python#Variables and Data Types|basic data types]], [[Development/Programming/Python/Python#**Exception Handling**|error handling]], and [[Development/Programming/Python/Python#**Functions**|functions]].
 - **Python 2.0 (2000):** Introduced new features like list comprehensions, garbage collection, and Unicode support. Python 2.x series continued until 2010 with Python 2.7, which became the last release of the 2.x series.
 - **Python 3.0 (2008):** A major overhaul designed to rectify fundamental design flaws in the language. Python 3 introduced changes that were not backward compatible with Python 2, such as print function syntax, integer division, and a unified string representation. Python 3.x series continues to receive updates, with ongoing improvements and feature additions.
 - **Python 3.6 (2016):** Introduced formatted string literals (f-strings), type hints, and improvements to asynchronous programming.

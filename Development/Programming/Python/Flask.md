@@ -384,7 +384,7 @@ if __name__ == '__main__':
 
 ### Setting up Jinja2 Templates
 
-Flask uses the Jinja2 template engine to render HTML templates. This allows you to create dynamic web pages by embedding [[DEV/Programming/Python/Python|Python]]-like expressions within HTML.
+Flask uses the Jinja2 template engine to render HTML templates. This allows you to create dynamic web pages by embedding [[Development/Programming/Python/Python|Python]]-like expressions within HTML.
 
 1. **Create a Templates Directory**:
 Flask looks for templates in the `templates` directory by default. Create this directory in your project root.

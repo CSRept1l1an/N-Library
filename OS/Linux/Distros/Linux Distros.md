@@ -22,7 +22,7 @@
 - **Use Cases**: Desktop, development
 - **Key Features**: Cutting-edge technology, SELinux by default, strong developer community
 
-### 4. [[CentOS]] / Rocky Linux / AlmaLinux
+### 4. [[Centos]] / Rocky Linux / AlmaLinux
 
 - **Base**: Red Hat
 - **Package Manager**: YUM (Yellowdog Updater, Modified) / DNF

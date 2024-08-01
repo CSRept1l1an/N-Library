@@ -26,7 +26,7 @@ The OWASP Top 10 is a standard awareness document for web application security. 
 #### A03:2021 - Injection
 - **Description**: Injection of untrusted data.
 - **Examples**:
-  - [[-SQLI-|SQL injection]].
+  - [[0. SQLI|SQL injection]].
   - NoSQL injection.
   - Command injection.
 - **Prevention**:

@@ -39,7 +39,7 @@ Security Information and Event Management (SIEM) systems are essential tools for
 
 #### Open Source SIEM Solutions
 
-- **ELK Stack (Elasticsearch, Logstash, Kibana)**
+- [[ELK Stack]] (Elasticsearch, Logstash, Kibana)
   - Known for: Flexibility and powerful data analytics.
   - Features: Log collection (Logstash), storage and search (Elasticsearch), and visualization (Kibana).
 

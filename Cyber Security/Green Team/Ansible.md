@@ -19,7 +19,7 @@ Ansible is an open-source automation tool used for configuration management, app
 
 ## 2. Basic Concepts
 
-#### Inventory
+### Inventory
 - **Definition:**
   An inventory in Ansible is a file that contains information about the hosts that Ansible manages. It can be as simple as a list of IP addresses or hostnames, or it can be a more complex configuration that includes groups and variables.
 
@@ -48,27 +48,27 @@ all:
 		db2.example.com:
 ```
 
-#### Playbooks
+### Playbooks
 - **Definition:**
   Playbooks are Ansible's configuration, deployment, and orchestration language. They are expressed in YAML and allow you to describe policies that your remote systems should enforce or a set of steps in a general IT process.
 
 - **YAML Structure:**
 ```yaml
 - name: Ensure web servers are configured
-hosts: webservers
-tasks:
-  - name: Install Nginx
-	apt:
-	  name: nginx
-	  state: present
+  hosts: webservers
+  tasks:
+	- name: Install Nginx
+	  apt:
+		name: nginx
+	    state: present
 
-  - name: Start Nginx service
-	service:
-	  name: nginx
-	  state: started
+	- name: Start Nginx service
+	  service:
+	    name: nginx
+	    state: started
 ```
 
-#### Modules
+### Modules
 - **Definition:**
   Modules are the building blocks of Ansible. Each module is essentially a tool that Ansible runs to perform specific tasks such as installing packages, managing services, or manipulating files.
 
@@ -79,25 +79,78 @@ tasks:
   - `file`: Manage file properties.
   - `service`: Manage services.
 
-#### Roles
+### Roles
 - **Definition:**
   Roles are a way of organizing playbooks and other files in a standardized file structure. They enable you to reuse and share code more easily by grouping tasks, files, templates, and variables.
 
 - **Structure:**
-  ```text
-  my_role/
-  ├── tasks/
-  │   └── main.yml
-  ├── files/
-  ├── templates/
-  ├── vars/
-  │   └── main.yml
-  ├── defaults/
-  │   └── main.yml
-  ├── handlers/
-  │   └── main.yml
-  └── meta/
-      └── main.yml
-  ```
+```text
+my_role/
+├── tasks/
+│   └── main.yml
+├── files/
+├── templates/
+├── vars/
+│   └── main.yml
+├── defaults/
+│   └── main.yml
+├── handlers/
+│   └── main.yml
+└── meta/
+  └── main.yml
+```
 
-Understanding these basic concepts will help you get started with Ansible and form a solid foundation for more advanced usage.
+## 3. Installation and Configuration
+### Installing Ansible
+
+- **On [[Ubuntu]]:**
+```bash
+sudo apt update
+sudo apt install ansible
+```
+
+- **On [[CentOS]]:**
+```bash
+sudo yum install epel-release
+sudo yum install ansible
+```
+
+- **On macOS (using Homebrew):**
+```bash
+brew install ansible
+```
+
+- **Via Pip ([[Development/Programming/Python/Python|Python]] Package Installer):**
+```bash
+pip install ansible
+```
+
+#### Configuration
+
+- **Configuration File (`ansible.cfg`):**
+  The `ansible.cfg` file allows you to configure settings such as inventory location, logging, and SSH options. This file can be placed in several locations, including the current directory, the user's home directory, or globally.
+
+- **Basic `ansible.cfg` Example:**
+```ini
+[defaults]
+inventory = ./inventory
+remote_user = your_username
+private_key_file = ~/.ssh/id_rsa
+host_key_checking = False
+retry_files_enabled = False
+
+[privilege_escalation]
+become = True
+become_method = sudo
+become_user = root
+```
+
+- **Common Configuration Options:**
+- **`inventory`:** Path to the inventory file.
+- **`remote_user`:** Default SSH user.
+- **`private_key_file`:** Path to the SSH private key.
+- **`host_key_checking`:** Disable SSH host key checking (useful for dynamic hosts).
+- **`retry_files_enabled`:** Disable creation of retry files.
+- **`become`:** Enable privilege escalation.
+- **`become_method`:** Method for privilege escalation (e.g., `sudo`).
+- **`become_user`:** User to become when using privilege escalation.

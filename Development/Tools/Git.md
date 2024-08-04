@@ -52,7 +52,7 @@ Git is a powerful tool for version control, enabling collaboration and efficient
 
 ### Installation
 
-#### Windows
+#### [[Windows]]
 1. Download the Git installer from [git-scm.com](https://git-scm.com/download/win).
 2. Run the installer and follow the setup instructions.
 3. Open Git Bash to start using Git.

@@ -102,7 +102,7 @@ example.com. IN TXT "v=spf1 ip4:93.184.216.34 -all"
 - **nslookup**: Command-line tool for querying DNS servers.
 - **dig (Domain Information Groper)**: Command-line tool for detailed DNS queries.
 - **host**: Simple command-line DNS lookup utility.
-- **Wireshark**: Network protocol analyzer to capture and analyze DNS packets.
+- **[[Wireshark]]**: Network protocol analyzer to capture and analyze DNS packets.
 - **BIND (Berkeley Internet Name Domain)**: Popular DNS server software.
 - **Unbound**: Validating, recursive, and caching DNS resolver.
 - **PowerDNS**: Open-source DNS software.

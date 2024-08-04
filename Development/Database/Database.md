@@ -22,17 +22,17 @@ The relational model organizes data into tables (relations) with rows (tuples) a
 
 ### NoSQL Models
 - **Document**: Stores data as documents, often in JSON or BSON format.
-- Example: MongoDB
-- Use Case: Flexible schema design, hierarchical data storage.
+	- Example: [[MongoDB]]
+	- Use Case: Flexible schema design, hierarchical data storage.
 - **Key-Value**: Stores data as key-value pairs, where a key is a unique identifier for a value.
-- Example: Redis
-- Use Case: High-speed data retrieval, caching.
+	- Example: Redis
+	- Use Case: High-speed data retrieval, caching.
 - **Column Family**: Stores data in columns rather than rows, optimized for read and write performance.
-- Example: Cassandra
-- Use Case: Handling large volumes of data across many servers.
+	- Example: Cassandra
+	- Use Case: Handling large volumes of data across many servers.
 - **Graph**: Uses graph structures with nodes, edges, and properties to represent and store data.
-- Example: Neo4j
-- Use Case: Complex relationship queries, social networks.
+	- Example: Neo4j
+	- Use Case: Complex relationship queries, social networks.
 
 ## 3. Database Normalization
 ### 1NF (First Normal Form)
@@ -111,18 +111,21 @@ SELECT employees.name, departments.department_name
 FROM employees
 INNER JOIN departments ON employees.department_id = departments.department_id;
 ```
+
 - **LEFT JOIN (or LEFT OUTER JOIN)**: Selects all records from the left table and matched records from the right table.
 ```sql
 SELECT employees.name, departments.department_name
 FROM employees
 LEFT JOIN departments ON employees.department_id = departments.department_id;
 ```
+
 - **RIGHT JOIN (or RIGHT OUTER JOIN)**: Selects all records from the right table and matched records from the left table.
 ```sql
 SELECT employees.name, departments.department_name
 FROM employees
 RIGHT JOIN departments ON employees.department_id = departments.department_id;
 ```
+
 - **FULL JOIN (or FULL OUTER JOIN)**: Selects all records when there is a match in either left or right table.
 ```sql
 SELECT employees.name, departments.department_name
@@ -210,36 +213,44 @@ Regularly back up data and have a recovery plan in place.
 
 ## 9. Common Database Functions
 ### Aggregate Functions
+
 - **COUNT()**: Returns the number of rows.
 ```sql
 SELECT COUNT(*) FROM employees;
 ```
+
 - **SUM()**: Returns the sum of a numeric column.
 ```sql
 SELECT SUM(salary) FROM employees;
 ```
+
 - **AVG()**: Returns the average value of a numeric column.
 ```sql
 SELECT AVG(salary) FROM employees;
 ```
+
 - **MIN()**: Returns the minimum value.
 ```sql
 SELECT MIN(salary) FROM employees;
 ```
+
 - **MAX()**: Returns the maximum value.
 ```sql
 SELECT MAX(salary) FROM employees;
 ```
 
 ### String Functions
+
 - **CONCAT()**: Concatenate strings.
 ```sql
 SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees;
 ```
+
 - **LENGTH()**: Return the length of a string.
 ```sql
 SELECT LENGTH(name) FROM employees;
 ```
+
 - **UPPER()**, **LOWER()**: Convert to upper or lower case.
 ```
 
@@ -248,14 +259,17 @@ SELECT UPPER(name) FROM employees;
 ```
 
 ### Date Functions
+
 - **NOW()**: Returns the current date and time.
 ```sql
 SELECT NOW();
 ```
+
 - **DATE_ADD()**, **DATE_SUB()**: Add or subtract dates.
 ```sql
 SELECT DATE_ADD(hire_date, INTERVAL 1 YEAR) FROM employees;
 ```
+
 - **DATEDIFF()**: Returns the difference between two dates.
 ```sql
 SELECT DATEDIFF(NOW(), hire_date) FROM employees;
@@ -297,7 +311,7 @@ SELECT DATEDIFF(NOW(), hire_date) FROM employees;
 - **pgAdmin**: Management tool for PostgreSQL.
 - **SQL Server Management Studio (SSMS)**: Integrated environment for managing Microsoft SQL Server.
 - **DB Browser for SQLite**: High quality, visual, open-source tool to create, design, and edit database files compatible with SQLite.
-- **SQLAlchemy**: A SQL toolkit and Object-Relational Mapping (ORM) library for Python, which provides a full suite of well-known enterprise-level persistence patterns.
+- [[SQLAlchemy]]: A SQL toolkit and Object-Relational Mapping (ORM) library for Python, which provides a full suite of well-known enterprise-level persistence patterns.
 
 ### Backup Tools
 - **mysqldump**: Command-line utility for MySQL backups.

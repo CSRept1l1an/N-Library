@@ -1,6 +1,4 @@
 #Database 
-Sure! I'll expand each section with more detailed explanations and examples.
-
 # Database Concepts and Techniques
 
 ## 1. Database Fundamentals
@@ -12,8 +10,10 @@ A DBMS is software that interacts with users, applications, and the database its
 - **MySQL**: An open-source relational database management system.
 - **PostgreSQL**: An open-source object-relational database system.
 - **Oracle**: A multi-model database management system produced by Oracle Corporation.
+- [[SQLite]] : A self-contained, serverless, zero-configuration, transactional SQL database engine.
+- **MS SQL (Microsoft SQL Server)**: A relational database management system developed by Microsoft.
 
-### SQL (Structured Query Language)
+### [[SQL]] (Structured Query Language)
 SQL is a standardized language used to manage and manipulate relational databases. It includes commands for querying data, defining data structures, and controlling access.
 
 ## 2. Data Models
@@ -241,7 +241,9 @@ SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees;
 SELECT LENGTH(name) FROM employees;
 ```
 - **UPPER()**, **LOWER()**: Convert to upper or lower case.
-```sql
+```
+
+sql
 SELECT UPPER(name) FROM employees;
 ```
 
@@ -250,9 +252,7 @@ SELECT UPPER(name) FROM employees;
 ```sql
 SELECT NOW();
 ```
-- **DATE_ADD()**,
-
-**DATE_SUB()**: Add or subtract dates.
+- **DATE_ADD()**, **DATE_SUB()**: Add or subtract dates.
 ```sql
 SELECT DATE_ADD(hire_date, INTERVAL 1 YEAR) FROM employees;
 ```
@@ -296,15 +296,16 @@ SELECT DATEDIFF(NOW(), hire_date) FROM employees;
 - **phpMyAdmin**: Web-based MySQL administration tool.
 - **pgAdmin**: Management tool for PostgreSQL.
 - **SQL Server Management Studio (SSMS)**: Integrated environment for managing Microsoft SQL Server.
+- **DB Browser for SQLite**: High quality, visual, open-source tool to create, design, and edit database files compatible with SQLite.
+- **SQLAlchemy**: A SQL toolkit and Object-Relational Mapping (ORM) library for Python, which provides a full suite of well-known enterprise-level persistence patterns.
 
 ### Backup Tools
 - **mysqldump**: Command-line utility for MySQL backups.
 - **pg_dump**: Command-line utility for PostgreSQL backups.
 - **Oracle RMAN**: Backup and recovery manager for Oracle databases.
+- **SQLite Backup API**: Tools and utilities provided by SQLite for backing up database files.
 
 ### Monitoring Tools
 - **Nagios**: Monitoring system for networks, systems, and infrastructure.
 - **Zabbix**: Enterprise-level monitoring solution.
 - **Prometheus**: Monitoring and alerting toolkit designed for reliability and scalability.
-
-This expanded version provides a comprehensive overview of key database concepts, techniques, and examples, ensuring clarity and depth in each section.

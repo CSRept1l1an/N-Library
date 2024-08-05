@@ -10,7 +10,7 @@
 7. **[[DNS]] (Domain Name System)**: Resolves domain names to IP addresses.
 8. [[DHCP]] (Dynamic Host Configuration Protocol): Assigns IP addresses to devices on a network.
 9. **SNMP (Simple Network Management Protocol)**: Used for network management.
-10. **Telnet**: Used for remote command-line interface access.
+10. [[Telnet]]l: Used for remote command-line interface access.
 11. [[SSH]] (Secure Shell): Secure version of Telnet for remote command-line access.
 12. **NFS (Network File System)**: Used for file sharing over a network.
 13. **SMB (Server Message Block)**: Used for file sharing and printer sharing.

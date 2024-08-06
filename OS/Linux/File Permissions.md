@@ -1,3 +1,4 @@
+#Linux 
 ### File Permission Types
 
 - **Read (r)**: Allows reading the contents of the file or listing the contents of a directory.

@@ -81,6 +81,14 @@ To change only the group:
 chown :group file.txt
 ```
 
+### Directory Permissions
+
+Directory file types are indicated with `d`. Permissions for directories operate differently than for files.
+
+#### Read (r)
+
+- **Description**: Allows viewing the list of files in the directory.
+
 ### Special Permissions
 
 Special permissions are available for files and directories and provide additional privileges over the standard permission sets that have been covered.

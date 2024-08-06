@@ -58,3 +58,9 @@ Each permission is represented by a number:
 - `r = 4`
 - `w = 2`
 - `x = 1`
+
+Sum the numbers for each category:
+- Owner: `rwx = 4 + 2 + 1 = 7`
+- Group: `r-x = 4 + 0 + 1 = 5`
+- Others: `r-- = 4 + 0 + 0 = 4`
+

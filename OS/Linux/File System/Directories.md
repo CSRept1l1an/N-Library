@@ -19,49 +19,49 @@ Nowadays, it would be more appropriate to say that _etc_ stands for “Everyth
 
 ## /home
 
-/home is where you will find your users’ personal directories. In my case, under _/home_ there are two directories: /home/paul, which contains all my stuff; and /home/guest_, in case anybody needs to borrow my computer.
+/home is where you will find your users’ personal directories. In my case, under /home there are two directories: /home/paul, which contains all my stuff; and /home/guest, in case anybody needs to borrow my computer.
 
 ## /lib
 
-_/lib_ is where _lib_raries live. Libraries are files containing code that your applications can use. They contain snippets of code that applications use to draw windows on your desktop, control peripherals, or send files to your hard disk.
+/lib is where lib_raries live. Libraries are files containing code that your applications can use. They contain snippets of code that applications use to draw windows on your desktop, control peripherals, or send files to your hard disk.
 
-There are more _lib_ directories scattered around the file system, but this one, the one hanging directly off of _/_ is special in that, among other things, it contains the all-important kernel modules. The kernel modules are drivers that make things like your video card, sound card, WiFi, printer, and so on, work.
+There are more lib directories scattered around the file system, but this one, the one hanging directly off of _/_ is special in that, among other things, it contains the all-important kernel modules. The kernel modules are drivers that make things like your video card, sound card, WiFi, printer, and so on, work.
 
 ## /media
 
-The _/media_ directory is where external storage will be automatically mounted when you plug it in and try to access it. As opposed to most of the other items on this list, _/media_ does not hail back to 1970s, mainly because inserting and detecting storage (pendrives, USB hard disks, SD cards, external SSDs, etc) on the fly, while a computer is running, is a relatively new thing.
+The /media directory is where external storage will be automatically mounted when you plug it in and try to access it. As opposed to most of the other items on this list, /media does not hail back to 1970s, mainly because inserting and detecting storage (pendrives, USB hard disks, SD cards, external SSDs, etc) on the fly, while a computer is running, is a relatively new thing.
 
 ## /mnt
 
-The _/mnt_ directory, however, is a bit of remnant from days gone by. This is where you would manually mount storage devices or partitions. It is not used very often nowadays.
+The /mnt directory, however, is a bit of remnant from days gone by. This is where you would manually mount storage devices or partitions. It is not used very often nowadays.
 
 ## /opt
 
-The _/opt_ directory is often where software you compile (that is, you build yourself from source code and do not install from your distribution repositories) sometimes lands. Applications will end up in the _/opt/bin_ directory and libraries in the _/opt/lib_ directory.
+The /opt directory is often where software you compile (that is, you build yourself from source code and do not install from your distribution repositories) sometimes lands. Applications will end up in the /opt/bin directory and libraries in the _/opt/lib_ directory.
 
-A slight digression: another place where applications and libraries end up in is _/usr/local_, When software gets installed here, there will also be _/usr/local/bin_ and _/usr/local/lib_ directories. What determines which software goes where is how the developers have configured the files that control the compilation and installation process.
+A slight digression: another place where applications and libraries end up in is /usr/local, When software gets installed here, there will also be /usr/local/bin and /usr/local/lib directories. What determines which software goes where is how the developers have configured the files that control the compilation and installation process.
 
 ## /proc
 
-_/proc_, like _/dev_ is a virtual directory. It contains information about your computer, such as information about your CPU and the kernel your Linux system is running. As with _/dev_, the files and directories are generated when your computer starts, or on the fly, as your system is running and things change.
+/proc, like /dev is a virtual directory. It contains information about your computer, such as information about your CPU and the kernel your Linux system is running. As with /dev, the files and directories are generated when your computer starts, or on the fly, as your system is running and things change.
 
-### _/root_
+### /root
 
-_/root_ is the home directory of the superuser (also known as the “Administrator”) of the system. It is separate from the rest of the users’ home directories BECAUSE YOU ARE NOT MEANT TO TOUCH IT. Keep your own stuff in your own directories, people.
+/root is the home directory of the superuser (also known as the “Administrator”) of the system. It is separate from the rest of the users’ home directories BECAUSE YOU ARE NOT MEANT TO TOUCH IT. Keep your own stuff in your own directories, people.
 
-### _/run_
+### /run
 
-_/run_ is another new directory. System processes use it to store temporary data for their own nefarious reasons. This is another one of those DO NOT TOUCH folders.
+/run is another new directory. System processes use it to store temporary data for their own nefarious reasons. This is another one of those DO NOT TOUCH folders.
 
-### _/sbin_
+### /sbin
 
-_/sbin_ is similar to _/bin_, but it contains applications that only the superuser (hence the initial _s_) will need. You can use these applications with the `sudo` command that temporarily concedes you superuser powers on many distributions. _/sbin_ typically contains tools that can install stuff, delete stuff and format stuff. As you can imagine, some of these instructions are lethal if you use them improperly, so handle with care.
+/sbin is similar to /bin, but it contains applications that only the superuser (hence the initial _s_) will need. You can use these applications with the `sudo` command that temporarily concedes you superuser powers on many distributions. /sbin typically contains tools that can install stuff, delete stuff and format stuff. As you can imagine, some of these instructions are lethal if you use them improperly, so handle with care.
 
-### _/usr_
+### /usr
 
-The _/usr_ directory was where users’ home directories were originally kept back in the early days of UNIX. However, now _/home_ is where users kept their stuff as we saw above. These days, _/usr_ contains a mish-mash of directories which in turn contain applications, libraries, documentation, wallpapers, icons and a long list of other stuff that need to be shared by applications and services.
+The /usr directory was where users’ home directories were originally kept back in the early days of UNIX. However, now /home is where users kept their stuff as we saw above. These days, /usr contains a mish-mash of directories which in turn contain applications, libraries, documentation, wallpapers, icons and a long list of other stuff that need to be shared by applications and services.
 
-You will also find _bin_, _sbin_ and _lib_ directories in _/usr_. What is the difference with their root-hanging cousins? Not much nowadays. Originally, the _/bin_ directory (hanging off of root) would contain very basic commands, like `ls`, `mv` and `rm`; the kind of commands that would come pre-installed in all UNIX/Linux installations, the bare minimum to run and maintain a system. _/usr/bin_ on the other hand would contain stuff the users would install and run to use the system as a work station, things like word processors, web browsers, and other apps.
+You will also find bin, sbin and lib directories in /usr. What is the difference with their root-hanging cousins? Not much nowadays. Originally, the _/bin_ directory (hanging off of root) would contain very basic commands, like `ls`, `mv` and `rm`; the kind of commands that would come pre-installed in all UNIX/Linux installations, the bare minimum to run and maintain a system. _/usr/bin_ on the other hand would contain stuff the users would install and run to use the system as a work station, things like word processors, web browsers, and other apps.
 
 But many modern Linux distributions just put everything into _/usr/bin_ and have _/bin_ point to _/usr/bin_ just in case erasing it completely would break something. So, while Debian, Ubuntu and Mint still keep _/bin_ and _/usr/bin_ (and _/sbin_ and _/usr/sbin_) separate; others, like Arch and its derivatives just have one “real” directory for binaries, _/usr/bin_, and the rest or _*bin_s are “fake” directories that point to _/usr/bin_.
 

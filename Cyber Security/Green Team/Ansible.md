@@ -120,7 +120,7 @@ sudo yum install ansible
 brew install ansible
 ```
 
-- **Via Pip ([[Development/Programming/Python/Python|Python]] Package Installer):**
+- **Via Pip ([[Python|Python]] Package Installer):**
 ```bash
 pip install ansible
 ```

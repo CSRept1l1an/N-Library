@@ -61,27 +61,27 @@ A slight digression: another place where applications and libraries end up in is
 
 The /usr directory was where users’ home directories were originally kept back in the early days of UNIX. However, now /home is where users kept their stuff as we saw above. These days, /usr contains a mish-mash of directories which in turn contain applications, libraries, documentation, wallpapers, icons and a long list of other stuff that need to be shared by applications and services.
 
-You will also find bin, sbin and lib directories in /usr. What is the difference with their root-hanging cousins? Not much nowadays. Originally, the _/bin_ directory (hanging off of root) would contain very basic commands, like `ls`, `mv` and `rm`; the kind of commands that would come pre-installed in all UNIX/Linux installations, the bare minimum to run and maintain a system. _/usr/bin_ on the other hand would contain stuff the users would install and run to use the system as a work station, things like word processors, web browsers, and other apps.
+You will also find bin, sbin and lib directories in /usr. What is the difference with their root-hanging cousins? Not much nowadays. Originally, the /bin directory (hanging off of root) would contain very basic commands, like `ls`, `mv` and `rm`; the kind of commands that would come pre-installed in all UNIX/Linux installations, the bare minimum to run and maintain a system. /usr/bin on the other hand would contain stuff the users would install and run to use the system as a work station, things like word processors, web browsers, and other apps.
 
-But many modern Linux distributions just put everything into _/usr/bin_ and have _/bin_ point to _/usr/bin_ just in case erasing it completely would break something. So, while Debian, Ubuntu and Mint still keep _/bin_ and _/usr/bin_ (and _/sbin_ and _/usr/sbin_) separate; others, like Arch and its derivatives just have one “real” directory for binaries, _/usr/bin_, and the rest or _*bin_s are “fake” directories that point to _/usr/bin_.
+But many modern Linux distributions just put everything into /usr/bin and have /bin point to /usr/bin just in case erasing it completely would break something. So, while Debian, Ubuntu and Mint still keep /bin and /usr/bin (and /sbin and /usr/sbin) separate; others, like Arch and its derivatives just have one “real” directory for binaries, /usr/bin, and the rest or bin_s are “fake” directories that point to /usr/bin.
 
-### _/srv_
+### /srv
 
-The _/srv_ directory contains data for servers. If you are running a web server from your Linux box, your HTML files for your sites would go into _/srv/http_ (or _/srv/www_). If you were running an FTP server, your files would go into _/srv/ftp_.
+The /srv directory contains data for servers. If you are running a web server from your Linux box, your HTML files for your sites would go into /srv/http (or /srv/www). If you were running an FTP server, your files would go into /srv/ftp.
 
-### _/sys_
+### /sys
 
-_/sys_ is another virtual directory like _/proc_ and _/dev_ and also contains information from devices connected to your computer.
+/sys is another virtual directory like /proc and /dev and also contains information from devices connected to your computer.
 
-In some cases you can also manipulate those devices. I can, for example, change the brightness of the screen of my laptop by modifying the value stored in the _/sys/devices/pci0000:00/0000:00:02.0/drm/card1/card1-eDP-1/intel_backlight/brightness_ file (on your machine you will probably have a different file). But to do that you have to become superuser. The reason for that is, as with so many other virtual directories, messing with the contents and files in _/sys_ can be dangerous and you can trash your system. DO NOT TOUCH until you are sure you know what you are doing.
+In some cases you can also manipulate those devices. I can, for example, change the brightness of the screen of my laptop by modifying the value stored in the /sys/devices/pci0000:00/0000:00:02.0/drm/card1/card1-eDP-1/intel_backlight/brightness file (on your machine you will probably have a different file). But to do that you have to become superuser. The reason for that is, as with so many other virtual directories, messing with the contents and files in _/sys_ can be dangerous and you can trash your system. DO NOT TOUCH until you are sure you know what you are doing.
 
-### _/tmp_
+### /tmp
 
-_/tmp_ contains temporary files, usually placed there by applications that you are running. The files and directories often (not always) contain data that an application doesn’t need right now, but may need later on.
+/tmp contains temporary files, usually placed there by applications that you are running. The files and directories often (not always) contain data that an application doesn’t need right now, but may need later on.
 
-You can also use _/tmp_ to store your own temporary files — _/tmp_ is one of the few directories hanging off / that you can actually interact with without becoming superuser.
+You can also use _/tmp_ to store your own temporary files — /tmp is one of the few directories hanging off / that you can actually interact with without becoming superuser.
 
-### _/var_
+### /var
 
 _/var_ was originally given its name because its contents was deemed _variable_, in that it changed frequently. Today it is a bit of a misnomer because there are many other directories that also contain data that changes frequently, especially the virtual directories we saw above.
 

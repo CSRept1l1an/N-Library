@@ -1,4 +1,4 @@
-
+#Network 
 ## What Is LDAP?
 
 **LDAP (Lightweight Directory Access Protocol)** is an open, vendor-neutral application protocol for accessing and maintaining directory services over a network. LDAP allows applications to query and manage directory information, such as user credentials, organizational data, and network resources, in a structured and efficient manner.

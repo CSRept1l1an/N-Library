@@ -58,7 +58,7 @@
 ## Other Protocols
 
 1. **NTP (Network Time Protocol)**: Synchronizes clocks of networked devices.
-2. **LDAP (Lightweight Directory Access Protocol)**: Accesses and maintains distributed directory information services.
+2. [[LDAP]] (Lightweight Directory Access Protocol): Accesses and maintains distributed directory information services.
 3. **RDP (Remote Desktop Protocol)**: Provides remote display and input capabilities over a network.
 4. **SIP (Session Initiation Protocol)**: Manages multimedia communication sessions.
 5. **VoIP (Voice over IP)**: Delivers voice communications and multimedia sessions over IP networks.

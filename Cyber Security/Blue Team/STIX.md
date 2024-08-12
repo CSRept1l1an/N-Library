@@ -1,3 +1,4 @@
+#Defensive 
 ### What Is STIX?
 
 STIX is a language for having a standardized communication for the representation of cyberthreat information. Similar to TAXII, it is not a sharing program or tool, but rather a component that supports programs or tools. The STIX language has a number of constructs or components, including the following:

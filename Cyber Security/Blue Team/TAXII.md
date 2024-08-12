@@ -1,4 +1,4 @@
-#Blue 
+#Defensive 
 
 Trusted Automated Exchange of Intelligence Information (TAXII) is an application protocol for exchanging CTI over HTTPS. ​TAXII defines a RESTful API (a set of services and message exchanges) and a set of requirements for TAXII Clients and Servers. As depicted below, TAXII defines two primary services to support a variety of common sharing models:
 

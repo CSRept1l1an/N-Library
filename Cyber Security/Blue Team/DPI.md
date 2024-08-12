@@ -1,0 +1,5 @@
+#Blue 
+
+Deep packet inspection (DPI), also known as packet sniffing, is a method of examining the content of data packets as they pass by a checkpoint on the network. With normal types of stateful packet inspection, the device only checks the information in the packet’s header, like the destination Internet Protocol (IP) address, source IP address, and port number. DPI examines a larger range of metadata and data connected with each packet the device interfaces with. In this DPI meaning, the inspection process includes examining both the header and the data the packet is carrying. 
+
+As a result, [DPI](https://www.fortinet.com/blog/business-and-technology/redefining-next-generation-firewalls) provides a more effective mechanism for executing network packet filtering. In addition to the inspection capabilities of regular packet-sniffing technologies, DPI can find otherwise hidden threats within the data stream, such as attempts at data exfiltration, violations of content policies, malware, and more.

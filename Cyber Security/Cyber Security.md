@@ -1,5 +1,5 @@
 1. Defense ([[Blue Team]])
-2. Offense ([[Read Team]])
+2. Offense ([[Red Team]])
 3. Build ([[Yellow Team]])
 ### 1. Defense
    - **Security Analysts**
@@ -44,7 +44,7 @@
     - **Key Concepts:** Exploit development, network scanning, vulnerability assessment.
 - **Ethical Hackers**
     - **Responsibilities:** Legally exploit systems to improve security posture.
-    - **Tools:** Nmap, Hydra, John the Ripper.
+    - **Tools:** [[Nmap]], [[Hydra]], John the Ripper.
     - **Key Concepts:** Social engineering, password cracking, reconnaissance.
 - **Threat Intelligence Analysts**
     - **Responsibilities:** Collect, analyze, and disseminate threat intelligence.

@@ -1,16 +1,16 @@
-1. Defense (Blue Team)
-2. Offense (Read Team)
-3. Build (Yellow Team)
+1. Defense ([[Blue Team]])
+2. Offense ([[Read Team]])
+3. Build ([[Yellow Team]])
 ### 1. Defense
    - **Security Analysts**
      - **Responsibilities:** Monitor and analyze network traffic, identify suspicious activity, and generate reports.
-     - **Tools:** SIEM systems, IDS/IPS, threat intelligence platforms.
+     - **Tools:** [[SIEM]] systems, [[IDS]]/[[IPS]], threat intelligence platforms.
      - **Key Concepts:** Threat detection, log analysis, anomaly detection.
    - **Incident Responders**
      - **Responsibilities:** Triage security incidents, coordinate response efforts, and implement mitigation strategies.
      - **Tools:** EDR tools, forensic tools, incident management platforms.
      - **Key Concepts:** Incident handling, digital forensics, playbooks.
-   - **SOC (Security Operations Center)**
+   - **[[SOC]] (Security Operations Center)**
      - **SOC Analysts**
        - **Responsibilities:** Monitor, detect, and respond to security incidents.
        - **Tools:** SIEM systems, SOAR tools.
@@ -29,7 +29,7 @@
      - **Key Concepts:** Risk assessment, vulnerability management, threat modeling.
    - **Threat Hunters**
      - **Responsibilities:** Proactively search for threats within an organization's environment.
-     - **Tools:** EDR tools, SIEM platforms, threat intelligence feeds.
+     - **Tools:** [[EDR]] tools, SIEM platforms, threat intelligence feeds.
      - **Key Concepts:** Threat hunting methodologies, hypothesis-driven investigation, IOC analysis.
    - **Vulnerability Management**
      - **Process:** Systematic approach to identifying, classifying, and mitigating vulnerabilities.

@@ -141,7 +141,7 @@ New-GPLink -Name "Password Policy" -Target "OU=Users,DC=example,DC=com"
     - Navigate to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies** > **Password Policy**.
     - Modify settings such as **Minimum Password Length**, **Password Complexity Requirements**, etc.
 
-#### **Security Groups:**
+#### Security Groups:
 
 - **Create a Security Group:**
   - Security groups are used to assign permissions to resources in Active Directory. You can create them using PowerShell or the GUI.
@@ -170,7 +170,7 @@ icacls "C:\Folder" /grant SecurityGroup:R
 
 ### 4. Attacks and Mitigations
 
-#### Pass-the-Hash (PtH) Attack:
+#### [[Pass-the-Hash||Pass-the-Hash (PtH) Attack:]]
 
 - **Description:** In a PtH attack, attackers capture NTLM hash values and use them to authenticate as a user without knowing the actual password. This allows attackers to move laterally across the network.
 - **Mitigation:**
@@ -179,7 +179,7 @@ icacls "C:\Folder" /grant SecurityGroup:R
   - Implement account lockout policies to limit the number of login attempts and detect suspicious activity.
   - Regularly rotate and manage privileged account credentials to minimize the attack surface.
 
-#### Pass-the-Ticket (PtT) Attack:
+#### [[Pass-the-Ticket|Pass-the-Ticket (PtT) Attack:]]
 
 - **Description:** PtT attacks involve stealing and using Kerberos tickets, specifically Ticket Granting Tickets (TGTs), to authenticate as a user. Attackers can use this method to move laterally or escalate privileges within a domain.
 - **Mitigation:**
@@ -223,9 +223,9 @@ icacls "C:\Folder" /grant SecurityGroup:R
   - Regularly review and audit the list of domain controllers and ensure only authorized controllers are present in the environment.
   - Implement strong authentication and access controls for domain controller management.
 
-#### [[Kerberoasting]]:
+#### [[Kerberoasting|Kerberoasting Attack]]:
 
-- **Description:** Kerberoasting is an attack targeting service accounts in Active Directory. Attackers request a service ticket for a service account and extract the ticket from memory to attempt offline cracking of the ticket's encryption, revealing the service account's password.
+- **Description:** [[Kerberoasting]] is an attack targeting service accounts in Active Directory. Attackers request a service ticket for a service account and extract the ticket from memory to attempt offline cracking of the ticket's encryption, revealing the service account's password.
 - **Mitigation:**
   - Ensure service account passwords are long, complex, and regularly updated to resist offline cracking attempts.
   - Configure service accounts to use strong encryption algorithms, such as AES, instead of weaker RC4 encryption.

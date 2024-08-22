@@ -129,11 +129,11 @@ New-GPO -Name "Password Policy"
 - **Link GPO to an OU:**
   - After creating a GPO, you need to link it to an OU where it will be applied.
   - **Example (PowerShell):**
-    ```bash
-    New-GPLink -Name "Password Policy" -Target "OU=Users,DC=example,DC=com"
-    ```
-    - **New-GPLink:** Links a GPO to a specific organizational unit.
-    - **-Target:** Specifies the target OU where the GPO will be applied.
+```bash
+New-GPLink -Name "Password Policy" -Target "OU=Users,DC=example,DC=com"
+```
+- **New-GPLink:** Links a GPO to a specific organizational unit.
+- **-Target:** Specifies the target OU where the GPO will be applied.
 
 - **Edit GPO Settings:**
   - To edit a GPO, use the Group Policy Management Console (GPMC) or PowerShell. Common settings include password policies, account lockout policies, and software restrictions.
@@ -146,23 +146,23 @@ New-GPO -Name "Password Policy"
 - **Create a Security Group:**
   - Security groups are used to assign permissions to resources in Active Directory. You can create them using PowerShell or the GUI.
   - **Example (PowerShell):**
-    ```bash
-    New-ADGroup -Name "SecurityGroup" -GroupScope Global -GroupCategory Security -Path "OU=Groups,DC=example,DC=com"
-    ```
-    - **New-ADGroup:** Creates a new security or distribution group.
-    - **-GroupScope Global:** Sets the group scope (Global, DomainLocal, or Universal).
-    - **-GroupCategory Security:** Specifies that this is a security group.
-    - **-Path:** Specifies the OU where the group will be created.
+```bash
+New-ADGroup -Name "SecurityGroup" -GroupScope Global -GroupCategory Security -Path "OU=Groups,DC=example,DC=com"
+```
+- **New-ADGroup:** Creates a new security or distribution group. 
+- **-GroupScope Global:** Sets the group scope (Global, DomainLocal, or Universal).
+- **-GroupCategory Security:** Specifies that this is a security group.
+- **-Path:** Specifies the OU where the group will be created.
 
 - **Assign Permissions to Security Groups:**
   - Once a security group is created, you can assign it permissions to resources like files, folders, and printers.
   - **Example (NTFS Permissions with Group):**
-    ```bash
-    icacls "C:\Folder" /grant SecurityGroup:R
-    ```
-    - **SecurityGroup:R:** Grants Read permission to the `SecurityGroup` on the specified folder.
+```bash
+icacls "C:\Folder" /grant SecurityGroup:R
+```
+- **SecurityGroup:R:** Grants Read permission to the `SecurityGroup` on the specified folder.
 
-#### **Best Practices:**
+#### Best Practices:
 
 - **Least Privilege:** Always follow the principle of least privilege, granting users and groups only the minimum permissions they need to perform their tasks.
 - **Use Security Groups for Permissions:** Instead of assigning permissions to individual users, assign them to security groups. This simplifies management and enhances security.
@@ -179,7 +179,7 @@ New-GPO -Name "Password Policy"
   - Implement account lockout policies to limit the number of login attempts and detect suspicious activity.
   - Regularly rotate and manage privileged account credentials to minimize the attack surface.
 
-#### **Pass-the-Ticket (PtT) Attack:**
+#### Pass-the-Ticket (PtT) Attack:
 
 - **Description:** PtT attacks involve stealing and using Kerberos tickets, specifically Ticket Granting Tickets (TGTs), to authenticate as a user. Attackers can use this method to move laterally or escalate privileges within a domain.
 - **Mitigation:**
@@ -188,7 +188,7 @@ New-GPO -Name "Password Policy"
   - Monitor Kerberos authentication traffic and detect unusual patterns indicative of PtT attacks.
   - Limit the use of privileged accounts and enforce strict access control policies.
 
-#### **Golden Ticket Attack:**
+#### Golden Ticket Attack:
 
 - **Description:** A Golden Ticket attack occurs when attackers compromise the KRBTGT account, which is used to encrypt all Kerberos tickets in a domain. This allows them to forge TGTs for any user, effectively giving them unrestricted access to the network.
 - **Mitigation:**
@@ -196,7 +196,7 @@ New-GPO -Name "Password Policy"
   - Implement strict monitoring for any unusual ticket activity or unauthorized domain controller communication.
   - Use tiered administrative models to reduce the likelihood of KRBTGT compromise and enforce least privilege on all accounts.
 
-#### **Silver Ticket Attack:**
+#### Silver Ticket Attack:
 
 - **Description:** In a Silver Ticket attack, attackers forge a service ticket (TGS) for a specific service by compromising a service account, allowing them to access that service without authentication.
 - **Mitigation:**
@@ -205,7 +205,7 @@ New-GPO -Name "Password Policy"
   - Monitor service account activity and audit the use of service tickets to detect potential Silver Ticket attacks.
   - Use managed service accounts (MSAs) to reduce the risk of password-based attacks on service accounts.
 
-#### **DCSync Attack:**
+#### DCSync Attack:
 
 - **Description:** A DCSync attack allows attackers with domain admin privileges to simulate the behavior of a domain controller and request password hashes from another domain controller. This enables them to obtain credentials for any user in the domain.
 - **Mitigation:**
@@ -214,7 +214,7 @@ New-GPO -Name "Password Policy"
   - Use tiered administrative models to reduce the attack surface and limit the impact of a compromised domain admin account.
   - Regularly audit and secure Active Directory replication permissions and configurations.
 
-#### **DCShadow Attack:**
+#### DCShadow Attack:
 
 - **Description:** DCShadow attacks involve registering a rogue domain controller in the network, allowing attackers to inject malicious changes into the Active Directory database without detection.
 - **Mitigation:**
@@ -223,7 +223,7 @@ New-GPO -Name "Password Policy"
   - Regularly review and audit the list of domain controllers and ensure only authorized controllers are present in the environment.
   - Implement strong authentication and access controls for domain controller management.
 
-#### **Kerberoasting Attack:**
+#### [[Kerberoasting]]:
 
 - **Description:** Kerberoasting is an attack targeting service accounts in Active Directory. Attackers request a service ticket for a service account and extract the ticket from memory to attempt offline cracking of the ticket's encryption, revealing the service account's password.
 - **Mitigation:**
@@ -232,7 +232,7 @@ New-GPO -Name "Password Policy"
   - Monitor and audit Kerberos ticket requests, especially for sensitive service accounts, to detect potential Kerberoasting activities.
   - Limit the privileges of service accounts and use managed service accounts (MSAs) to reduce the risk of credential theft.
 
-#### **Best Practices for Mitigation:**
+#### Best Practices for Mitigation:
 
 - **Regular Patching and Updates:** Keep domain controllers and other AD-related servers updated with the latest security patches to mitigate vulnerabilities that could be exploited by attackers.
 - **Principle of Least Privilege:** Grant users and administrators only the permissions necessary for their roles, reducing the impact of compromised accounts or credentials.
@@ -240,3 +240,4 @@ New-GPO -Name "Password Policy"
 - **Monitoring and Logging:** Implement continuous monitoring and logging of AD activities, including authentication attempts, group membership changes, and replication activities, to detect suspicious behavior.
 - **Use Managed Service Accounts (MSAs):** Replace traditional service accounts with MSAs or group MSAs (gMSAs) to enhance security and eliminate password management issues.
 - **Regular Security Audits:** Conduct regular security audits of AD configurations, Group Policy Objects (GPOs), user permissions, and security settings to identify and mitigate potential risks.
+

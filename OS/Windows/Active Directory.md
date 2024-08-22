@@ -17,10 +17,10 @@
 
 #### Key Concepts:
 
-- **LDAP (Lightweight Directory Access Protocol):**
+- **[[LDAP|LDAP (Lightweight Directory Access Protocol):]]**
   - A protocol used by Active Directory to access and manage directory information services over an IP network. LDAP is widely used to query and modify the directory and is the backbone for many directory services beyond AD. AD is often referred to as an LDAP-compliant directory service.
 
-- **Kerberos Authentication:**
+- **[[Kerberos|Kerberos Authentication:]]**
   - The default authentication protocol used by Active Directory. Kerberos provides secure authentication through the use of tickets and secret-key cryptography, ensuring that credentials are not sent over the network in plain text. This protocol also supports mutual authentication, where both the user and the server authenticate each other.
 
 - **Global Catalog (GC):**
@@ -172,7 +172,7 @@ icacls "C:\Folder" /grant SecurityGroup:R
 
 #### [[Pass-the-Hash||Pass-the-Hash (PtH) Attack:]]
 
-- **Description:** In a PtH attack, attackers capture NTLM hash values and use them to authenticate as a user without knowing the actual password. This allows attackers to move laterally across the network.
+- **Description:** In a PtH attack, attackers capture [[NTLM]] hash values and use them to authenticate as a user without knowing the actual password. This allows attackers to move laterally across the network.
 - **Mitigation:**
   - Enforce the use of strong, complex passwords and multi-factor authentication (MFA) to make it harder for attackers to capture and reuse hashes.
   - Disable NTLM where possible and configure systems to use Kerberos authentication instead.

@@ -74,7 +74,7 @@ dsadd group "CN=IT Group,OU=Groups,DC=example,DC=com"
 dsmod group "CN=IT Group,OU=Groups,DC=example,DC=com" -addmbr "CN=John Doe,OU=Users,DC=example,DC=com"
 ```
 - **dsmod group:** Modifies an existing group's properties.
- - **-addmbr:** Adds a member to the group.
+- **-addmbr:** Adds a member to the group.
 
 - **Remove User from Group:**
   - To remove a user from a group, you can use a similar command:
@@ -88,9 +88,9 @@ dsmod group "CN=IT Group,OU=Groups,DC=example,DC=com" -rmmbr "CN=John Doe,OU=Use
 - **Delegate Group Management:** Assign group management responsibilities to specific users or admins to decentralize administration.
 - **Regular Audits:** Periodically review group memberships to ensure that only authorized users have access to sensitive resources.
 
-### **3. Security and Permissions**
+### 3. Security and Permissions
 
-#### **NTFS Permissions:**
+#### NTFS Permissions:
 
 - **Set NTFS Permissions:**
   - NTFS permissions control access to files and folders on an NTFS-formatted partition. You can set these permissions using the `icacls` command.
@@ -115,7 +115,7 @@ icacls "C:\Folder" /remove JohnDoe
 ```
 - **/remove JohnDoe:** Removes the permissions for the user `JohnDoe` on the specified folder.
 
-#### **Group Policy Objects (GPOs):**
+#### Group Policy Objects (GPOs):
 
 - **Create a GPO:**
   - Group Policy Objects are used to manage and configure operating system settings, application settings, and user settings across a domain.
@@ -168,4 +168,75 @@ New-GPO -Name "Password Policy"
 - **Use Security Groups for Permissions:** Instead of assigning permissions to individual users, assign them to security groups. This simplifies management and enhances security.
 - **Regularly Review Permissions:** Conduct regular audits to ensure permissions are correctly assigned and remove unnecessary permissions promptly.
 
-This section covers the essentials of security and permissions management in Active Directory, focusing on NTFS permissions, Group Policy Objects, and Security Groups, which are critical for maintaining a secure and well-managed AD environment.
+### 4. Attacks and Mitigations
+
+#### Pass-the-Hash (PtH) Attack:
+
+- **Description:** In a PtH attack, attackers capture NTLM hash values and use them to authenticate as a user without knowing the actual password. This allows attackers to move laterally across the network.
+- **Mitigation:**
+  - Enforce the use of strong, complex passwords and multi-factor authentication (MFA) to make it harder for attackers to capture and reuse hashes.
+  - Disable NTLM where possible and configure systems to use Kerberos authentication instead.
+  - Implement account lockout policies to limit the number of login attempts and detect suspicious activity.
+  - Regularly rotate and manage privileged account credentials to minimize the attack surface.
+
+#### **Pass-the-Ticket (PtT) Attack:**
+
+- **Description:** PtT attacks involve stealing and using Kerberos tickets, specifically Ticket Granting Tickets (TGTs), to authenticate as a user. Attackers can use this method to move laterally or escalate privileges within a domain.
+- **Mitigation:**
+  - Enforce the use of strong encryption for Kerberos tickets and reduce their lifetime to limit the window of exploitation.
+  - Regularly clear Kerberos tickets from memory using tools like `klist` to prevent ticket theft.
+  - Monitor Kerberos authentication traffic and detect unusual patterns indicative of PtT attacks.
+  - Limit the use of privileged accounts and enforce strict access control policies.
+
+#### **Golden Ticket Attack:**
+
+- **Description:** A Golden Ticket attack occurs when attackers compromise the KRBTGT account, which is used to encrypt all Kerberos tickets in a domain. This allows them to forge TGTs for any user, effectively giving them unrestricted access to the network.
+- **Mitigation:**
+  - Regularly reset the KRBTGT account password to invalidate any forged tickets and disrupt ongoing attacks.
+  - Implement strict monitoring for any unusual ticket activity or unauthorized domain controller communication.
+  - Use tiered administrative models to reduce the likelihood of KRBTGT compromise and enforce least privilege on all accounts.
+
+#### **Silver Ticket Attack:**
+
+- **Description:** In a Silver Ticket attack, attackers forge a service ticket (TGS) for a specific service by compromising a service account, allowing them to access that service without authentication.
+- **Mitigation:**
+  - Ensure service accounts use strong, complex passwords and regularly rotate these passwords to minimize the risk of compromise.
+  - Apply strong encryption (e.g., AES) for service tickets and enforce signing and encryption for all service accounts.
+  - Monitor service account activity and audit the use of service tickets to detect potential Silver Ticket attacks.
+  - Use managed service accounts (MSAs) to reduce the risk of password-based attacks on service accounts.
+
+#### **DCSync Attack:**
+
+- **Description:** A DCSync attack allows attackers with domain admin privileges to simulate the behavior of a domain controller and request password hashes from another domain controller. This enables them to obtain credentials for any user in the domain.
+- **Mitigation:**
+  - Limit the number of accounts with domain admin privileges and enforce the principle of least privilege.
+  - Monitor and log replication requests to detect any unauthorized or suspicious replication activities.
+  - Use tiered administrative models to reduce the attack surface and limit the impact of a compromised domain admin account.
+  - Regularly audit and secure Active Directory replication permissions and configurations.
+
+#### **DCShadow Attack:**
+
+- **Description:** DCShadow attacks involve registering a rogue domain controller in the network, allowing attackers to inject malicious changes into the Active Directory database without detection.
+- **Mitigation:**
+  - Use secure administrative workstations (SAWs) for all high-privilege administrative tasks to reduce the risk of credential theft.
+  - Monitor AD replication traffic and domain controller registration activities to detect unauthorized changes.
+  - Regularly review and audit the list of domain controllers and ensure only authorized controllers are present in the environment.
+  - Implement strong authentication and access controls for domain controller management.
+
+#### **Kerberoasting Attack:**
+
+- **Description:** Kerberoasting is an attack targeting service accounts in Active Directory. Attackers request a service ticket for a service account and extract the ticket from memory to attempt offline cracking of the ticket's encryption, revealing the service account's password.
+- **Mitigation:**
+  - Ensure service account passwords are long, complex, and regularly updated to resist offline cracking attempts.
+  - Configure service accounts to use strong encryption algorithms, such as AES, instead of weaker RC4 encryption.
+  - Monitor and audit Kerberos ticket requests, especially for sensitive service accounts, to detect potential Kerberoasting activities.
+  - Limit the privileges of service accounts and use managed service accounts (MSAs) to reduce the risk of credential theft.
+
+#### **Best Practices for Mitigation:**
+
+- **Regular Patching and Updates:** Keep domain controllers and other AD-related servers updated with the latest security patches to mitigate vulnerabilities that could be exploited by attackers.
+- **Principle of Least Privilege:** Grant users and administrators only the permissions necessary for their roles, reducing the impact of compromised accounts or credentials.
+- **Multi-Factor Authentication (MFA):** Enforce MFA for all privileged accounts to provide an additional layer of security against credential-based attacks.
+- **Monitoring and Logging:** Implement continuous monitoring and logging of AD activities, including authentication attempts, group membership changes, and replication activities, to detect suspicious behavior.
+- **Use Managed Service Accounts (MSAs):** Replace traditional service accounts with MSAs or group MSAs (gMSAs) to enhance security and eliminate password management issues.
+- **Regular Security Audits:** Conduct regular security audits of AD configurations, Group Policy Objects (GPOs), user permissions, and security settings to identify and mitigate potential risks.

@@ -27,8 +27,8 @@ The OWASP Top 10 is a standard awareness document for web application security. 
 - **Description**: Injection of untrusted data.
 - **Examples**:
   - [[0. SQLI|SQL injection]].
-  - NoSQL injection.
-  - Command injection.
+  - [[NoSQL injection]].
+  - [[Command injection]].
 - **Prevention**:
   - Use prepared statements and parameterized queries.
   - Validate and sanitize input.
@@ -78,7 +78,7 @@ The OWASP Top 10 is a standard awareness document for web application security. 
 - **Description**: Failure to protect software and data integrity.
 - **Examples**:
   - Insecure deserialization.
-  - Code injection.
+  - [[Code injection]].
 - **Prevention**:
   - Implement integrity checks.
   - Use digital signatures.
@@ -109,7 +109,7 @@ The OWASP Top 10 is a standard awareness document for web application security. 
 - **Tools**:
   - **Burp Suite**: For testing and finding vulnerabilities.
   - **OWASP ZAP**: For automated security testing.
-  - **Nikto**: Web server scanner.
+  - [[Nikto]]: Web server scanner.
   
 ### Best Practices
 - **Regularly Review and Update**: Keep security measures up-to-date.

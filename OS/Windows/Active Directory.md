@@ -191,7 +191,6 @@ icacls "C:\Folder" /grant SecurityGroup:R
   - Use tiered administrative models to reduce the likelihood of KRBTGT compromise and enforce least privilege on all accounts.
 
 #### Silver Ticket Attack:
-
 - **Description:** In a Silver Ticket attack, attackers forge a service ticket (TGS) for a specific service by compromising a service account, allowing them to access that service without authentication.
 - **Mitigation:**
   - Ensure service accounts use strong, complex passwords and regularly rotate these passwords to minimize the risk of compromise.
@@ -200,8 +199,8 @@ icacls "C:\Folder" /grant SecurityGroup:R
   - Use managed service accounts (MSAs) to reduce the risk of password-based attacks on service accounts.
 
 #### DCSync Attack:
-
 - **Description:** A DCSync attack allows attackers with domain admin privileges to simulate the behavior of a domain controller and request password hashes from another domain controller. This enables them to obtain credentials for any user in the domain.
+
 - **Mitigation:**
   - Limit the number of accounts with domain admin privileges and enforce the principle of least privilege.
   - Monitor and log replication requests to detect any unauthorized or suspicious replication activities.
@@ -209,8 +208,8 @@ icacls "C:\Folder" /grant SecurityGroup:R
   - Regularly audit and secure Active Directory replication permissions and configurations.
 
 #### DCShadow Attack:
-
 - **Description:** DCShadow attacks involve registering a rogue domain controller in the network, allowing attackers to inject malicious changes into the Active Directory database without detection.
+
 - **Mitigation:**
   - Use secure administrative workstations (SAWs) for all high-privilege administrative tasks to reduce the risk of credential theft.
   - Monitor AD replication traffic and domain controller registration activities to detect unauthorized changes.
@@ -218,8 +217,8 @@ icacls "C:\Folder" /grant SecurityGroup:R
   - Implement strong authentication and access controls for domain controller management.
 
 #### [[Kerberoasting|Kerberoasting Attack]]:
-
 - **Description:** [[Kerberoasting]] is an attack targeting service accounts in Active Directory. Attackers request a service ticket for a service account and extract the ticket from memory to attempt offline cracking of the ticket's encryption, revealing the service account's password.
+
 - **Mitigation:**
   - Ensure service account passwords are long, complex, and regularly updated to resist offline cracking attempts.
   - Configure service accounts to use strong encryption algorithms, such as AES, instead of weaker RC4 encryption.
@@ -227,11 +226,15 @@ icacls "C:\Folder" /grant SecurityGroup:R
   - Limit the privileges of service accounts and use managed service accounts (MSAs) to reduce the risk of credential theft.
 
 #### Best Practices for Mitigation:
-
 - **Regular Patching and Updates:** Keep domain controllers and other AD-related servers updated with the latest security patches to mitigate vulnerabilities that could be exploited by attackers.
+
 - **Principle of Least Privilege:** Grant users and administrators only the permissions necessary for their roles, reducing the impact of compromised accounts or credentials.
+
 - **Multi-Factor Authentication (MFA):** Enforce MFA for all privileged accounts to provide an additional layer of security against credential-based attacks.
+
 - **Monitoring and Logging:** Implement continuous monitoring and logging of AD activities, including authentication attempts, group membership changes, and replication activities, to detect suspicious behavior.
+
 - **Use Managed Service Accounts (MSAs):** Replace traditional service accounts with MSAs or group MSAs (gMSAs) to enhance security and eliminate password management issues.
+
 - **Regular Security Audits:** Conduct regular security audits of AD configurations, Group Policy Objects (GPOs), user permissions, and security settings to identify and mitigate potential risks.
 

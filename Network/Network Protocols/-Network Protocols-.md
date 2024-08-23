@@ -2,34 +2,34 @@
 ## Application Layer (Layer 7)
 
 1. [[HTTP]] (Hypertext Transfer Protocol): Used for web browsing.
-2. **HTTPS (HTTP Secure)**: Secure version of HTTP.
+2. [[HTTPS]] (HTTP Secure): Secure version of HTTP.
 3. **FTP (File Transfer Protocol)**: Used for transferring files.
-4. **SMTP (Simple Mail Transfer Protocol)**: Used for sending emails.
+4. [[SMTP]](Simple Mail Transfer Protocol): Used for sending emails.
 5. **IMAP (Internet Message Access Protocol)**: Used for retrieving emails.
 6. **POP3 (Post Office Protocol 3)**: Another protocol for retrieving emails.
-7. **[[DNS]] (Domain Name System)**: Resolves domain names to IP addresses.
+7. [[DNS]] (Domain Name System): Resolves domain names to IP addresses.
 8. [[DHCP]] (Dynamic Host Configuration Protocol): Assigns IP addresses to devices on a network.
 9. **SNMP (Simple Network Management Protocol)**: Used for network management.
 10. [[Telnet]]l: Used for remote command-line interface access.
 11. [[SSH]] (Secure Shell): Secure version of Telnet for remote command-line access.
 12. **NFS (Network File System)**: Used for file sharing over a network.
 13. **SMB (Server Message Block)**: Used for file sharing and printer sharing.
-14. **LDAP (Lightweight Directory Access Protocol)**: Accesses and maintains distributed directory information services.
-15. **RDP (Remote Desktop Protocol)**: Provides remote display and input capabilities over a network.
+14. **[[LDAP]] (Lightweight Directory Access Protocol)**: Accesses and maintains distributed directory information services.
+15. **[[RDP]] (Remote Desktop Protocol)**: Provides remote display and input capabilities over a network.
 16. **SIP (Session Initiation Protocol)**: Manages multimedia communication sessions.
 17. **VoIP (Voice over IP)**: Delivers voice communications and multimedia sessions over IP networks.
 
 ## Transport Layer (Layer 4)
 
-1. **TCP (Transmission Control Protocol)**: Connection-oriented protocol for reliable data transmission.
-2. **UDP (User Datagram Protocol)**: Connectionless protocol for fast, unreliable data transmission.
+1. [[TCP]] (Transmission Control Protocol): Connection-oriented protocol for reliable data transmission.
+2. [[UDP]] (User Datagram Protocol): Connectionless protocol for fast, unreliable data transmission.
 
 ## Network Layer (Layer 3)
 
-1. **IP (Internet Protocol)**: Provides addressing and routing.
+1. **[[IP]] (Internet Protocol)**: Provides addressing and routing.
    - **IPv4**: 32-bit addressing.
    - **IPv6**: 128-bit addressing.
-2. **ICMP (Internet Control Message Protocol)**: Used for error messages and operational information (e.g., ping).
+2. **[[ICMP]] (Internet Control Message Protocol)**: Used for error messages and operational information (e.g., ping).
 3. [[ARP]](Address Resolution Protocol): Resolves IP addresses to MAC addresses.
 4. **RARP (Reverse Address Resolution Protocol)**: Resolves MAC addresses to IP addresses.
 5. [[OSPF]](Open Shortest Path First): Interior gateway protocol for routing within an autonomous system.

@@ -32,22 +32,22 @@ Firewalls are essential network security devices that monitor and control incomi
 ### Common Firewall Rules
 
 1. **Basic Allow Rule**
-   - Allow inbound traffic on port 80 (HTTP):
-     ```
-     Allow TCP/80 from any to any
-     ```
+- Allow inbound traffic on port 80 (HTTP):
+ ```
+ Allow TCP/80 from any to any
+ ```
 
 2. **Allow Specific IP Address**
-   - Allow inbound traffic from a specific IP address:
-     ```
-     Allow TCP/22 from 192.168.1.100 to any
-     ```
+- Allow inbound traffic from a specific IP address:
+ ```
+ Allow TCP/22 from 192.168.1.100 to any
+ ```
 
 3. **Deny Rule**
-   - Deny outbound traffic to a specific IP address:
-     ```
-     Deny TCP/443 from any to 203.0.113.10
-     ```
+- Deny outbound traffic to a specific IP address:
+ ```
+ Deny TCP/443 from any to 203.0.113.10
+ ```
 
 ### Firewall Zones
 
@@ -72,7 +72,7 @@ Firewalls are essential network security devices that monitor and control incomi
 ### Firewall Testing Tools
 
 - **[[Nmap]]**: Port scanning and network discovery tool.
-- **Wireshark**: Network protocol analyzer for packet inspection.
+- [[Wireshark]]: Network protocol analyzer for packet inspection.
 - **Metasploit**: Penetration testing framework for testing firewall vulnerabilities.
 
 ### Regulatory Compliance

@@ -57,7 +57,6 @@ net user jdoe /domain /active:yes
 - **/active:yes:** Reactivates the user account if it is locked.
 
 #### Group Management:
-
 - **Create a New Group:**
   - You can create security or distribution groups in Active Directory to manage user permissions and email distribution lists.
   - **Example (Command Line):**
@@ -91,7 +90,6 @@ dsmod group "CN=IT Group,OU=Groups,DC=example,DC=com" -rmmbr "CN=John Doe,OU=Use
 ### 3. Security and Permissions
 
 #### NTFS Permissions:
-
 - **Set NTFS Permissions:**
   - NTFS permissions control access to files and folders on an NTFS-formatted partition. You can set these permissions using the `icacls` command.
   - **Example:**
@@ -116,7 +114,6 @@ icacls "C:\Folder" /remove JohnDoe
 - **/remove JohnDoe:** Removes the permissions for the user `JohnDoe` on the specified folder.
 
 #### Group Policy Objects (GPOs):
-
 - **Create a GPO:**
   - Group Policy Objects are used to manage and configure operating system settings, application settings, and user settings across a domain.
   - **Example (PowerShell):**
@@ -142,7 +139,6 @@ New-GPLink -Name "Password Policy" -Target "OU=Users,DC=example,DC=com"
     - Modify settings such as **Minimum Password Length**, **Password Complexity Requirements**, etc.
 
 #### Security Groups:
-
 - **Create a Security Group:**
   - Security groups are used to assign permissions to resources in Active Directory. You can create them using PowerShell or the GUI.
   - **Example (PowerShell):**
@@ -163,7 +159,6 @@ icacls "C:\Folder" /grant SecurityGroup:R
 - **SecurityGroup:R:** Grants Read permission to the `SecurityGroup` on the specified folder.
 
 #### Best Practices:
-
 - **Least Privilege:** Always follow the principle of least privilege, granting users and groups only the minimum permissions they need to perform their tasks.
 - **Use Security Groups for Permissions:** Instead of assigning permissions to individual users, assign them to security groups. This simplifies management and enhances security.
 - **Regularly Review Permissions:** Conduct regular audits to ensure permissions are correctly assigned and remove unnecessary permissions promptly.
@@ -189,7 +184,6 @@ icacls "C:\Folder" /grant SecurityGroup:R
   - Limit the use of privileged accounts and enforce strict access control policies.
 
 #### Golden Ticket Attack:
-
 - **Description:** A Golden Ticket attack occurs when attackers compromise the KRBTGT account, which is used to encrypt all Kerberos tickets in a domain. This allows them to forge TGTs for any user, effectively giving them unrestricted access to the network.
 - **Mitigation:**
   - Regularly reset the KRBTGT account password to invalidate any forged tickets and disrupt ongoing attacks.

@@ -17,7 +17,7 @@
        - **Key Concepts:** Incident response lifecycle, SOC maturity models, 24/7 monitoring.
    - **Security Engineers**
      - **Responsibilities:** Design, implement, and maintain security systems (e.g., firewalls, VPNs).
-     - **Tools:** Firewalls, encryption technologies, DLP.
+     - **Tools:** Firewalls, encryption technologies, [[DLP]].
      - **Key Concepts:** Network segmentation, access control, encryption.
    - **Compliance Officers**
      - **Responsibilities:** Ensure compliance with industry regulations (e.g., GDPR, HIPAA).
@@ -40,7 +40,7 @@
 
 - **Penetration Testers**
     - **Responsibilities:** Conduct penetration tests to find and exploit vulnerabilities.
-    - **Tools:** Metasploit, Burp Suite, Wireshark.
+    - **Tools:** Metasploit, Burp Suite, [[Wireshark]].
     - **Key Concepts:** Exploit development, network scanning, vulnerability assessment.
 - **Ethical Hackers**
     - **Responsibilities:** Legally exploit systems to improve security posture.
@@ -75,7 +75,7 @@
     - **IAM Specialists**
         - **Responsibilities:** Manage user identities, roles, and access privileges.
         - **Tools:** IAM platforms (e.g., Okta, Microsoft Azure AD).
-        - **Key Concepts:** Multi-factor authentication, SSO, RBAC.
+        - **Key Concepts:** [[MFA]], SSO, [[RBAC]].
 - **Security Awareness and Training** (Cross-Team)
     - **Security Awareness Programs**
         - **Overview:** Educating employees about security best practices.

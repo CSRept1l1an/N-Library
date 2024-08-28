@@ -26,7 +26,7 @@
 - Example: Default Credentials
 
 ## 7. Cross-Site Scripting (XSS)
-- Description: XSS vulnerabilities allow attackers to inject malicious scripts into web pages viewed by other users.
+- Description: [[XSS]] vulnerabilities allow attackers to inject malicious scripts into web pages viewed by other users.
 - Example: Reflected XSS
 
 ## 8. Insecure Deserialization
